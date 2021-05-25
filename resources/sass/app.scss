@@ -1,8 +1,28 @@
+$primary:       #3A5063 !default;
+$info:          #A9B2BA !default;
+$light:         #f8fafc !default;
+$dark:          #342E37 !default;
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 813px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1510px
+) !default;
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@500;600&family=Kodchasan&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+// my style
+@import 'style';
