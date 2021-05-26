@@ -3,14 +3,29 @@
 
 ## ToDo List
 
+<<<<<<< HEAD
 ### Design di Base Home
 
+=======
+<<<<<<< HEAD
+### Design di Base Home
+=======
+### Design di Base
+>>>>>>> 41d997995a9d41c54a3ac46b05a0ba778868c5ed
+>>>>>>> 91996973afdcdb2289533274ebba25c33a2663d9
 * Home page con 4 card: 
     * classifica
     * prossimo match
     * calendario
+<<<<<<< HEAD
     * ultimi risultati
 
+=======
+<<<<<<< HEAD
+    * ultimi risultati
+
+
+>>>>>>> 91996973afdcdb2289533274ebba25c33a2663d9
 ### Database
 
 1. **Lista Squadre**
@@ -49,6 +64,11 @@
     * foreign dell'user
     * foreign_incontro
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 91996973afdcdb2289533274ebba25c33a2663d9
 ### Classifica
 
 * prendere id dell'utente
@@ -64,3 +84,9 @@
 * Punteggio ottenuto col pronostico della finale.
 * Data e ora al secondo del pronostico della finale.
 * ordine alfabetico per cognome
+<<<<<<< HEAD
+=======
+=======
+    * ultimi risultati
+>>>>>>> 41d997995a9d41c54a3ac46b05a0ba778868c5ed
+>>>>>>> 91996973afdcdb2289533274ebba25c33a2663d9
