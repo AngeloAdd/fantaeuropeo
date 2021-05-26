@@ -4,12 +4,12 @@
 ## ToDo List
 
 ### Design di Base Home
+
 * Home page con 4 card: 
     * classifica
     * prossimo match
     * calendario
     * ultimi risultati
-
 
 ### Database
 
@@ -48,8 +48,6 @@
     * timestamp del pronostico
     * foreign dell'user
     * foreign_incontro
-
-
 
 ### Classifica
 
