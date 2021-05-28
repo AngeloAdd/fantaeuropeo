@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Teamscontroller;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +18,9 @@ use App\Http\Controllers\HomeController;
 
 
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', function() {
+    return view('ciao');
+}
+);
+Route::get('/home', [HomeController::class, 'teams'])->name('homepage');
 
-
-Route::get('/', [HomeController::class, 'teams'])->name('homepage');
-Route::get('/teams', function () {
-    return view('teams');
-});

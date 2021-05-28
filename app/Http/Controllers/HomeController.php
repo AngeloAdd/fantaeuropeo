@@ -27,7 +27,6 @@ class HomeController extends Controller
     }
     public function teams()
     {
-
         return view('homepage');
     }
 }
