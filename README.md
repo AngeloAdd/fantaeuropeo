@@ -49,8 +49,9 @@
         * in caso di scelta di giocatore form che appare e scompare:
             * visualizzazione delle rose delle due squadre con possibilità di cliccare sul giocatore scelto
             * possibilità di annulare la scelta del giocatore 
-        * cliccare su inserimento pronostico permette di generare una entri
+        * cliccare su inserimento pronostico permette di generare una entry
             * questa entry nel database può essere modificata ma non cancellata e presenta un updated at che farà fede.
+    * da sidebar si arriva al pronostico ma sono visualizzabili anche i pronostici delle partite della giornata se ce ne sono e si può scegliere di inserire il pronostico in uno di quelli
 
 2. **Classifica**
     * la classifica preview in home
