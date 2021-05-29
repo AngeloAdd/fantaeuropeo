@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Teamscontroller;
+use App\Http\Controllers\Betcontroller;
 
 
 /*
@@ -19,5 +20,9 @@ use App\Http\Controllers\Teamscontroller;
 
 Auth::routes();
 Route::get('/',[HomeController::class, 'index']);
-Route::get('/',[BetController::class, 'create'])->('bet.create');
+
+Route::get('/squadre', [TeamsController::class, 'index']);
+
+/* Bet CRUD */
+Route::get('/pronostico',[BetController::class, 'create'])->name('bet.create');
 

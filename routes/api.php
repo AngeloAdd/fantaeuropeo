@@ -20,5 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/squadre', [TeamsController::class, 'index']);
 Route::get('/squadre/{national_team}', [TeamsController::class, 'show']);

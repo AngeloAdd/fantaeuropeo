@@ -24,7 +24,7 @@ class BetController extends Controller
      */
     public function create()
     {
-        //
+        return view('bet.create');
     }
 
     /**
