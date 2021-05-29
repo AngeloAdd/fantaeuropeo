@@ -45,7 +45,7 @@ if(document.getElementById('searchTeams'))
         let players = flat.map(el => `${el.name.charAt(0).toUpperCase() + el.name.slice(1)} ${el.surname.charAt(0).toUpperCase()+ el.surname.slice(1)}`)
 
         
-        /* search.addEventListener('keyup', (el) => {
+        search.addEventListener('keyup', (el) => {
             let value = el.target.value.toLowerCase();
             if(value === ""){
                 return list.innerHTML = "";
@@ -55,9 +55,9 @@ if(document.getElementById('searchTeams'))
                     return el.national_team.toLowerCase().match(value)
                 })
             showTeams(ricercaPerTeam);
-            }) */
+            })
              
-            search.addEventListener('keyup', (el) => {
+            /* search.addEventListener('keyup', (el) => {
             let value = el.target.value.toLowerCase();
             if(value === ""){
                 return list.innerHTML = "";
@@ -66,7 +66,7 @@ if(document.getElementById('searchTeams'))
                     return el.toLowerCase().match(value)
                 })
             showPlayers(ricercaPerGiocatore);
-            })
+            }) */
 
 
             function showTeams (teams) {
@@ -79,7 +79,7 @@ if(document.getElementById('searchTeams'))
                 });
             }
 
-            function showPlayers (teams) {
+            /* function showPlayers (teams) {
                 list.innerHTML = "";
                 return teams.forEach( (el, i) => {
                     if(i<11){
@@ -91,7 +91,8 @@ if(document.getElementById('searchTeams'))
                         return;
                     }
                 });
-            }
+            } */
+            showTeams(data)
 
             
             

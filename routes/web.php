@@ -18,9 +18,6 @@ use App\Http\Controllers\Teamscontroller;
 
 
 Auth::routes();
-Route::get('/', function() {
-    return view('ciao');
-}
-);
-Route::get('/home', [HomeController::class, 'teams'])->name('homepage');
+Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[BetController::class, 'create'])->('bet.create');
 

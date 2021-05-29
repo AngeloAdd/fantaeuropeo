@@ -1,4 +1,5 @@
-<x-layout>  
+<x-layout> 
+
 <div class="container">
 
     <div class="row">
@@ -14,15 +15,15 @@
         </div>
 
         <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
-            <x-_next-match/>
+            <x-_next-match :nextGameInfo="$nextGameInfo" />
+        </div>
+        
+        <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
+           <x-_calendar/> 
         </div>
 
         <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
-            <x-_calendar/>
-        </div>
-
-        <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
-        <x-_last-results/>
+            <x-_last-results/>
         </div>
     </div>
 </div>
