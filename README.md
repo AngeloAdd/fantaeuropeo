@@ -52,6 +52,7 @@
         * cliccare su inserimento pronostico permette di generare una entry
             * questa entry nel database può essere modificata ma non cancellata e presenta un updated at che farà fede.
     * da sidebar si arriva al pronostico ma sono visualizzabili anche i pronostici delle partite della giornata se ce ne sono e si può scegliere di inserire il pronostico in uno di quelli
+    * oppure mostrare una barra con tutti gli incontri e però si possono inserire i pronostici solo delle giornate successive e visualizzare il risultato degli incontri precedenti.
 
 2. **Classifica**
     * la classifica preview in home

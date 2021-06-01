@@ -24,5 +24,10 @@ Route::get('/',[HomeController::class, 'index']);
 Route::get('/squadre', [TeamsController::class, 'index']);
 
 /* Bet CRUD */
-Route::get('/pronostico',[BetController::class, 'create'])->name('bet.create');
+Route::get('/pronostico/prossimo/incontro',[BetController::class, 'nextGame'])->name('bet.nextGame');
+Route::get('/pronostico/incontro/{game}',[BetController::class, 'create'])->name('bet.create');
+Route::get('/errore/incontro/{game?}', [Betcontroller::class, 'gameError'])->name('errore.fase');
 
+Route::get('/pronostico/incontro/{game}/validazione/tempo',[BetController::class, 'timeValidation'])->name('bet.time_validation');
+
+Route::post('/pronostico/incontro/{game}', [BetController::class, 'store'])->name('bet.store');

@@ -12,7 +12,7 @@
             </a>
         </li>
         <li class="nav-item my-2">
-            <a href="{{route('bet.create')}}" class="text-light nav-link">
+            <a href="{{route('bet.nextGame')}}" class="text-light nav-link">
                 <i class="me-2 bi bi-check-square"></i>
                 Pronostico
             </a>
