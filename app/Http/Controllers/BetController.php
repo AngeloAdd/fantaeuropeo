@@ -87,7 +87,7 @@ class BetController extends Controller
         $gameDate = new Carbon($game->game_date);
         $now = Carbon::now();
         $diff = $gameDate->diffInHours($now);
-        if($diff <= 24){
+        if($diff <= 18 || (new Carbon($now))->gt(new Carbon($gameDate))){
             return redirect(route('bet.create', compact('game')));
         } else {
             return view('bet.time_error', compact('games','game','next_game'));

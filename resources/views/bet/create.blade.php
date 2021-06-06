@@ -37,6 +37,18 @@
             </div>
         </div>
 
+        @if(Carbon\Carbon::now()->gte(new Carbon\Carbon($game->game_date)))
+            @if(empty($game->bets))
+            <ul>
+                @foreach($game->bets as $bet)
+                    <li>{{$bet}}</li>
+                @endforeach
+            </ul>
+            @else
+            <h2 class="text-dark">Ciao qui appariranno i risultati se qualcuno si ricorda di metterli!!</h2>
+            @endif
+        @else
+
         <div class="row justify-content-center">
             
             <div class="col-10">
@@ -169,7 +181,7 @@
             </div>
 
         </div>
-
+        @endif
     </div>
 
 </x-layout>
