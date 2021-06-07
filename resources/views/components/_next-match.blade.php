@@ -21,7 +21,7 @@
                     <img src="{{Storage::url($nextGameInfo['away_team']->flag)}}" width="120" height="80" alt="{{$nextGameInfo['away_team']->national_team}}-Flag">
                 </div>
                 <div class="col-12 d-flex justify-content-center py-3">
-                    <a href="" role="button" class="btn btn-info text-light">Inserisci Pronostico</a>
+                    <a href="{{route('bet.nextGame')}}" role="button" class="btn btn-info text-light">Inserisci Pronostico</a>
                 </div>
             </div>
         </div>

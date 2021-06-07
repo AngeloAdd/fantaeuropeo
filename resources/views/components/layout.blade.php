@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? 'Fantapronostico2021'}}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -22,7 +22,6 @@
         </div>
         <div class="col-12 col-md-8 col-lg-9 col-xxl-10 px-0">
             <div id="app">
-            <x-_navbar/>
 
                 <main class="py-4">
                     {{$slot}}

@@ -8,14 +8,15 @@ use App\Models\Game;
 use Carbon\Carbon;
 use App\Http\Requests\BetRequest;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class BetController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -102,10 +103,9 @@ class BetController extends Controller
      */
     public function store(BetRequest $request, Game $game)
     {
-        
+        $next_game = $this->nextGameInfo();
         if($game->id > 36)
         {
-
             $validator = Validator::make($request->all(), [
                 'homeScore' => 'required',
                 'awayScore' => 'required',
@@ -124,19 +124,19 @@ class BetController extends Controller
                 'sign' => $request->sign,
                 'home_score' => $request->homeScore,
                 'away_score' => $request->awayScore,
-                'user_id' => 1
+                'user_id' => Auth::user()->id
             ]);
+            return back()->with('message','Pronostico inserito con successo');
         }
         else {
             $game->bets()->create([
                 'home_result' => $request->home_result,
                 'away_result' => $request->away_result,
                 'sign' => $request->sign,
-                'user_id' => 1
+                'user_id' => Auth::user()->id
             ]);
+            return back()->with('message','Pronostico inserito con successo');
         }
-        
-        
     }
 
     /**
@@ -158,7 +158,23 @@ class BetController extends Controller
      */
     public function edit(Bet $bet)
     {
-        //
+        $games = Game::all();
+        $game = Game::find($bet->game_id);
+        $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
+        foreach($teams as $team)
+        {
+            if($team->national_team === $game->home_team){
+                $home_team = $team;
+            }
+            elseif($team->national_team === $game->away_team){
+                $away_team = $team;
+            }
+        }
+        if(isset($home_team) && isset($away_team)){
+            return view('bet.edit', compact('bet', 'game','home_team', 'away_team'));
+        } else {
+            return redirect(route('errore.fase', compact('games','game')));
+        }
     }
 
     /**
@@ -168,19 +184,51 @@ class BetController extends Controller
      * @param  \App\Models\Bet  $bet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bet $bet)
+    public function update(BetRequest $request, Bet $bet)
     {
-        //
+        if($bet->game_id > 36)
+        {
+            $validator = Validator::make($request->all(), [
+                'homeScore' => 'required',
+                'awayScore' => 'required',
+            ], [
+                'homeScore.required' => 'Il campo è richiesto',
+                'awayScore.required' => 'Il campo è richiesto'
+            ]);
+            if ($validator->fails()) {
+                return back()
+                ->withErrors($validator)
+                ->withInput();
+            }
+            $bet->update([
+                'home_result' => $request->home_result,
+                'away_result' => $request->away_result,
+                'sign' => $request->sign,
+                'home_score' => $request->homeScore,
+                'away_score' => $request->awayScore,
+                'user_id' => Auth::user()->id,
+            ]);
+            return back()->with('message','Pronostico modificato con successo');
+        }
+        else {
+            $bet->update([
+                'home_result' => $request->home_result,
+                'away_result' => $request->away_result,
+                'sign' => $request->sign,
+                'user_id' => Auth::user()->id,
+            ]);
+            return back()->with('message','Pronostico modificato con successo');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Bet  $bet
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Bet $bet)
+    public function createWinner()
     {
-        //
+        $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
+        $teamsNames = [];
+        foreach($teams as $team){
+            array_push($teamsNames, $team->national_team);
+        }
+
+        return view('bet.create_winner', compact('teamsNames', 'teams'));
     }
 }

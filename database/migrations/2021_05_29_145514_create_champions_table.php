@@ -17,6 +17,7 @@ class CreateChampionsTable extends Migration
             $table->id();
 
             $table->string('champion_team');
+            $table->string('top_scorer');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('created_at');

@@ -10,7 +10,7 @@ class Champion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['champion_team', 'user_id', 'created_at', 'updated_at'];
+    protected $fillable = ['champion_team','top_scorer', 'user_id', 'created_at', 'updated_at'];
 
     public function SetCreatedAtAttribute() 
     {
