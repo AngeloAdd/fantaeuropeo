@@ -38,15 +38,64 @@
         </div>
 
         @if(Carbon\Carbon::now()->gte(new Carbon\Carbon($game->game_date)))
-            @if(empty($game->bets))
-            <ul>
-                @foreach($game->bets as $bet)
-                    <li>{{$bet}}</li>
-                @endforeach
-            </ul>
-            @else
-            <h2 class="text-dark">Ciao qui appariranno i risultati se qualcuno si ricorda di metterli!!</h2>
-            @endif
+                <!-- <h2 class="text-dark">Ciao qui appariranno i risultati se qualcuno si ricorda di metterli!!</h2> -->
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="container-fluid p-5">
+                    <ul class="list-group list-group-horizontal row @if($game->id < 36) justify-content-center @endif">
+                        <li class="list-group-item col-2 overflow-auto title-font text-bold">Nome Giocatore</li>
+                        <li class="list-group-item col-1 overflow-auto title-font text-bold">Risultato {{$game->home_team}}</li>
+                        <li class="list-group-item col-1 overflow-auto title-font text-bold">Risultato {{$game->away_team}}</li>
+                        <li class="list-group-item col-1 overflow-auto title-font text-bold">Segno</li>
+
+                        @if($game->id > 36)
+                        <li class="list-group-item col-2 overflow-auto title-font text-bold">Gol/Nogol/Autogol {{$game->home_team}}</li>
+                        <li class="list-group-item col-2 overflow-auto title-font text-bold">Gol/Nogol/Autogol {{$game->away_team}}</li>
+                        @endif
+
+                        <li class="list-group-item col-3 overflow-auto title-font text-bold">Ultimo Update</li>
+                    </ul>
+
+                    @php
+                        $bets= [];
+
+                        foreach($game->bets as $bet){
+                            array_push($bets, $bet);
+                        }
+
+                        function customSort($a, $b)
+                        {
+                            if((new Carbon\Carbon($a->updated_at))->gt((new Carbon\Carbon($b->updated_at)))){
+                                return 1;
+                            } else {
+                                return 0;
+                            }
+                        }
+                        usort($bets, "customSort");
+                        $sortedBets = array_reverse($bets, true);
+                    @endphp
+
+                    @foreach($sortedBets as $key => $bet)
+                        
+                        <ul class="list-group list-group-horizontal row @if($game->id < 36) justify-content-center @endif my-1">
+                            <li class="list-group-item col-2 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif">{{$bet->user->name}}</li>
+                            <li class="list-group-item col-1 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif">{{$bet->home_result}}</li>
+                            <li class="list-group-item col-1 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif">{{$bet->away_result}}</li>
+                            <li class="list-group-item col-1 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif">{{$bet->sign}}</li>
+
+                            @if($game->id > 36)
+                            <li class="list-group-item col-2 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif">{{$bet->home_score}}</li>
+                            <li class="list-group-item col-2 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif">{{$bet->away_score}}</li>
+                            @endif
+
+                            <li class="list-group-item col-3 overflow-auto @if($key%2 !== 0) bg-dark border-info text-light @endif" title="ore {{(new Carbon\Carbon($bet->updated_at))->format('H:i:s')}} e {{(new Carbon\Carbon($bet->updated_at))->format('u')}} millisecondi">
+                                {{(new Carbon\Carbon($bet->updated_at))->format('d/m/Y - H:i:s')}}
+                            </li>
+                        </ul>
+                    @endforeach
+                </div>
+            </div>
+        </div>
         @else
 
         <div class="row justify-content-center">
@@ -136,20 +185,20 @@
                                     <div class="col-3 d-flex justify-content-center align-items-center position-relative" id="homeScoreContainer">
                                         <select name="homeScore" id="homeScore" class="w-100 acc-border rounded-2 text-center form-select">
                                             <option value="" selected>--Seleziona un'opzione--</option>
-                                            <option value="nogoal" class="text-bold bg-success text-white">NoGoal</option>
-                                            <option value="autogoal" class="text-bold bg-danger text-white">AutoGoal</option>
+                                            <option value="nogoal" class="text-bold bg-success text-light">NoGoal</option>
+                                            <option value="autogoal" class="text-bold bg-danger text-light">AutoGoal</option>
                                             @foreach($home_team->team as $player)
-                                                <option value="{{lcfirst($player->name)}}_{{lcfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
+                                                <option value="{{ucfirst($player->name)}} {{ucfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-3 d-flex justify-content-center align-items-center position-relative" id="awayScoreContainer">
                                         <select name="awayScore" id="awayScore" class="w-100 acc-border rounded-2 text-center form-select">
                                             <option value="" selected>--Seleziona un'opzione--</option>
-                                            <option value="nogoal" class="text-bold bg-success text-white">NoGoal</option>
-                                            <option value="autogoal" class="text-bold bg-danger text-white">AutoGoal</option>
+                                            <option value="NoGol" class="text-bold bg-success text-light">NoGol</option>
+                                            <option value="AutoGol" class="text-bold bg-danger text-light">AutoGol</option>
                                             @foreach($away_team->team as $player)
-                                                <option value="{{lcfirst($player->name)}}_{{lcfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
+                                                <option value="{{ucfirst($player->name)}} {{ucfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
                                             @endforeach
                                         </select>
                                     </div>

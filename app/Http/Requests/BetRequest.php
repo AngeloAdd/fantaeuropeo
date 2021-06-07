@@ -40,9 +40,7 @@ class BetRequest extends FormRequest
             "away_result.required"=> "Il campo è richiesto.",
             "away_result.integer" =>"Il campo deve essere numerico",
             "away_result.numeric" =>"Il campo deve essere numerico",
-            "sign.required" => "Il campo è richiesto",
-            "homeScore.required"=>"Il campo è richiesto",
-            "awayScore.required"=>"Il campo è richiesto",
+            "sign.required" => "Il campo è richiesto"
         ];
     }
 }
