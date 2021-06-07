@@ -17,12 +17,7 @@
                 Pronostico
             </a>
         </li>
-        <li class="nav-item my-2">
-            <a href="{{route('bet.winner')}}" class="text-light nav-link @if(Route::currentRouteName() === 'bet.winner') active @endif">
-                <i class="me-2 bi bi-diagram-3"></i>
-                Vincitore e Capocannoniere
-            </a>
-        </li>
+        
         <!-- <li class="nav-item my-2">
             <a href="#" class="nav-link text-light">
                 <i class="me-2 bi bi-bar-chart-fill"></i>
