@@ -1,30 +1,21 @@
 <x-layout> 
 
-<div class="container px-5">
+<div class="container-fluid d-flex flex-column align-items-center container-homepage-custom h-100">
+    
+    
 
-    <div class="row">
-        <div class="col-12 w-100 d-flex justify-content-center align-items-center">
-            <h1 class="text-dark title-font display-5 mb-0">Benvenuto {{Auth::user()->name ?? 'Guest'}}</h1>
+    <div class="row mb-auto">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="w-100 rounded-pill bg-light border border-1 border-success text-success shadow py-1 px-4">
+                <h1 class="my-1 text-center">Benvenuto {{Auth::user()->name ?? 'Guest'}}</h1>
+            </div>
         </div>
     </div>
 
-    <div class="row px-xl-4 py-4 d-flex justify-content-center">
-
-        <!-- <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
-            <x-_standings/>
-        </div> -->
-
-        <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
+    <div class="row my-auto justify-content-center align-items-center">
+        <div class="col-12 d-flex justify-content-center align-items-center">
             <x-_next-match :nextGameInfo="$nextGameInfo" />
         </div>
-        
-        <!-- <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
-           <x-_calendar/> 
-        </div> -->
-
-        <!-- <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-3">
-            <x-_last-results/>
-        </div> -->
     </div>
 </div>
 

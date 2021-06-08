@@ -1,4 +1,7 @@
-<aside class="sticky-top overflow-scroll d-flex vh-100 flex-column px-3 pt-5 pb-3 text-light bg-dark">
+<aside class="sticky-top overflow-scroll d-flex vh-100 flex-column px-3 pt-5 pb-3 text-light bg-dark position-relative">
+    <button class="d-md-none btn text-light fs-4 position-absolute top-0 end-0 m-3" type="button" id="asideCloseBtn">
+        <i class="bi bi-x-lg"></i>
+    </button>
     <a href="/" class="fs-4 d-flex align-items-center mb-3 me-md-auto text-light text-decoration-none">
         <img class="img-fluid rounded-3 me-3" width="40" height="40" src="/img/europe.svg" alt="">
         <span class="fs-4">FantaEuropeo</span>
@@ -17,31 +20,6 @@
                 Pronostico
             </a>
         </li>
-        
-        <!-- <li class="nav-item my-2">
-            <a href="#" class="nav-link text-light">
-                <i class="me-2 bi bi-bar-chart-fill"></i>
-                Risultati
-            </a>
-        </li>
-        <li class="nav-item my-2">
-            <a href="#" class="nav-link text-light">
-                <i class="me-2 bi bi-card-list"></i>
-                Classifica
-            </a>
-        </li>
-        <li class="nav-item my-2">
-            <a href="#" class="nav-link text-light">
-                <i class="me-2 bi bi-calendar-date"></i>
-                Calendario
-            </a>
-        </li>
-        <li class="nav-item my-2">
-            <a href="#" class="nav-link text-light">
-                <i class="me-2 bi bi-diagram-3-fill"></i>
-                Lista Squadre
-            </a>
-        </li> -->
     </ul>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,3 +68,4 @@
         </div>
     </div>
 </div>
+

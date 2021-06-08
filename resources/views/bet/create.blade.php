@@ -1,29 +1,4 @@
 <x-layout>
-    <x-slot name="style">
-        <style>
-            /* Chrome, Safari, Edge, Opera */
-            .result-input::-webkit-outer-spin-button,
-            .result-input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-            }
-
-            /* Firefox */
-            .result-input[type=number] {
-            -moz-appearance: textfield;
-            }
-
-            .drop-own-position {
-                top: 2.9em;
-            }
-
-            .player-selection:hover{
-                background-color: #A9B2BA;
-            }
-            
-        </style>
-    </x-slot>
-
     <x-_game_bar :nextGame="$next_game" :games="$games" :game="$game"/>
 
     <div class="container justify-content-center py-4">
