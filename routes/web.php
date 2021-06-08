@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Teamscontroller;
-use App\Http\Controllers\Betcontroller;
+use App\Http\Controllers\BetController;
 
 
 /*
