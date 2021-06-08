@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Teamscontroller;
-use App\Http\Controllers\Betcontroller;
+use App\Http\Controllers\BetController;
 
 
 /*
@@ -37,7 +36,7 @@ Route::get('/pronostico/vincitore',[BetController::class, 'createWinner'])->name
 
 /* Errori */
 // l'incontro non è disponibile perchè ancora non deciso
-Route::get('/errore/incontro/{game?}', [Betcontroller::class, 'gameError'])->name('errore.fase');
+Route::get('/errore/incontro/{game?}', [BetController::class, 'gameError'])->name('errore.fase');
 // L'incontro è oscurato perchè troppo lontano
 Route::get('/pronostico/incontro/{game}/validazione/tempo',[BetController::class, 'timeValidation'])->name('bet.time_validation');
 
