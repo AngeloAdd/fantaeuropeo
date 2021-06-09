@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BetController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -21,6 +22,9 @@ Auth::routes();
 
 /* homepage */
 Route::get('/',[HomeController::class, 'index'])->name('/');
+Route::get('/loggedin', function() {
+    return view('loggedin');
+})->name('loggedin');
 
 /* gestione schermata prossimo incontro */
 Route::get('/pronostico/prossimo/incontro',[BetController::class, 'nextGame'])->name('bet.nextGame');
@@ -40,3 +44,7 @@ Route::get('/errore/incontro/{game?}', [BetController::class, 'gameError'])->nam
 // L'incontro è oscurato perchè troppo lontano
 Route::get('/pronostico/incontro/{game}/validazione/tempo',[BetController::class, 'timeValidation'])->name('bet.time_validation');
 
+/* routes per password */
+
+Route::get('profilo/utente/reset', [UserController::class, 'resetPassword'])->name('password.reset');
+Route::put('password/store', [UserController::class, 'storePassword'])->name('password.store');

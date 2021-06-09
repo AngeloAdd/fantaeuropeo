@@ -31,8 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    public const LOGIN = '/loggato';
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::LOGIN;
 
     /**
      * Create a new controller instance.
@@ -159,7 +158,11 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+        $loginFlag = $user->first_time_login;
+        return !$loginFlag
+            ? redirect(route('password.reset'))->with('message', "Ciao $user->name cambia la tua password dopo il tuo primo accesso!")
+            : redirect()->intended($this->redirectPath());
+        
     }
 
     /**

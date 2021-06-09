@@ -34,8 +34,8 @@
       </ul>
       @else
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <!-- <li><a class="dropdown-item" href="#">Pronostici</a></li>
-        <li><hr class="dropdown-divider"></li> -->
+        <li><a class="dropdown-item" href="{{route('password.reset')}}">Cambia Password</a></li>
+        <li><hr class="dropdown-divider"></li>
         <li>
             <button type="button" class="dropdown-item text-light" data-bs-toggle="modal" data-bs-target="#logOutModal">
                 Logout
@@ -57,7 +57,7 @@
             Sei sicuro di voler fare logout?
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-info text-dark" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal">Chiudi</button>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="btn text-light btn-primary">

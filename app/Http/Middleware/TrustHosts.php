@@ -14,6 +14,7 @@ class TrustHosts extends Middleware
     public function hosts()
     {
         return [
+            'fantaeuropeo2021.com',
             $this->allSubdomainsOfApplicationUrl(),
         ];
     }
