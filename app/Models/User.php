@@ -18,7 +18,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'first_time_login'
+        'first_time_login',
+        'admin',
+        'games_mod',
+        'users_mod'
         ];
 
     /**

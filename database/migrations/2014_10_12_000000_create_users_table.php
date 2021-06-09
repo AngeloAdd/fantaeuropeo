@@ -18,6 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('password');
             $table->boolean('first_time_login')->default(false);
+            $table->boolean('admin')->default(false);
+            $table->boolean('games_mod')->default(false);
+            $table->boolean('users_mod')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

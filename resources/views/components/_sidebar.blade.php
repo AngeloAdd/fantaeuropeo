@@ -34,6 +34,9 @@
       </ul>
       @else
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        @if(Auth::user()->games_mod || Auth::user()->users_mod)
+            <li><a class="dropdown-item" href="{{route('mod.index')}}">Pannello Mod</a></li>
+        @endif
         <li><a class="dropdown-item" href="{{route('password.reset')}}">Cambia Password</a></li>
         <li><hr class="dropdown-divider"></li>
         <li>

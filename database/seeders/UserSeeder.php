@@ -17,6 +17,23 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Angelo Adduci',
             'password' => bcrypt('angeloadduci'),
+            'admin' => true,
+            'games_mod' => true,
+            'users_mod' => true
+        ]);       
+        User::create([
+            'name' => 'Giovanni Zilio',
+            'password' => bcrypt('giovannizilio'),
+            'admin' => false,
+            'games_mod' => false,
+            'users_mod' => true
+        ]);       
+        User::create([
+            'name' => 'Erik Lerjefors',
+            'password' => bcrypt('eriklerjefors'),
+            'admin' => false,
+            'games_mod' => false,
+            'users_mod' => true
         ]);       
     }
 }
