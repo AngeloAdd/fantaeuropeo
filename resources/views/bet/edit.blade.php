@@ -9,7 +9,7 @@
                 @endif
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center my-5">
             <div class="col-12">
                 <div class="card shadow">
                 <div class="card-header shadow bg-success text-light mx-3 next-match-header-custom rounded-2 border-success">
