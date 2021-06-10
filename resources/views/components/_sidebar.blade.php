@@ -20,13 +20,18 @@
                 Pronostico
             </a>
         </li>
+        <li class="nav-item my-2">
+            <a href="{{route('bet.winner')}}" class="text-light nav-link @if(Route::currentRouteName() === 'bet.winner') active @endif">
+                <i class="me-2 bi bi-award"></i>
+                Vincente E Capocannoniere
+            </a>
+        </li>
     </ul>
     <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="/img/europe.svg" alt="" width="32" height="32" class="rounded-circle me-2">
-        
-        <strong>{{Auth::user()->name ?? 'Guest'}}</strong>
-      </a>
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/img/europe.svg" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{Auth::user()->name ?? 'Guest'}}</strong>
+        </a>
       @guest
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
         <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
