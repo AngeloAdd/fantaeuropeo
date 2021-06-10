@@ -221,8 +221,8 @@
                                             <div class="col-12 col-md-4 px-md-2 px-0 d-flex justify-content-center align-items-center position-relative" id="homeScoreContainer">
                                                 <select name="homeScore" id="homeScore" class="w-100 acc-border rounded-2 text-center form-select">
                                                     <option value="" selected>-- Seleziona un'opzione --</option>
-                                                    <option value="nogoal" class="text-bold bg-success text-light">NoGoal</option>
-                                                    <option value="autogoal" class="text-bold bg-danger text-light">AutoGoal</option>
+                                                    <option value="NoGol" class="text-bold bg-success text-light">NoGoal</option>
+                                                    <option value="AutoGol" class="text-bold bg-danger text-light">AutoGoal</option>
                                                     @foreach($home_team->team as $player)
                                                         <option value="{{ucfirst($player->name)}} {{ucfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
                                                     @endforeach
