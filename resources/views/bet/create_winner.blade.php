@@ -27,11 +27,13 @@
                             <div class="col-12 d-flex align-items-center flex-column jsutify-content-center">
                                 <h2 class="card-title text-dark display-6 title-font">Pronostico</h2>
                             </div>
+                            <div class="col-12 d-sm-none d-flex align-items-center flex-column jsutify-content-center">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true">Clicca qui per compilare il form</a>
+                            </div>
                         </div>
                     </div>
-                    <iframe class="d-none d-md-inline" src="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true" width="100%"  height="1100px" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true">Clicca qui per compilare il form</a>
-                    </div>
+                    <iframe class="d-none d-sm-inline" src="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true" width="100%"  height="1100px" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
+                </div>
             </div>
         </div>
 
