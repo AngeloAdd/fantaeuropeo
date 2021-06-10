@@ -610,7 +610,7 @@ progress {
     max-width: 540px;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
@@ -1069,7 +1069,7 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .col-md {
     flex: 1 0 0%;
   }
@@ -2092,7 +2092,7 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
 }
-@media (max-width: 812.98px) {
+@media (max-width: 768.98px) {
   .table-responsive-md {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -3498,7 +3498,7 @@ textarea.form-control-lg {
     left: auto /* rtl:ignore */;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .dropdown-menu-md-start {
     --bs-position: start;
   }
@@ -4036,7 +4036,7 @@ textarea.form-control-lg {
     display: none;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .navbar-expand-md {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -4906,7 +4906,7 @@ textarea.form-control-lg {
     border-left-width: 1px;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .list-group-horizontal-md {
     flex-direction: row;
   }
@@ -5417,7 +5417,7 @@ textarea.form-control-lg {
     border-radius: 0;
   }
 }
-@media (max-width: 812.98px) {
+@media (max-width: 768.98px) {
   .modal-fullscreen-md-down {
     width: 100vw;
     max-width: none;
@@ -6218,7 +6218,7 @@ textarea.form-control-lg {
     z-index: 1020;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .sticky-md-top {
     position: sticky;
     top: 0;
@@ -8171,7 +8171,7 @@ textarea.form-control-lg {
     text-align: center !important;
   }
 }
-@media (min-width: 813px) {
+@media (min-width: 769px) {
   .float-md-start {
     float: left !important;
   }
@@ -16433,6 +16433,10 @@ aside::-webkit-scrollbar {
   border-bottom-left-radius: 0%;
 }
 
+.sidebar-custom {
+  z-index: 3;
+}
+
 .next-match-header-custom {
   transform: translateY(-2rem);
   transition: 0.4s ease-in-out;
@@ -16483,6 +16487,11 @@ aside::-webkit-scrollbar {
 @media screen and (min-width: 768px) {
   .custom-position {
     width: 40%;
+  }
+
+  .custom-bet.form {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media screen and (min-width: 813px) {

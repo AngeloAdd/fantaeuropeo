@@ -44,7 +44,8 @@ Route::get('/pronostico/vincitore',[BetController::class, 'createWinner'])->name
 // l'incontro non è disponibile perchè ancora non deciso
 Route::get('/errore/incontro/{game?}', [BetController::class, 'gameError'])->name('errore.fase');
 // L'incontro è oscurato perchè troppo lontano
-Route::get('/pronostico/incontro/{game}/validazione/tempo',[BetController::class, 'timeValidation'])->name('bet.time_validation');
+Route::get('/pronostico/incontro/{game}/validazione/menu',[BetController::class, 'timeValidationFromMenu'])->name('bet.menu');
+Route::get('/pronostico/incontro/{game}/validazione/input',[BetController::class, 'timeValidationFromInput'])->name('bet.input');
 
 /* routes per password */
 

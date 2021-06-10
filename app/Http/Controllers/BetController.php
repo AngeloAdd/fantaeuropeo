@@ -83,16 +83,32 @@ class BetController extends Controller
 
     public function timeValidation(Game $game)
     {
+        $next_game = $this->nextGameInfo(); 
         $games = Game::all();
-        $next_game = $this->nextGameInfo();
-        $gameDate = new Carbon($game->game_date);
         $now = Carbon::now();
+        $gameDate = new Carbon($game->game_date);
         $diff = $gameDate->diffInHours($now);
-        if($diff <= 18 || (new Carbon($now))->gt(new Carbon($gameDate))){
+        if($diff <= 18 || (new Carbon($now))->gt(new Carbon($gameDate))||$game->id ===$next_game->id){
             return redirect(route('bet.create', compact('game')));
         } else {
             return view('bet.time_error', compact('games','game','next_game'));
         }
+    }
+
+    public function timeValidationFromInput(Request $request)
+    {
+        $next_game = $this->nextGameInfo();
+        $game = Game::find($request->game_id);
+        if(isset($game)){
+            return $this->timeValidation($game);
+        } else {
+            return $this->timeValidation($next_game);
+        }
+    }
+    
+    public function timeValidationFromMenu(Game $game)
+    {
+        return $this->timeValidation($game);
     }
 
     /**

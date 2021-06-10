@@ -1,9 +1,9 @@
 <x-layout>
-    <x-_game_bar :nextGame="$next_game" :games="$games" :game="$game"/>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>La partita che stai cercando non è ancora stata stabilità. Torna più tardi.</h1>
+    <div class="container p-5 pb-0">
+        <x-_game_bar :nextGame="$next_game" :games="$games" :game="$game"/>
+        <div class="row p-md-5">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <h1 class="p-3 text-center bg-primary rounded-2 text-light">Il pronostico che stai cercando non è ancora disponibile perchè l'incontro non è stato ancora deciso. Torna più tardi.</h1>
             </div>
         </div>
     </div>

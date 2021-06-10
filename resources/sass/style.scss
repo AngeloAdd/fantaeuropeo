@@ -84,6 +84,10 @@ aside::-webkit-scrollbar{
     border-bottom-left-radius: 0%;
 }
 
+.sidebar-custom{
+    z-index:3;
+}
+
 .next-match-header-custom{
     transform: translateY(-2rem);
     transition: 0.4s ease-in-out;
@@ -135,6 +139,11 @@ margin: 0;
     .custom-position{
         width:40%;
     }
+    .custom-bet.form{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
 }
 @media screen and (min-width: 813px){
     .custom-position{
