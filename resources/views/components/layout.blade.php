@@ -9,7 +9,7 @@
     <meta name="og:title" content="FantaEuropeo2021">
     <meta name="og:description" content="Gioco normale tra amici fidati, niente soldi, finanza pussa via!!!">
     <meta name="og:image" content="/img/bannereuro.jpg">
-    <meta name="og:card" content="summary_large_image">
+    <meta name="og:url" content="https://fantaeuropeo2021.com">
 
     <title>{{ $title ?? 'Fantapronostico2021'}}</title>
 

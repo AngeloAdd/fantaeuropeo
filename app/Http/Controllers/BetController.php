@@ -17,11 +17,6 @@ class BetController extends Controller
         $this->middleware(['auth', 'first.log']);
     }
 
-    public function index()
-    {
-        //
-    }
-
     public function nextGameInfo()
     {
         $games = Game::all();
@@ -39,11 +34,6 @@ class BetController extends Controller
         return $next_game;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function nextGame()
     {
         $next_game = $this->nextGameInfo();
@@ -105,20 +95,13 @@ class BetController extends Controller
             return $this->timeValidation($next_game);
         }
     }
-    
+
     public function timeValidationFromMenu(Game $game)
     {
         return $this->timeValidation($game);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(BetRequest $request, Game $game)
-    {
+    public function store(BetRequest $request, Game $game){
         $next_game = $this->nextGameInfo();
         if($game->id > 36)
         {
@@ -155,23 +138,6 @@ class BetController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Bet  $bet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Bet $bet)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bet  $bet
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Bet $bet)
     {
         $games = Game::all();
@@ -193,13 +159,6 @@ class BetController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bet  $bet
-     * @return \Illuminate\Http\Response
-     */
     public function update(BetRequest $request, Bet $bet)
     {
         if($bet->game_id > 36)
