@@ -12,6 +12,8 @@
         </div>
     <x-_game_bar :nextGame="$next_game" :games="$games" :game="$game"/>
 
+        
+        
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card shadow">

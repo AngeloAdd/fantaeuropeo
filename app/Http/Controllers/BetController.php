@@ -41,6 +41,9 @@ class BetController extends Controller
 
     public function create(Game $game) 
     {   
+        if(!$this->timeValidationCreate($game)){
+            return $this->timeValidation($game);
+        };
         $games = Game::all();
         $next_game = $this->nextGameInfo();
         $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
@@ -116,6 +119,19 @@ class BetController extends Controller
             return redirect(route('bet.create', compact('game')));
         } else {
             return view('bet.time_error', compact('games','game','next_game'));
+        }
+    }
+    public function timeValidationCreate(Game $game)
+    {
+        $next_game = $this->nextGameInfo(); 
+        $games = Game::all();
+        $now = Carbon::now();
+        $gameDate = new Carbon($game->game_date);
+        $diff = $gameDate->diffInHours($now);
+        if($diff <= 18 || (new Carbon($now))->gt(new Carbon($gameDate))||$game->id ===$next_game->id){
+            return true;
+        } else{
+            return false;
         }
     }
 
