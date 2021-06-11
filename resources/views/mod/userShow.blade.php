@@ -1,5 +1,5 @@
 <x-layout>
-<div class="container">
+<div class="container mt-5">
     @if(session('message'))
         <div class="row justify-content-center">
             <div class="col-8">
@@ -69,20 +69,19 @@
                                     </div>
 
                                     <div class="mb-3 row mb-0">
-                                        <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
+                                        <div class="col-12 col-sm-6 d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-success text-light">
                                                 {{ __('Modifica Info') }}
+                                            </button>
+                                        </div>
+                                        <div class="col-12 col-sm-6 mt-2 mt-sm-0 d-flex justify-content-center">
+                                            <button type="button" class="btn btn-danger text-light" data-bs-toggle="modal" data-bs-target="#deleteUser">
+                                                Cancella Utente
                                             </button>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#deleteUser">
-                                            Cancella Utente
-                                        </button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
