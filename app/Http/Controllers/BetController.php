@@ -62,7 +62,7 @@ class BetController extends Controller
                 $current_bet = $bet;
             }
         }
-        if(isset($current_bet)){
+        if(isset($current_bet) && !(Carbon::now()->gte(new Carbon($game->game_date)))){
             return view('bet.current', compact('game', 'games','next_game'), ['userBet'=>$current_bet]);
         }
         if(Carbon::now()->gte(new Carbon($game->game_date))){
