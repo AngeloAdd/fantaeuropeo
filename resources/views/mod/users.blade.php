@@ -13,13 +13,16 @@
                         <h2 class="my-1 text-center">Gestione Utenti</h2>
                         <div class="container-fluid py-1">
                             <ul class="list-group list-group-horizontal row justify-content-center">
+                                <li class="list-group-item col-1 title-font d-flex justify-content-center align-items-center">#</li>
                                 <li class="list-group-item col-6 col-md-4 title-font d-flex justify-content-center align-items-center">Nome Giocatore</li>
-                                <li class="list-group-item col-6 col-md-2 title-font d-flex justify-content-center align-items-center">Gestisci</li>
+                                <li class="list-group-item col-6 col-md-1 title-font d-flex justify-content-center align-items-center">Gestisci</li>
                             </ul>
-                            @foreach($users as $user)
+                            @foreach($users as $key=>$user)
+                                
                                 <ul class="list-group list-group-horizontal row justify-content-center">
+                                    <li class="list-group-item col-1 title-font d-flex justify-content-center align-items-center fs-4">{{$key +1}}</li>
                                     <li class="list-group-item col-6 col-md-4 title-font d-flex justify-content-center align-items-center fs-4">{{$user->name}}</li>
-                                    <li class="list-group-item col-6 col-md-2 title-font d-flex justify-content-center align-items-center">
+                                    <li class="list-group-item col-5 col-md-1 title-font d-flex justify-content-center align-items-center">
                                         <a href="{{route('mod.userShow', compact('user'))}}" class="btn btn-warning text-light">Vai</a>
                                     </li>
                                 </ul>

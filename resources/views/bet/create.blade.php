@@ -51,7 +51,7 @@
                                     <div class="text-dark w-100 text-center col-12 my-3 px-0">Inserisci il risultato esatto per {{$game->home_team}} vs {{$game->away_team}}.</div>
                                     <label for="resultHome" class="col-12 order-md-1 px-0 col-md-4 form-label text-dark d-flex align-items-center justify-content-center">
                                         <p class="m-0 text-center">
-                                            Risultato Esatto Casa
+                                            Gol Casa
                                         </p>
                                         <span class="fs-5 title-font mx-3 d-flex align-items-start">
                                             {{$game->home_team}}
@@ -62,7 +62,7 @@
                                     </div>
                                     <label for="resultAway" class="col-12 order-md-4 col-md-4 mt-3 mt-md-0 px-0 form-label text-dark d-flex align-items-center justify-content-center">
                                         <p class="m-0 order-md-2 text-center">
-                                            Risultato Esatto FuoriCasa
+                                            Gol Ospite
                                         </p>
                                         <span class="order-md-1 fs-5 title-font mx-3 d-flex align-items-start">
                                                 {{$game->away_team}}
@@ -113,7 +113,7 @@
                                 <div class="mb-3 px-2 row justify-content-center align-items-center border border-1 border-info rounded-2 shadow pb-3">
                                     <div class="text-dark w-100 text-center col-12 my-3">Inserisci Pronostico Gol/NoGol (Uno per squadra) @error('sign')<span class="text-danger text-bold fs-5">*</span>@enderror </div>
                                     <label class="form-label col-12 col-md-2 px-0 d-flex justify-content-center align-items-center" for="homeScore">
-                                        Gol {{$game->home_team}}
+                                        Scorer {{$game->home_team}}
                                     </label>
                                     <div class="col-12 col-md-4 px-md-2 px-0 d-flex justify-content-center align-items-center position-relative" id="homeScoreContainer">
                                         <select name="homeScore" id="homeScore" class="w-100 acc-border rounded-2 text-center form-select">
@@ -126,7 +126,7 @@
                                         </select>
                                     </div>
                                     <label class="order-md-2 form-label d-flex justify-content-center align-items-center col-12 col-md-2 px-0 mt-3" for="awayScore">
-                                        Gol {{$game->away_team}}
+                                        Scorer {{$game->away_team}}
                                     </label>
                                     <div class="oreder-md-1 col-12 col-md-4 px-md-2 px-0 d-flex justify-content-center align-items-center position-relative" id="awayScoreContainer">
                                         <select name="awayScore" id="awayScore" class="w-100 acc-border rounded-2 text-center form-select">
