@@ -33,25 +33,25 @@
                     </ul>
                     @foreach($sortedBets as $key => $bet)
                         <ul class="list-group list-group-horizontal row @if($game->id < 36) justify-content-center my-1 @endif">
-                            <li class="list-group-item col-5 col-sm-2 @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->user->name}}</li>
-                            <li class="list-group-item d-none d-sm-inline @if($game->id < 36) col-2 fs-3 @else col-1 @endif @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->sign}}</li>
-                            <li class="list-group-item d-none d-sm-inline @if($game->id < 36) col-3 fs-3 @else col-2 @endif @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_result}} a {{$bet->away_result}}</li>
-                            <li class="list-group-item col-2 d-sm-none @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->sign}} ({{$bet->home_result}}-{{$bet->away_result}})</li>
+                            <li class="list-group-item col-5 col-sm-2 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->user->name}}</li>
+                            <li class="list-group-item d-none d-sm-inline @if($game->id < 36) col-2 fs-3 @else col-1 @endif @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->sign}}</li>
+                            <li class="list-group-item d-none d-sm-inline @if($game->id < 36) col-3 fs-3 @else col-2 @endif @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_result}} a {{$bet->away_result}}</li>
+                            <li class="list-group-item col-2 d-sm-none @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->sign}} ({{$bet->home_result}}-{{$bet->away_result}})</li>
                             
                             @if($game->id > 36)
-                            <li class="list-group-item d-none d-sm-inline col-2 @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_score}}</li>
-                            <li class="list-group-item d-none d-sm-inline col-2 @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_score}}</li>
+                            <li class="list-group-item d-none d-sm-inline col-2 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_score}}</li>
+                            <li class="list-group-item d-none d-sm-inline col-2 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_score}}</li>
                             @endif
-                            <li class="list-group-item col-5 col-sm-3 @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif " title="ore {{(new Carbon\Carbon($bet->updated_at))->format('H:i:s')}} e {{(new Carbon\Carbon($bet->updated_at))->format('u')}} millisecondi">
+                            <li class="list-group-item col-5 col-sm-3 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif " title="ore {{(new Carbon\Carbon($bet->updated_at))->format('H:i:s')}} e {{(new Carbon\Carbon($bet->updated_at))->format('u')}} millisecondi">
                                 {{(new Carbon\Carbon($bet->updated_at))->format('d/m/Y - H:i:s')}}
                             </li>
                         </ul>
                         @if($game->id > 36)
                         <div class="row justify-content-center mb-2">
 
-                            <div class="col-3 m-0 d-sm-none title-font @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif border border-end-0 border-1 border-info">Gol NoGol</div>
-                            <div class="col-7 m-0 d-sm-none @if($bet->id%2 ===0)bg-primary text-light @else bg-white text-dark @endif border border-1 border-info">
-                                Gianluigi Dollarumma - Cengiz Under
+                            <div class="col-3 m-0 d-sm-none title-font @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif border border-end-0 border-1 border-info">Gol NoGol</div>
+                            <div class="col-7 m-0 d-sm-none @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif border border-1 border-info">
+                                {{$bet->home_score}} - {{$bet->away_score}}
                             </div>
                         </div>
                         @endif
