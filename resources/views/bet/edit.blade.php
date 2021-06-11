@@ -25,7 +25,7 @@
                                 <img src="{{Storage::url($away_team->flag)}}" class="img-fluid" width="120" height="80" alt="">
                             </div>
                             <div class="col-12 w-100 text-light text-center my-3 fs-5">
-                                Inserisci Pronostico per l'incontro n°{{$game->id}}
+                                Pronostico di {{Auth::user()->name}} per l'incontro n°{{$game->id}}
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                             Risultato Esatto FuoriCasa
                                         </p>
                                         <span class="order-md-1 fs-5 title-font mx-3 d-flex align-items-start">
-                                                {{$game->away_team}}
+                                            {{$game->away_team}}
                                         </span>
                                     </label>
                                     <div class="col-12 col-md-2 px-md-2 px-0 order-md-3">
@@ -81,19 +81,19 @@
 
                                 <div class="mb-3 row justify-content-center align-items-center flex-column flex-md-row text-dark border border-1 rounded-2 border-info pb-3 shadow">
                                     <div class="text-dark w-100 text-center col-12 my-3">Inserisci Segno 1X2 @error('sign')<span class="text-danger text-bold fs-5">*</span>@enderror </div>
-                                    <div class="form-check col-12 col-md-4 d-flex justify-content-start align-items-center">
+                                    <div class="form-check col-12 col-md-4 d-flex justify-content-start justify-content-md-center align-items-center">
                                         <input @if($bet->sign === '1') checked @endif class="form-check-input mx-2 mt-0" type="radio" name="sign" id="home_victory" value="1">
                                         <label class="form-check-label" for="home_victory">
                                             1: Vittoria {{$game->home_team}}
                                         </label>
                                     </div>
-                                    <div class="form-check col-12 col-md-4 d-flex justify-content-start align-items-center">
+                                    <div class="form-check col-12 col-md-4 d-flex justify-content-start justify-content-md-center align-items-center">
                                         <input @if($bet->sign === 'X') checked @endif class="form-check-input mx-2 mt-0" type="radio" name="sign" value="X" id="draw">
                                         <label class="form-check-label" for="draw">
                                             X: Pareggio
                                         </label>
                                     </div>
-                                    <div class="form-check col-12 col-md-4 d-flex justify-content-start align-items-center">
+                                    <div class="form-check col-12 col-md-4 d-flex justify-content-start justify-content-md-center align-items-center">
                                         <input @if($bet->sign === '2') checked @endif class="form-check-input mx-2 mt-0" type="radio" name="sign" id="away_victory" value="2">
                                         <label class="form-check-label" for="away_victory">
                                             2: Vittoria {{$game->away_team}}
@@ -148,7 +148,7 @@
                                 @endif
                                 <div class="row">
                                     <div class="col-12 justify-content-around d-flex align-items-center">
-                                        <button type="submit" class="btn btn-danger text-light">Pronostica</button>
+                                        <button type="submit" class="btn btn-danger text-light">Modifica Pronostico</button>
                                     </div>
                                 </div>
                             </div>

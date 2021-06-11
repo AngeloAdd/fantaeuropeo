@@ -1,4 +1,4 @@
-<aside class="overflow-scroll d-flex vh-100 flex-column px-3 pt-5 pb-3 text-light bg-dark position-fixed sidebar-custom">
+<aside class="overflow-scroll d-flex h-100 flex-column px-3 pt-5 pb-3 text-light bg-dark position-fixed sidebar-custom">
     <button class="d-md-none btn text-light fs-4 position-absolute top-0 end-0 m-3" type="button" id="asideCloseBtn">
         <i class="bi bi-x-lg"></i>
     </button>

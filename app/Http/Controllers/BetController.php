@@ -20,12 +20,11 @@ class BetController extends Controller
     public function nextGameInfo()
     {
         $games = Game::all();
-        $dateNow = Carbon::now()->format('d-m-Y H:i:s.u');
         /* Next Match Logic */
         foreach($games as $game)
         {
             $gameDate = $game->game_date;
-            if((new Carbon($gameDate))->gt(new Carbon($dateNow)))
+            if((new Carbon($gameDate))->gt(Carbon::now()))
             {
                 $next_game = $game;
                 break;
@@ -54,6 +53,41 @@ class BetController extends Controller
                 $away_team = $team;
             }
         }
+        $bets = Auth::user()->bets;
+        foreach($bets as $bet){
+            if($bet->game_id === $game->id){
+                $current_bet = $bet;
+            }
+        }
+        if(isset($current_bet)){
+            return view('bet.current', compact('game', 'games','next_game'), ['userBet'=>$current_bet]);
+        }
+        if(Carbon::now()->gte(new Carbon($game->game_date))){
+            $game_bets= [];
+            foreach($game->bets as $bet){
+                array_push($game_bets, $bet);
+            }
+
+            function customSort($a, $b)
+            {
+                if((new Carbon($a->updated_at))->gt((new Carbon($b->updated_at)))){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+            usort($game_bets, function($a, $b)
+            {
+                if((new Carbon($a->updated_at))->gt((new Carbon($b->updated_at)))){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+            $sortedBets = array_reverse($game_bets, true);
+            return view('bet.display', compact('game', 'games','next_game','sortedBets'));
+        }
+        
         if(isset($home_team) && isset($away_team)){
             return view('bet.create', compact('game', 'games','home_team', 'away_team','next_game'));
         } else {
