@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Carbon::setLocale(config('app.locale'));
+        Carbon::setLocale('Europe/Rome');
+        date_default_timezone_set('Europe/Rome');
         Paginator::useBootstrap();
         
     }
