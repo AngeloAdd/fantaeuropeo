@@ -27,12 +27,24 @@
                             <div class="col-12 d-flex align-items-center flex-column jsutify-content-center">
                                 <h2 class="card-title text-dark display-6 title-font">Pronostico</h2>
                             </div>
+                            @if(Carbon\Carbon::now()->gt(new Carbon\Carbon('11-06-2021 21:00:00.000000')))
+
+                            <div class="col-12 d-sm-none d-flex align-items-center flex-column jsutify-content-center">
+                                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Sae6T97otop8w-mLmWsL9rgOVuHIUouWTonBks8sAoLWkW9I9UeErcOgzgHfeVbCE9mFG8MLfYVt/pubhtml?gid=1782561686&single=true">Vedi Risultati</a>
+                            </div>
+                            @else
                             <div class="col-12 d-sm-none d-flex align-items-center flex-column jsutify-content-center">
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true">Clicca qui per compilare il form</a>
                             </div>
+                            @endif
                         </div>
                     </div>
+                    @if(Carbon\Carbon::now()->gt(new Carbon\Carbon('11-06-2021 21:00:00.000000')))
+                    <iframe class="d-none d-sm-inline" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Sae6T97otop8w-mLmWsL9rgOVuHIUouWTonBks8sAoLWkW9I9UeErcOgzgHfeVbCE9mFG8MLfYVt/pubhtml?gid=1782561686&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="1000"></iframe>
+
+                    @else
                     <iframe class="d-none d-sm-inline" src="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true" width="100%"  height="1100px" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
+                    @endif
                 </div>
             </div>
         </div>
