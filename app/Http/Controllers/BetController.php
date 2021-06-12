@@ -190,6 +190,9 @@ class BetController extends Controller
 
     public function edit(Bet $bet)
     {
+        if(Auth::user()->id !== $bet->user_id){
+            return redirect(route('/'));
+        }
         $games = Game::all();
         $game = Game::find($bet->game_id);
         $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
@@ -201,6 +204,9 @@ class BetController extends Controller
             elseif($team->national_team === $game->away_team){
                 $away_team = $team;
             }
+        }
+        if(Carbon::now()->gte(new Carbon($game->game_date))){
+            return redirect(route('bet.create', compact('game')));
         }
         if(isset($home_team) && isset($away_team)){
             return view('bet.edit', compact('bet', 'game','home_team', 'away_team'));
