@@ -28,7 +28,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center flex-column mt-3">
                         <h2>Gestione Partite</h2>
-                        <a href="" class="btn btn-warning text-light fs-5">Inserisci Risultati</a>
+                        <a href="{{route('mod.gamesIndex')}}" class="btn btn-warning text-light fs-5">Inserisci Risultati</a>
                     </div>
                 </div>
             @endif
@@ -36,7 +36,13 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center flex-column mt-3">
                         <h2>Gestione Utenti</h2>
-                        <a href="{{route('mod.users')}}" class="btn btn-warning text-light fs-5">Vai a Gestire</a>
+                        <a href="{{route('mod.usersIndex')}}" class="btn btn-warning text-light fs-5">Vai a Gestire</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center flex-column mt-3">
+                        <h2>Classifica</h2>
+                        <a href="{{route('standing')}}" class="btn btn-warning text-light fs-5">Vai a Gestire</a>
                     </div>
                 </div>
             @endif

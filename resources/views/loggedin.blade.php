@@ -2,8 +2,8 @@
 <div class="container mt-5 pt-5">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header main-text bg-dark title-font text-center">Welcome {{Auth::user()->name}}</div>
+                <div class="card shadow rounded-2">
+                    <div class="card-header text-info bg-primary title-font text-center">Welcome {{Auth::user()->name}}</div>
 
                     <div class="card-body text-center">
                         @if (session('status'))

@@ -29,7 +29,7 @@
                             <div class="card-header">{{ __('Gestisci ') }}{{$user->name}}</div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('mod.edit', compact('user')) }}">
+                                <form method="POST" action="{{ route('mod.userUpdate', compact('user')) }}">
                                     @csrf
                                     @method('PUT')
 

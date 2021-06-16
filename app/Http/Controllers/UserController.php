@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Game;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -55,17 +58,17 @@ class UserController extends Controller
     {
         return view('mod.index');
     }
-    public function modUsers()
+    public function modUsersIndex()
     {
         $users = User::all();
-        return view('mod.users', compact('users'));
+        return view('mod.usersIndex', compact('users'));
     }
-    public function modUserShow(User $user)
+    public function modUserEdit(User $user)
     {
-        return view('mod.userShow', compact('user'));
+        return view('mod.userEdit', compact('user'));
     }
 
-    public function modChangeUserInfo(Request $request, User $user) 
+    public function modUserUpdate(Request $request, User $user) 
     {
         $validator = Validator::make($request->all(),[
             'password' =>'required|confirmed|min:4|max:8',
@@ -86,7 +89,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = bcrypt($request['password']);
         $user->save();
-        return redirect(route('mod.userShow', compact('user')))->with('message', 'Dati modificati con successo');
+        return redirect(route('mod.userEdit', compact('user')))->with('message', 'Dati modificati con successo');
     }
 
     public function modUserCreate()
@@ -134,5 +137,133 @@ class UserController extends Controller
             return redirect(route('mod.users'))->with('messagge', 'utente cancellato');
         }
         return back()->with('message', 'la cancellazione NON è andata a buon fine');
+    }
+
+    public function total()
+    {
+
+    }
+
+    public function standing(){
+
+        $usersInfo = User::all();
+
+        $users = [];
+        foreach($usersInfo as $user){
+            $userStanding = [
+                'user'=>$user,
+                'total' => 0,
+                'results' => 0,
+                'signs' => 0,
+                'scorers' => 0,
+                'final_bet' => 0,
+                'final_tot' => ""];
+            array_push($users, $userStanding);
+        }
+        
+        $results = [];
+        foreach($users as $user){
+            foreach($user['user']->bets as $bet){
+                
+                $scores = [];
+                array_push($scores,$bet->game->home_score);
+                array_push($scores,$bet->game->away_score);
+                $scorers = Arr::flatten($scores);
+                
+                if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
+                    $count = 0;
+                    foreach($scorers as $scorer){
+                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
+                            $count++;    
+                        }
+                    }
+                    $user['total'] = $user['total'] + 5 + ($count*2);
+                    $user['results'] = $user['results'] + 1;
+                    $user['signs'] = $user['signs'] +1;
+                    $user['scorers'] = $user['scorers'] + $count;
+                    if($bet->game->final){
+                        $user['final_bet'] = $bet->updated_at;
+                        $user['final_tot'] = 5 + ($count*2);
+                    }
+                }
+                elseif($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign !== $bet->sign){
+                    $count = 0;
+                    foreach($scorers as $scorer){
+                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
+                            $count++;
+                        }
+                    }
+                    $user['total'] = $user['total'] + 4 + ($count*2);
+                    $user['results'] = $user['results'] + 1;
+                    $user['scorers'] = $user['scorers'] + $count;
+                    if($bet->game->final){
+                        $user['final_bet'] = $bet->updated_at;
+                        $user['final_tot'] = 4 + ($count*2);
+                    }
+                }
+                elseif(!($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result) && $bet->game->sign === $bet->sign){
+                    $count = 0;
+                    foreach($scorers as $scorer){
+                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
+                            $count++;
+                        }
+                    }
+                    $user['total'] = $user['total'] + 1 + ($count*2);
+                    $user['signs'] = $user['signs'] +1;
+                    $user['scorers'] = $user['scorers'] + $count;
+                    if($bet->game->final){
+                        $user['final_bet'] = $bet->updated_at;
+                        $user['final_tot'] = 1 + ($count*2);
+                    }
+                }
+                elseif(($bet->game->home_result !== $bet->home_result && $bet->game->away_result !== $bet->away_result) && $bet->game->sign !== $bet->sign){
+                    $count = 0;
+                    foreach($scorers as $scorer){
+                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
+                            $count++;
+                        }
+                    }
+                    $user['total'] = $user['total'] + ($count*2);
+                    $user['scorers'] = $user['scorers'] + $count;
+                    if($bet->game->final){
+                        $user['final_bet'] = $bet->updated_at;
+                        $user['final_tot'] = ($count*2);
+                    }
+                }
+
+                
+            }
+            array_push($results, $user);
+        }
+        
+        usort($results, function($a, $b){
+            if($a['total']>$b['total']){
+                return 1;
+            }
+
+            if($a['total']==$b['total'] && $a['results']>$b['results']){
+                return 1;
+            }
+
+            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']>$b['scorers']){
+                return 1;
+            }
+
+            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']>$b['signs']){
+                return 1;
+            }
+
+            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']>$b['final_tot']){
+                return 1;
+            }
+
+            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']==$b['final_tot'] && (new Carbon($a->updated_at))->gt((new Carbon($b->updated_at)))){
+                return 1;
+            }
+        });
+
+        $officialStanding = array_reverse($results);
+        return view('bet.standing', compact('officialStanding'));
+
     }
 }

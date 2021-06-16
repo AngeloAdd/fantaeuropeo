@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BetController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GameController;
 
 
 /*
@@ -53,11 +54,20 @@ Route::get('profilo/utente/reset', [UserController::class, 'resetPassword'])->na
 Route::put('password/store', [UserController::class, 'storePassword'])->name('password.store');
 
 /* rotte per moderatori */
-
 Route::get('pannello/controllo', [UserController::class, 'modIndex'])->name('mod.index');
+
+//gestione degli users
+Route::get('pannello/controllo/utenti', [UserController::class, 'modUsersIndex'])->name('mod.usersIndex');
 Route::get('pannello/controllo/crea/utente', [UserController::class, 'modUserCreate'])->name('mod.userCreate');
 Route::post('pannello/controllo/nuovo/utente/creato', [UserController::class, 'modUserStore'])->name('mod.userStore');
+Route::get('pannello/controllo/utenti/{user}', [UserController::class, 'modUserEdit'])->name('mod.userEdit');
+Route::put('pannello/controllo/utenti/modifica/{user}/', [UserController::class, 'modUserUpdate'])->name('mod.userUpdate');
 Route::delete('pannello/controllo/cancella/{user}', [UserController::class, 'modUserDelete'])->name('mod.userDelete');
-Route::get('pannello/controllo/utenti', [UserController::class, 'modUsers'])->name('mod.users');
-Route::get('pannello/controllo/utenti/{user}', [UserController::class, 'modUserShow'])->name('mod.userShow');
-Route::put('pannello/controllo/utenti/modifica/{user}/', [UserController::class, 'modChangeUserInfo'])->name('mod.edit');
+
+// gestione partite
+Route::get('pannello/controllo/partite', [GameController::class, 'gamesIndex'])->name('mod.gamesIndex');
+Route::get('pannello/controllo/modifica/partita/{game}', [GameController::class, 'gameEdit'])->name('mod.gameEdit');
+Route::put('pannello/controllo/aggiorna/partit/{game}', [GameController::class, 'gameUpdate'])->name('mod.gameUpdate');
+
+Route::get('classifica', [UserController::class, 'standing'])->name('standing');
+Route::get('users/export/', [UsersController::class, 'export']);

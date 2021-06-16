@@ -12,16 +12,12 @@ class Game extends Model
 
     protected $fillable = ['home_team','away_team','game_date','home_result','away_result','sign','home_score','away_score'];
 
-    protected $casts = [
-        'home_score' => 'array',
-        'away_score' => 'array'
-    ];
+    
 
     public function setGameDateAttribute($date) 
     {
         $this->attributes['game_date'] = (new Carbon($date))->format('d-m-Y H:i:s.u');
     }
-    
 
     public function bets()
     {
