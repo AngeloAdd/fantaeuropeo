@@ -170,7 +170,8 @@ class UserController extends Controller
                 array_push($scores,$bet->game->away_score);
                 $scorers = Arr::flatten($scores);
                 
-                if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
+                if(isset($bet->game->home_result) && isset($bet->game->away_result) && isset($bet->game->sign))
+                {if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
                     $count = 0;
                     foreach($scorers as $scorer){
                         if($bet->home_score === $scorer || $bet->away_score === $scorer){
@@ -229,7 +230,7 @@ class UserController extends Controller
                         $user['final_bet'] = $bet->updated_at;
                         $user['final_tot'] = ($count*2);
                     }
-                }
+                }}
 
                 
             }
