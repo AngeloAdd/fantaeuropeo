@@ -257,9 +257,6 @@ class UserController extends Controller
                 return 1;
             }
 
-            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']==$b['final_tot'] && (new Carbon($a['final_bet']))->gt((new Carbon('final_bet')))){
-                return 1;
-            }
         });
 
         $officialStanding = array_reverse($results);
