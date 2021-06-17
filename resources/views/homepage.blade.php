@@ -25,7 +25,7 @@
             <x-_next-match :nextGameInfo="$nextGameInfo" />
         </div>
         <div class="col-12 offset-md-3 col-sm-10 col-md-6 offset-lg-0 col-lg-5 mt-3 mt-lg-0 d-flex justify-content-center align-items-center pe-0 standing-custom owerflow-scroll">
-            <x-_standings :standing="$homeStanding" />
+            <x-_standings :standing="$standing" />
         </div>
     </div>
 </div>
