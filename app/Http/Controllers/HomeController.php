@@ -62,7 +62,7 @@ class HomeController extends Controller
         $homeStanding = [];
         foreach($standing as $position => $player){
             if(Auth::user() && $player['user']->id === Auth::user()->id && count($standing)>5){
-                if($position === 0){
+                if($position ==='0'){
                     $homeStanding = [
                         $position => $standing[$position],
                         $position + 1 =>$standing[$position + 1],
@@ -71,7 +71,7 @@ class HomeController extends Controller
                         $position + 4 => $standing[$position + 4]
                     ];
                 }
-                elseif($position === 1){
+                elseif($position === '1'){
                     $homeStanding = [
                         $position -1 => $standing[$position - 1],
                         $position =>$standing[$position],
