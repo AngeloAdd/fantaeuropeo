@@ -39,7 +39,7 @@
                                     <span class="badge rounded-pill seventh-place">{{$position+1}}</span>
                                     @elseif($position+1 == 8)
                                     <span class="badge rounded-pill seventh-place">{{$position+1}}</span>
-                                    $elseif($position+1 == count($standing))
+                                    @elseif($position+1 == count($standing))
                                     <span class="badge rounded-pill bg-dark text-light">{{$position+1}}</span>
                                     @endif
                                 </div>
