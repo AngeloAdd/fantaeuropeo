@@ -21,21 +21,12 @@
     <button class="d-md-none btn text-primary bg-info btn-gear-custom" type="button" id="asideBtn">
         <i class="bi bi-gear-fill"></i>
     </button>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="d-none d-md-block col-md-4 col-lg-3 col-xxl-2 px-0" id="sideBar">
-                <x-_sidebar/>
-
-            </div>
-            <div class="col-12 col-md-8 col-lg-9 col-xxl-10 px-0">
-                <div id="app">
-                    <main class="py-4 vh-100">
-                        {{$slot}}
-                    </main>
-                </div>
-            </div>
-        </div>
+    <div class="d-none d-md-block px-0" id="sideBar">
+        <x-_sidebar/>
     </div>
+    <main class="py-4 vh-100">
+        {{$slot}}
+    </main>
     
     <x-_footer/>
 

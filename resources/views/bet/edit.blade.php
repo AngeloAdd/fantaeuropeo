@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-8 offset-2">
                 @if(session('message'))
                     <div class="alert alert-dark text-center text-dark">
                         {{session('message')}}
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row justify-content-center my-5">
-            <div class="col-12">
+            <div class="col-12 col-md-9 offset-md-3 col-xl-10 offset-xl-2">
                 <div class="card shadow">
                 <div class="card-header shadow bg-success text-light mx-3 next-match-header-custom rounded-2 border-success">
                     <div class="container-fluid px-0 py-0">

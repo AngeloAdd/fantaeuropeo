@@ -144,7 +144,7 @@ class UserController extends Controller
 
     }
 
-    public function standing(){
+    static public function standing(){
 
         $usersInfo = User::all();
 
@@ -261,7 +261,12 @@ class UserController extends Controller
         });
 
         $officialStanding = array_reverse($results);
-        return view('bet.standing', compact('officialStanding'));
+        return $officialStanding;
 
+    }
+
+    public function officialStanding(){
+        $standing = UserController::standing();
+        return view('bet.standing', compact('standing'));
     }
 }

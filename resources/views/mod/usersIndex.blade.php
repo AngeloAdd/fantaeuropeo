@@ -4,12 +4,12 @@
             
             @if(Auth::user()->users_mod)
                 <div class="row justify-content-center">
-                    <div class="col-12 col-sm-10 col-md-8">
+                    <div class="col-12 col-md-9 offset-md-3 col-xl-10 offset-xl-2">
                         <div class="w-100 rounded-pill bg-light border border-1 border-danger text-danger shadow py-1 px-4">
                             <h2 class="my-1 text-center">Pannello Di Controllo {{Auth::user()->name ?? 'Guest'}}</h2>
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="col-12 col-md-9 offset-md-3 col-xl-10 offset-xl-2 mt-3">
                         <h2 class="my-1 text-center">Lista Utenti</h2>
                         <div class="container-fluid py-1 px-0">
                             <ul class="list-group list-group-horizontal row justify-content-center">

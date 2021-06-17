@@ -39,12 +39,6 @@
                         <a href="{{route('mod.usersIndex')}}" class="btn btn-warning text-light fs-5">Vai a Gestire</a>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center flex-column mt-3">
-                        <h2>Classifica</h2>
-                        <a href="{{route('standing')}}" class="btn btn-warning text-light fs-5">Vai a Gestire</a>
-                    </div>
-                </div>
             @endif
 
         </div>

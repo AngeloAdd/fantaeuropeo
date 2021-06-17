@@ -1,6 +1,6 @@
 
         <div class="card w-100 h-100 shadow">
-            <div class="card-header title-font bg-info text-light">Classifica</div>
+            <div class="card-header mx-3 rounded-2 standing-header-custom title-font bg-secondary text-light fs-2 text-center">Classifica</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
 
@@ -16,23 +16,44 @@
                     </div>
 
                 </li>
-                @for($i=0; $i<7 ; $i++)
-                
-                <li class="list-group-item @if($i%2===0) bg-info text-light @endif">
+                @foreach($standing as $position => $player)
+                    
+                    <li class="@if(Auth::user() && Auth::user()->id === $player['user']->id) bg-secondary text-light @elseif($position%2===0) bg-info text-light @endif list-group-item">
 
-                    <div class="container-fluid p-0 justify-content-center ">
-                        <div class="row justify-content-around">
-                            <div class="col-1 d-flex justify-content-center align-items-center fs-6">{{$i+1}}</div>
-                            <div class="col-3 d-flex justify-content-center text-center align-items-center fs-6">Angelo Adduci</div>
-                            <div class="col-2 d-flex justify-content-center align-items-center fs-6">27</div>
-                            <div class="col-2 d-none d-sm-flex justify-content-center align-items-center fs-6">5</div>
-                            <div class="col-2 d-none d-sm-flex justify-content-center align-items-center fs-6">7</div>
-                            <div class="col-2 d-none d-sm-flex justify-content-center align-items-center fs-6">3</div>
+                        <div class="container-fluid p-0 justify-content-center ">
+                            <div class="row justify-content-around">
+                                <div class="col-1 d-flex justify-content-center align-items-center fs-4">
+                                    @if($position +1 == 1)
+                                    <span class="badge rounded-pill first-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 2)
+                                    <span class="badge rounded-pill second-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 3)
+                                    <span class="badge rounded-pill third-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 4)
+                                    <span class="badge rounded-pill fourth-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 5)
+                                    <span class="badge rounded-pill fourth-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 6)
+                                    <span class="badge rounded-pill fourth-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 7)
+                                    <span class="badge rounded-pill seventh-place">{{$position+1}}</span>
+                                    @elseif($position+1 == 8)
+                                    <span class="badge rounded-pill seventh-place">{{$position+1}}</span>
+                                    $elseif($position+1 == count($standing))
+                                    <span class="badge rounded-pill bg-dark text-light">{{$position+1}}</span>
+                                    @endif
+                                </div>
+                                <div class="col-3 d-flex justify-content-center text-center align-items-center fs-6">{{$player['user']->name}}</div>
+                                <div class="col-2 d-flex justify-content-center align-items-center fs-6">{{$player['total']}}</div>
+                                <div class="col-2 d-none d-sm-flex justify-content-center align-items-center fs-6">{{$player['results']}}</div>
+                                <div class="col-2 d-none d-sm-flex justify-content-center align-items-center fs-6">{{$player['signs']}}</div>
+                                <div class="col-2 d-none d-sm-flex justify-content-center align-items-center fs-6">{{$player['scorers']}}</div>
+                            </div>
                         </div>
-                    </div>
 
-                </li>
-                @endfor
+                    </li>
+
+                @endforeach
                 
             </ul>
         </div>

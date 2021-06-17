@@ -70,4 +70,4 @@ Route::get('pannello/controllo/modifica/partita/{game}', [GameController::class,
 Route::put('pannello/controllo/aggiorna/partit/{game}', [GameController::class, 'gameUpdate'])->name('mod.gameUpdate');
 
 // classifica
-Route::get('classifica', [UserController::class, 'standing'])->name('standing');
+Route::get('classifica', [UserController::class, 'officialStanding'])->name('standing');

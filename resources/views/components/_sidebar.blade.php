@@ -26,6 +26,12 @@
                 Vincente
             </a>
         </li>
+        <li class="nav-item my-2">
+            <a href="{{route('standing')}}" class="text-light nav-link @if(Route::currentRouteName() === 'standing') active @endif">
+                <i class="me-2 bi bi-list-ol"></i>
+                Classifica
+            </a>
+        </li>
     </ul>
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

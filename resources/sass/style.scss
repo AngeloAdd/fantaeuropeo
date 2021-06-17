@@ -100,6 +100,16 @@ aside::-webkit-scrollbar{
     transform: translateY(-3rem);
 }
 
+.standing-header-custom{
+    transform: translateY(-0.5rem);
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(to top,rgba(255, 255, 255,0.2), transparent, rgba(255, 255, 255,0.2));
+}
+
+.standing-header-custom:hover{
+    transform: translateY(-1.5rem);
+}
+
 /* Chrome, Safari, Edge, Opera */
 .result-input::-webkit-outer-spin-button,
 .result-input::-webkit-inner-spin-button {
@@ -118,6 +128,22 @@ margin: 0;
 
 .player-selection:hover{
     background-color: #A9B2BA;
+}
+
+.first-place{
+    background-color: gold;
+}
+.second-place{
+ background-color: silver;
+}
+.third-place{
+    background-color: brown;
+}
+.fourth-place{
+    background-color: greenyellow;
+}
+.seventh-place{
+    background-color: aqua;
 }
 
 @media screen and (max-height: 568px){
@@ -150,5 +176,10 @@ margin: 0;
 @media screen and (min-width: 813px){
     .custom-position{
         width:30%;
+    }
+}
+@media screen and (min-width: 990px){
+    .home-page-position{
+        padding-left: 4rem;
     }
 }

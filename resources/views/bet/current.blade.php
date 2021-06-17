@@ -2,7 +2,7 @@
 
     <div class="container-fluid justify-content-center py-4 container-homepage-customr">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-8 offset-2">
                 @if(session('message'))
                     <div class="alert alert-dark text-center text-dark">
                         {{session('message')}}
@@ -15,7 +15,7 @@
 
     <h2 class="text-center w-100">Hai già un pronostico all'attivo eccolo qui. Se vuoi puoi modificarlo:</h2>
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 col-md-9 offset-md-3 col-xl-10 offset-xl-2">
             <div class="container-fluid px-0 pe-md-4">
                 <ul class="list-group list-group-horizontal row @if($game->id < 36) justify-content-center @endif">
                     <li class="list-group-item col-6 col-sm-2 title-font text-bold">Nome Giocatore</li>
