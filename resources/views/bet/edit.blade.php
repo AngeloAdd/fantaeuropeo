@@ -8,6 +8,13 @@
                     </div>
                 @endif
             </div>
+            <div class="col-8 offset-2">
+                @if(session('error_message'))
+                    <div class="alert alert-danger text-center text-dark">
+                        {{session('error_message')}}
+                    </div>
+                @endif
+            </div>
         </div>
         <div class="row justify-content-center my-5">
             <div class="col-12 col-md-9 offset-md-3 col-xl-10 offset-xl-2">

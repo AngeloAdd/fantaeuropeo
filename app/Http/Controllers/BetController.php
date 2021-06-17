@@ -152,6 +152,9 @@ class BetController extends Controller
     }
 
     public function store(BetRequest $request, Game $game){
+        if(Carbon::now()->gte(new Carbon($game->game_date))){
+            return back()->with('error_message','Hai superato il limite di tempo!');
+        }
         $next_game = $this->nextGameInfo();
         if($game->id > 36)
         {
@@ -217,6 +220,9 @@ class BetController extends Controller
 
     public function update(BetRequest $request, Bet $bet)
     {
+        if(Carbon::now()->gte(new Carbon($bet->game->game_date))){
+            return back()->with('error_message','Hai superato il limite di tempo!');
+        }
         if($bet->game_id > 36)
         {
             $validator = Validator::make($request->all(), [

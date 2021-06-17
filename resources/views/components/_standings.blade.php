@@ -30,17 +30,19 @@
                                     @elseif($position+1 == 3)
                                     <span class="badge rounded-pill third-place">{{$position+1}}</span>
                                     @elseif($position+1 == 4)
-                                    <span class="badge rounded-pill fourth-place">{{$position+1}}</span>
+                                    <span class="badge rounded-pill bg-success">{{$position+1}}</span>
                                     @elseif($position+1 == 5)
-                                    <span class="badge rounded-pill fourth-place">{{$position+1}}</span>
+                                    <span class="badge rounded-pill bg-success">{{$position+1}}</span>
                                     @elseif($position+1 == 6)
-                                    <span class="badge rounded-pill fourth-place">{{$position+1}}</span>
+                                    <span class="badge rounded-pill bg-success">{{$position+1}}</span>
                                     @elseif($position+1 == 7)
-                                    <span class="badge rounded-pill seventh-place">{{$position+1}}</span>
+                                    <span class="badge rounded-pill bg-primary">{{$position+1}}</span>
                                     @elseif($position+1 == 8)
-                                    <span class="badge rounded-pill seventh-place">{{$position+1}}</span>
+                                    <span class="badge rounded-pill bg-primary">{{$position+1}}</span>
                                     @elseif($position+1 == count($standing))
                                     <span class="badge rounded-pill bg-dark text-light">{{$position+1}}</span>
+                                    @else
+                                        {{$position+1}}
                                     @endif
                                 </div>
                                 <div class="col-3 d-flex justify-content-center text-center align-items-center fs-6">{{$player['user']->name}}</div>

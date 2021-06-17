@@ -2,7 +2,7 @@
 <div class="container">
     @if(session('message'))
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-8 offset-2">
                 <div class="alert alert-success">
                     {{session('message')}}
                 </div>
@@ -11,7 +11,7 @@
     @endif
     @if(session('error_message'))
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-8 offset-2">
                 <div class="alert alert-danger">
                     {{session('error_message')}}
                 </div>

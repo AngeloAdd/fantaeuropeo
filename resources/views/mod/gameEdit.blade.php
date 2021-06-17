@@ -1,7 +1,7 @@
 <x-layout>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="offset-2 col-8">
             @if(session('message'))
                 <div class="alert alert-success text-center">
                     {{session('message')}}
