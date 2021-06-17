@@ -91,7 +91,7 @@ class HomeController extends Controller
                 } 
                 
             }else{
-                $homeStanding = UserController::standing();
+                $homeStanding = $standing;
             }
         }
         
