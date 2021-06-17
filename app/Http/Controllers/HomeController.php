@@ -63,31 +63,31 @@ class HomeController extends Controller
         foreach($standing as $position => $player){
             if(Auth::user() && $player['user']->id === Auth::user()->id && count($standing)>5){
                 if($position =='0'){
-                    $homeStanding[] = [
+                    array_push($homeStanding,
                         $position => $standing[$position],
                         $position + 1 =>$standing[$position + 1],
                         $position + 2 => $standing[$position + 2],
                         $position + 3 => $standing[$position + 3],
                         $position + 4 => $standing[$position + 4]
-                    ];
+                    );
                 }
                 elseif($position == '1'){
-                    $homeStanding[] = [
+                    array_push($homeStanding,
                         $position -1 => $standing[$position - 1],
                         $position =>$standing[$position],
                         $position + 1 => $standing[$position + 1],
                         $position + 2 => $standing[$position + 2],
                         $position + 3 => $standing[$position + 3]
-                    ];
+                    );
                 }
                 else{
-                    $homeStanding[] = [
+                    array_push($homeStanding,
                         $position -2 => $standing[$position - 2],
                         $position - 1 =>$standing[$position - 1],
                         $position => $standing[$position],
                         $position + 1 => $standing[$position + 1],
                         $position + 2 => $standing[$position + 2]
-                    ];
+                    );
                 } 
                 
             }else{
