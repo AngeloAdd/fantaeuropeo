@@ -97,6 +97,6 @@ class HomeController extends Controller
         
         /* Calendar Logic */
 
-        return view('homepage', compact('nextGameInfo', 'standing', 'homeStanding'));
+        return view('homepage', compact('nextGameInfo'));
     }
 }
