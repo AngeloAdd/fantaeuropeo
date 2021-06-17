@@ -155,7 +155,10 @@ class BetController extends Controller
         if(Carbon::now()->gte(new Carbon($game->game_date))){
             return back()->with('error_message','Hai superato il limite di tempo!');
         }
-        $next_game = $this->nextGameInfo();
+        
+        if(Bet::where('user_id', Auth::user()->id)->where('game_id',$game->id)->first()){
+            return back()->with('error_message','Hai gia un pronostico');
+        }
         if($game->id > 36)
         {
             $validator = Validator::make($request->all(), [

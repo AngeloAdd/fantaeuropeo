@@ -9,6 +9,13 @@
                     </div>
                 @endif
             </div>
+            <div class="col-8 offset-2">
+                @if(session('error_message'))
+                    <div class="alert alert-dark text-center text-dark">
+                        {{session('error_message')}}
+                    </div>
+                @endif
+            </div>
         </div>
     <x-_game_bar :nextGame="$next_game" :games="$games" :game="$game"/>
 
