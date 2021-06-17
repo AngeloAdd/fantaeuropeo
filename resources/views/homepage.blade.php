@@ -14,7 +14,7 @@
         <div class="col-12 offset-md-3 col-md-6 offset-lg-2 col-lg-4 mb-4 mb-md-0 d-flex justify-content-center align-items-center pe-0 home-page-position">
             <x-_next-match :nextGameInfo="$nextGameInfo" />
         </div>
-        <div class="col-12 offset-md-3 col-sm-10 col-md-6 offset-lg-0 col-lg-5 mt-3 mt-lg-0 d-flex justify-content-center align-items-center pe-0 vh-50 overflow-auto">
+        <div class="col-12 offset-md-3 col-sm-10 col-md-6 offset-lg-0 col-lg-5 mt-3 mt-lg-0 d-flex justify-content-center align-items-center pe-0 vh-50 overflow-scroll">
             <x-_standings :standing="$homeStanding" />
         </div>
     </div>
