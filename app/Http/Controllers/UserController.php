@@ -16,7 +16,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('mod')->except(['resetPassword','storePassword']);
+        $this->middleware('mod')->except(['resetPassword','storePassword','standing', 'officialStanding']);
     }
 
     public function resetPassword() {
@@ -137,11 +137,6 @@ class UserController extends Controller
             return redirect(route('mod.users'))->with('messagge', 'utente cancellato');
         }
         return back()->with('message', 'la cancellazione NON è andata a buon fine');
-    }
-
-    public function total()
-    {
-
     }
 
     static public function standing(){
