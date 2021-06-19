@@ -22,7 +22,7 @@
                             alle 
                             {{(new Carbon\Carbon($game->game_date))->format('H:i')}}
                         </div>
-                        <p class="col-12 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
+                        <p class="col-12 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:s')}}"></p>
                     </div>
                 </div>
             </div>

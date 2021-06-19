@@ -53,7 +53,7 @@
                                 {{ucfirst((new Carbon\Carbon($game->game_date))->monthName)}}
                                 {{(new Carbon\Carbon($game->game_date))->format(' Y')}}
                             </div>
-                            <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
+                            <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:s')}}"></p>
 
                         </div>
                     </div>
