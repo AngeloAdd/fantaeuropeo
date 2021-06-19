@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="row justify-content-center mb-3">
-        <div class="col-12 col-sm-8 col-md-6 offset-md-3 offset-xl-2">
+        <div class="col-12 col-md-8 offset-md-3 offset-xl-2">
             <div class="px-3 shadow bg-success text-light mx-3 rounded-2 border-success">
                 <div class="container-fluid px-0 py-0">
                     <div class="row p-0 justify-content-around">

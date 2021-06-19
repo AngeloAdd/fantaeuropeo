@@ -19,7 +19,7 @@
         </div>
         <x-_game_bar :nextGame="$next_game" :games="$games" :game="$game"/>
         <div class="@if(!$game->final) d-none @endif row justify-content-center mb-3">
-            <div class="col-12 col-sm-8 col-md-6 offset-md-3 offset-xl-2">
+            <div class="col-12 col-md-8 offset-md-3 offset-xl-2">
                 <h2 class="title-font text-center display-1">FINALE</h2>
             </div>
         </div>
