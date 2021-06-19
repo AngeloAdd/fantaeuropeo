@@ -6,6 +6,7 @@ use App\Imports\StandingImport;
 use App\Models\Game;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class GameController extends Controller
 {
@@ -32,7 +33,18 @@ class GameController extends Controller
                 $away_team = $team;
             }
         }
-        return view('mod.gameEdit', compact('game','home_team','away_team'));
+        return isset($home_team) && isset($away_team)
+               ? view('mod.gameEdit', compact('game','home_team','away_team'))
+               : view('mod.setGame', compact('game'));
+    }
+
+    public function setGame(Game $game, Request $request)
+    {
+        $game->update([
+            'home_team' => htmlentities($request->home_team, ENT_QUOTES, 'UTF-8'),
+            'away_team' => htmlentities($request->away_team, ENT_QUOTES, 'UTF-8'),
+        ]);
+        return redirect(route('mod.gameEdit', compact('game')))->with('message', 'squadre inserite');
     }
 
     public function GameUpdate(Game $game, Request $request)
@@ -56,6 +68,8 @@ class GameController extends Controller
         }
 
         $game->update([
+            'home_team' => htmlentities($request->home_team, ENT_QUOTES, 'UTF-8'),
+            'away_team' => htmlentities($request->away_team, ENT_QUOTES, 'UTF-8'),
             'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
             'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
             'home_score' => $homeScore,

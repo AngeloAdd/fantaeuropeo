@@ -67,7 +67,8 @@ Route::delete('pannello/controllo/cancella/{user}', [UserController::class, 'mod
 // gestione partite
 Route::get('pannello/controllo/partite', [GameController::class, 'gamesIndex'])->name('mod.gamesIndex');
 Route::get('pannello/controllo/modifica/partita/{game}', [GameController::class, 'gameEdit'])->name('mod.gameEdit');
-Route::put('pannello/controllo/aggiorna/partit/{game}', [GameController::class, 'gameUpdate'])->name('mod.gameUpdate');
+Route::put('pannello/controllo/aggiorna/partita/{game}', [GameController::class, 'gameUpdate'])->name('mod.gameUpdate');
+Route::put('pannello/controllo/inserisci/squadre/{game}', [GameController::class, 'setGame'])->name('mod.setGame');
 
 // classifica
 Route::get('classifica', [UserController::class, 'officialStanding'])->name('standing');

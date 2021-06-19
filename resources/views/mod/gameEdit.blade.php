@@ -21,15 +21,36 @@
                         @csrf
                         @method('PUT')
                         <div class="justify-content-center align-items-center flex-column container-fluid px-1">
-
+                            @if($game->id > 36)
                             <div class="mb-3 row justify-content-center align-items-center border border-info border-1 pb-4 px-2 rounded-2 shadow">
-                                <div class="text-dark w-100 text-center col-12 my-3 px-0">Inserisci il risultato esatto per {{$game->home_team}} vs {{$game->away_team}}.</div>
+                                <div class="text-dark w-100 text-center col-12 my-3 px-0">Squadre</div>
+                                    <label for="homeTeam" class="col-12 order-md-1 px-0 col-md-4 form-label text-dark d-flex align-items-center justify-content-center">
+                                        <p class="m-0 text-center">
+                                            Squadra Casa
+                                        </p>
+                                    </label>
+                                    <div class="col-12 order-md-2 col-md-2 px-md-2 px-0">
+                                        <input type="text" value="{{$game->home_team ?? ''}}" name="home_team" class="result-input form-control text-dark @error('home_team') px-3 is-invalid @enderror" id="homeTeam">
+                                    </div>
+                                    <label for="awayTeam" class="col-12 order-md-4 col-md-4 mt-3 mt-md-0 px-0 form-label text-dark d-flex align-items-center justify-content-center">
+                                        <p class="m-0 order-md-2 text-center">
+                                            Squadra Ospite
+                                        </p>
+                                    </label>
+                                    <div class="col-12 col-md-2 px-md-2 px-0 order-md-3">
+                                        <input type="text" value="{{$game->away_team ?? ''}}" name="away_team" class="result-input form-control text-dark @error('away_team') px-3 is-invalid @enderror" id="awayTeam">
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            <div class="mb-3 row justify-content-center align-items-center border border-info border-1 pb-4 px-2 rounded-2 shadow">
+                                <div class="text-dark w-100 text-center col-12 my-3 px-0">Inserisci il risultato esatto per {{$game->home_team ?? ''}} vs {{$game->away_team ?? ''}}.</div>
                                 <label for="resultHome" class="col-12 order-md-1 px-0 col-md-4 form-label text-dark d-flex align-items-center justify-content-center">
                                     <p class="m-0 text-center">
                                         Gol Casa
                                     </p>
                                     <span class="fs-5 title-font mx-3 d-flex align-items-start">
-                                        {{$game->home_team}}
+                                        {{$game->home_team ?? ''}}
                                     </span>
                                 </label>
                                 <div class="col-12 order-md-2 col-md-2 px-md-2 px-0">
@@ -40,7 +61,7 @@
                                         Gol Ospite
                                     </p>
                                     <span class="order-md-1 fs-5 title-font mx-3 d-flex align-items-start">
-                                        {{$game->away_team}}
+                                        {{$game->away_team ?? ''}}
                                     </span>
                                 </label>
                                 <div class="col-12 col-md-2 px-md-2 px-0 order-md-3">
@@ -63,7 +84,7 @@
                                 <div class="form-check col-12 col-md-4 d-flex justify-content-start justify-content-md-center align-items-center">
                                     <input @if($game->sign === '1') checked @endif class="form-check-input mx-2 mt-0" type="radio" name="sign" id="home_victory" value="1">
                                     <label class="form-check-label" for="home_victory">
-                                        1: Vittoria {{$game->home_team}}
+                                        1: Vittoria {{$game->home_team ?? ''}}
                                     </label>
                                 </div>
                                 <div class="form-check col-12 col-md-4 d-flex justify-content-start justify-content-md-center align-items-center">
@@ -75,7 +96,7 @@
                                 <div class="form-check col-12 col-md-4 d-flex justify-content-start justify-content-md-center align-items-center">
                                     <input @if($game->sign === '2') checked @endif class="form-check-input mx-2 mt-0" type="radio" name="sign" id="away_victory" value="2">
                                     <label class="form-check-label" for="away_victory">
-                                        2: Vittoria {{$game->away_team}}
+                                        2: Vittoria {{$game->away_team ?? ''}}
                                     </label>
                                 </div>
                                 @error('sign')
@@ -103,16 +124,14 @@
     </div>
 </div>
 
-
 @push('scripts')
-
     <script>
         let homeGol = document.getElementById('resultHome')
         let awayGol = document.getElementById('resultAway')
         let homeWrapper = document.getElementById('homeWrapper')
         let awayWrapper = document.getElementById('awayWrapper')
 
-        
+
 
         function selectGolHome() {
             homeWrapper.innerHTML = ""
@@ -234,9 +253,7 @@
         }
 
         awayGol.addEventListener('input', selectGolAway)
-    
     </script>
-
 @endpush
 
 </x-layout>
