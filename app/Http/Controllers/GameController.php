@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Imports\StandingImport;
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class GameController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('mod');
+        $this->middleware('mod')->except('nextGameInfo');
     }
 
     public function gamesIndex()
@@ -55,14 +56,30 @@ class GameController extends Controller
         }
 
         $game->update([
-            'home_result' => $request->home_result,
-            'away_result' => $request->away_result,
+            'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
+            'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
             'home_score' => $homeScore,
             'away_score' => $awayScore,
             'sign' => $request->sign
         ]);
 
         return back()->with('message', 'La partita è stata aggiornata con successo');
+    }
+
+    public static function nextGameInfo()
+    {
+        $games = Game::all();
+        /* Next Match Logic */
+        foreach($games as $game)
+        {
+            $gameDate = $game->game_date;
+            if((new Carbon($gameDate))->gt(Carbon::now()))
+            {
+                $next_game = $game;
+                break;
+            }
+        }
+        return $next_game;
     }
 
     

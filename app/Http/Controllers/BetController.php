@@ -12,41 +12,61 @@ use Illuminate\Support\Facades\Auth;
 
 class BetController extends Controller
 {
+    private $games;
+
     public function __construct()
     {
+        $this->games = Game::all();
         $this->middleware(['auth', 'first.log']);
     }
 
-    public function nextGameInfo()
+    public function timeValidation(Game $game)
     {
-        $games = Game::all();
-        /* Next Match Logic */
-        foreach($games as $game)
-        {
-            $gameDate = $game->game_date;
-            if((new Carbon($gameDate))->gt(Carbon::now()))
-            {
-                $next_game = $game;
-                break;
-            }
+        $next_game = GameController::nextGameInfo(); 
+        $gameDate = new Carbon($game->game_date);
+        $diff = $gameDate->diffInHours(Carbon::now());
+        if($diff <= 22 || Carbon::now()->gt(new Carbon($gameDate))||$game->id ===$next_game->id){
+            return true;
         }
-        return $next_game;
+    }
+
+    public function timeValidationFromInput(Request $request)
+    {
+        $next_game = GameController::nextGameInfo();
+        $game = Game::find($request->game_id);
+        $games = $this->games;
+        return isset($game) && $this->timeValidation($game)
+               ? redirect(route('bet.create', compact('game')))
+               : view('bet.time_error', compact('game', 'games', 'next_game'));
+    }
+
+    public function timeValidationFromMenu(Game $game)
+    {
+        $next_game = GameController::nextGameInfo();
+        $games = $this->games;
+
+        return isset($game) && $this->timeValidation($game)
+               ? redirect(route('bet.create', compact('game')))
+               : view('bet.time_error', compact('game', 'games', 'next_game'));
     }
 
     public function nextGame()
     {
-        $next_game = $this->nextGameInfo();
+        $next_game = GameController::nextGameInfo();
         return redirect(route('bet.create', ['game' => $next_game]));
     }
 
     public function create(Game $game) 
     {   
-        if(!$this->timeValidationCreate($game)){
-            return $this->timeValidation($game);
+        //Controllo per non anticipare troppo i pronostici
+        if(!$this->timeValidation($game)){
+            return view('bet.time_error', compact('games','game','next_game'));
         };
-        $games = Game::all();
-        $next_game = $this->nextGameInfo();
+
+        $games = $this->games;
+        $next_game = GameController::nextGameInfo();
         $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
+
         foreach($teams as $team)
         {
             if($team->national_team === $game->home_team){
@@ -56,15 +76,20 @@ class BetController extends Controller
                 $away_team = $team;
             }
         }
+
         $bets = Auth::user()->bets;
         foreach($bets as $bet){
             if($bet->game_id === $game->id){
                 $current_bet = $bet;
             }
         }
+
+        //Controllo per presenza pronostico
         if(isset($current_bet) && !(Carbon::now()->gte(new Carbon($game->game_date)))){
-            return view('bet.current', compact('game', 'games','next_game'), ['userBet'=>$current_bet]);
+            return view('bet.current', compact('game', 'games','next_game','home_team','away_team'), ['userBet'=>$current_bet]);
         }
+
+        // controllo per display pronostici con sort per ordinarli
         if(Carbon::now()->gte(new Carbon($game->game_date))){
             $game_bets= [];
             foreach($game->bets as $bet){
@@ -88,9 +113,10 @@ class BetController extends Controller
                 }
             });
             $sortedBets = array_reverse($game_bets, true);
-            return view('bet.display', compact('game', 'games','next_game','sortedBets'));
+            return view('bet.display', compact('game', 'games','next_game','home_team','away_team','sortedBets'));
         }
-        
+
+        // controllo finale con show view create
         if(isset($home_team) && isset($away_team)){
             return view('bet.create', compact('game', 'games','home_team', 'away_team','next_game'));
         } else {
@@ -108,57 +134,19 @@ class BetController extends Controller
         }
     }
 
-    public function timeValidation(Game $game)
-    {
-        $next_game = $this->nextGameInfo(); 
-        $games = Game::all();
-        $now = Carbon::now();
-        $gameDate = new Carbon($game->game_date);
-        $diff = $gameDate->diffInHours($now);
-        if($diff <= 22 || (new Carbon($now))->gt(new Carbon($gameDate))||$game->id ===$next_game->id){
-            return redirect(route('bet.create', compact('game')));
-        } else {
-            return view('bet.time_error', compact('games','game','next_game'));
-        }
-    }
-    public function timeValidationCreate(Game $game)
-    {
-        $next_game = $this->nextGameInfo(); 
-        $games = Game::all();
-        $now = Carbon::now();
-        $gameDate = new Carbon($game->game_date);
-        $diff = $gameDate->diffInHours($now);
-        if($diff <= 22 || (new Carbon($now))->gt(new Carbon($gameDate))||$game->id ===$next_game->id){
-            return true;
-        } else{
-            return false;
-        }
-    }
-
-    public function timeValidationFromInput(Request $request)
-    {
-        $next_game = $this->nextGameInfo();
-        $game = Game::find($request->game_id);
-        if(isset($game)){
-            return $this->timeValidation($game);
-        } else {
-            return $this->timeValidation($next_game);
-        }
-    }
-
-    public function timeValidationFromMenu(Game $game)
-    {
-        return $this->timeValidation($game);
-    }
-
     public function store(BetRequest $request, Game $game){
+        
+        // Controllo per limite di tempo
         if(Carbon::now()->gte(new Carbon($game->game_date))){
             return back()->with('error_message','Hai superato il limite di tempo!');
         }
         
+        //Controllo per doppi pronostici
         if(Bet::where('user_id', Auth::user()->id)->where('game_id',$game->id)->first()){
             return back()->with('error_message','Hai gia un pronostico');
         }
+
+        // validazione
         if($game->id > 36)
         {
             $validator = Validator::make($request->all(), [
@@ -174,8 +162,8 @@ class BetController extends Controller
                 ->withInput();
             }
             $game->bets()->create([
-                'home_result' => $request->home_result,
-                'away_result' => $request->away_result,
+                'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
+                'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
                 'sign' => $request->sign,
                 'home_score' => $request->homeScore,
                 'away_score' => $request->awayScore,
@@ -185,8 +173,8 @@ class BetController extends Controller
         }
         else {
             $game->bets()->create([
-                'home_result' => $request->home_result,
-                'away_result' => $request->away_result,
+                'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
+                'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
                 'sign' => $request->sign,
                 'user_id' => Auth::user()->id
             ]);
@@ -196,10 +184,12 @@ class BetController extends Controller
 
     public function edit(Bet $bet)
     {
+        // controllo per accesso a pronostici diversi dal proprio
         if(Auth::user()->id !== $bet->user_id){
             return redirect(route('/'));
         }
-        $games = Game::all();
+
+        $games = $this->games;
         $game = Game::find($bet->game_id);
         $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
         foreach($teams as $team)
@@ -211,9 +201,13 @@ class BetController extends Controller
                 $away_team = $team;
             }
         }
+
+        //Controllo per modifica oltre tempo limite
         if(Carbon::now()->gte(new Carbon($game->game_date))){
             return redirect(route('bet.create', compact('game')));
         }
+
+        // Controllo per view edit
         if(isset($home_team) && isset($away_team)){
             return view('bet.edit', compact('bet', 'game','home_team', 'away_team'));
         } else {
@@ -223,9 +217,12 @@ class BetController extends Controller
 
     public function update(BetRequest $request, Bet $bet)
     {
+        // Controllo per caricamento pronostico oltre il limite 
         if(Carbon::now()->gte(new Carbon($bet->game->game_date))){
             return back()->with('error_message','Hai superato il limite di tempo!');
         }
+
+        // validazione 
         if($bet->game_id > 36)
         {
             $validator = Validator::make($request->all(), [
@@ -241,8 +238,8 @@ class BetController extends Controller
                 ->withInput();
             }
             $bet->update([
-                'home_result' => $request->home_result,
-                'away_result' => $request->away_result,
+                'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
+                'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
                 'sign' => $request->sign,
                 'home_score' => $request->homeScore,
                 'away_score' => $request->awayScore,
@@ -252,8 +249,8 @@ class BetController extends Controller
         }
         else {
             $bet->update([
-                'home_result' => $request->home_result,
-                'away_result' => $request->away_result,
+                'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
+                'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
                 'sign' => $request->sign,
                 'user_id' => Auth::user()->id,
             ]);
@@ -263,12 +260,6 @@ class BetController extends Controller
 
     public function createWinner()
     {
-        $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
-        $teamsNames = [];
-        foreach($teams as $team){
-            array_push($teamsNames, $team->national_team);
-        }
-
-        return view('bet.create_winner', compact('teamsNames', 'teams'));
+        return view('bet.indexWinner');
     }
 }

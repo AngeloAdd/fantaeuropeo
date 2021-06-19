@@ -26,6 +26,13 @@
                 <div class="card shadow">
                 <div class="card-header shadow bg-success text-light mx-3 next-match-header-custom rounded-2 border-success">
                     <div class="container-fluid px-0 py-0">
+                        @if($game->final)
+                            <div class="row p-0 justify-content-around">
+                                <div class="col-12">
+                                        <h2 class="title-font text-center display-1 title-font">FINALE</h2>
+                                </div>
+                            </div>
+                        @endif
                         <div class="row p-0 justify-content-around">
                             <div class="col-5 col-md-4 order-md-1 d-flex flex-column jsutify-content-center align-items-center py-3">
                                 <p class="title-font fs-4 m-1">{{$game->home_team}}</p>
@@ -36,9 +43,18 @@
                                 <p class="title-font fs-4 m-1">{{$game->away_team}}</p>
                                 <img src="{{Storage::url($away_team->flag)}}" class="img-fluid" width="120" height="80" alt="">
                             </div>
-                            <div class="col-12 w-100 text-light text-center my-3 fs-5">
+                            <div class="col-12 text-light text-center my-3 fs-5">
                                 Inserisci Pronostico per l'incontro n°{{$game->id}}
                             </div>
+                            <div class="col-12 text-light text-center my-3 fs-5">
+                                Inizio Incontro Ore:
+                                {{(new Carbon\Carbon($game->game_date))->format('H:i')}}
+                                {{(new Carbon\Carbon($game->game_date))->format('d ')}}
+                                {{ucfirst((new Carbon\Carbon($game->game_date))->monthName)}}
+                                {{(new Carbon\Carbon($game->game_date))->format(' Y')}}
+                            </div>
+                            <p class="col-12 col-md-4 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
+
                         </div>
                     </div>
                 </div>

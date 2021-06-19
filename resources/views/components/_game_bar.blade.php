@@ -1,6 +1,6 @@
     <div class="row justify-content-center align-items-center mb-5 w-100 mx-0 px-3">
         <div class="col-12 col-sm-6 offset-md-2 d-md-none d-flex justify-content-center my-3">
-            <form method="GET" action="{{route('bet.input', compact('game'))}}">
+            <form class="@if($game->id == 1) d-none @endif" method="GET" action="{{route('bet.input', compact('game'))}}">
                 @csrf
                 <input value="{{$game->id - 1}}" type="hidden" name="game_id">
                 <button class="btn btn-outline-danger" type="submit">
@@ -14,7 +14,7 @@
                     <button class="btn text-light btn-danger" type="submit">vai</button>
                 </div>
             </form>
-            <form method="GET" action="{{route('bet.input', compact('game'))}}">
+            <form class="@if($game->id == 51) d-none @endif" method="GET" action="{{route('bet.input', compact('game'))}}">
                 @csrf
                 <input value="{{$game->id + 1}}" type="hidden" name="game_id">
                 <button class="btn btn-outline-danger" type="submit">
