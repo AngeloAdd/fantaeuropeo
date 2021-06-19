@@ -49,7 +49,7 @@
                             <p class="title-font fs-4 m-1">{{$game->away_team}}</p>
                             <img src="{{Storage::url($away_team->flag)}}" class="img-fluid" width="120" height="80" alt="">
                         </div>
-                        <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
+                        <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:s')}}"></p>
                         
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <li class="list-group-item d-none d-sm-inline col-2 bg-primary border-info text-light">{{$userBet->home_score}}</li>
                         <li class="list-group-item d-none d-sm-inline col-2 bg-primary border-info text-light">{{$userBet->home_score}}</li>
                     @endif
-                    <li class="list-group-item col-6 col-sm-3 bg-primary border-info text-light" title="ore {{(new Carbon\Carbon($userBet->updated_at))->format('H:i:s')}} e {{(new Carbon\Carbon($userBet->updated_at))->format('u')}} millisecondi">
+                    <li class="list-group-item col-6 col-sm-3 bg-primary border-info text-light" title="ore {{(new Carbon\Carbon($userBet->updated_at))->format('H:i')}} e {{(new Carbon\Carbon($userBet->updated_at))->format('u')}} millisecondi">
                         {{(new Carbon\Carbon($userBet->updated_at))->format('d/m/Y - H:i:s')}}
                     </li>
                 </ul>
@@ -111,5 +111,7 @@
         </div>
     </div>
 </div>
+
+
 
 </x-layout>
