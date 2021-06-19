@@ -40,16 +40,16 @@
                             {{ucfirst((new Carbon\Carbon($game->game_date))->monthName)}}
                             {{(new Carbon\Carbon($game->game_date))->format(' Y')}}
                         </div>
-                        <div class="col-5 col-md-3 col-lg-4 order-md-1 d-flex flex-column jsutify-content-center align-items-center py-3">
+                        <div class="col-5 col-md-3 order-md-1 d-flex flex-column jsutify-content-center align-items-center py-3">
                             <p class="title-font fs-4 m-1">{{$game->home_team}}</p>
                             <img src="{{Storage::url($home_team->flag)}}" class="img-fluid" width="120" height="80" alt="">
                         </div>
                         <div class="col-2 d-flex align-items-center justify-content-center display-5 title-font py-3 mt-4 d-md-none">VS</div>
-                        <div class="col-5 col-md-3 col-lg-4 order-md-3 d-flex flex-column jsutify-content-center align-items-center py-3">
+                        <div class="col-5 col-md-3 order-md-3 d-flex flex-column jsutify-content-center align-items-center py-3">
                             <p class="title-font fs-4 m-1">{{$game->away_team}}</p>
                             <img src="{{Storage::url($away_team->flag)}}" class="img-fluid" width="120" height="80" alt="">
                         </div>
-                        <p class="col-12 col-md-6 col-lg-4 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
+                        <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
                         
                     </div>
                 </div>
