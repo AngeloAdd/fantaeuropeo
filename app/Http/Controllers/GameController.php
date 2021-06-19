@@ -68,8 +68,6 @@ class GameController extends Controller
         }
 
         $game->update([
-            'home_team' => htmlentities($request->home_team, ENT_QUOTES, 'UTF-8'),
-            'away_team' => htmlentities($request->away_team, ENT_QUOTES, 'UTF-8'),
             'home_result' => htmlentities($request->home_result, ENT_QUOTES, 'UTF-8'),
             'away_result' => htmlentities($request->away_result, ENT_QUOTES, 'UTF-8'),
             'home_score' => $homeScore,

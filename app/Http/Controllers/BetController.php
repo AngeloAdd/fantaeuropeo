@@ -66,7 +66,8 @@ class BetController extends Controller
         $games = $this->games;
         $next_game = GameController::nextGameInfo();
         $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
-
+        $home_team = '';
+        $away_team = '';
         foreach($teams as $team)
         {
             if($team->national_team === $game->home_team){
