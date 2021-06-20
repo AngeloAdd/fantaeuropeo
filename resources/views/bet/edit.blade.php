@@ -1,14 +1,14 @@
 <x-layout>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-md-2">
                 @if(session('message'))
                     <div class="alert alert-dark text-center text-dark">
                         {{session('message')}}
                     </div>
                 @endif
             </div>
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-md-2">
                 @if(session('error_message'))
                     <div class="alert alert-danger text-center text-dark">
                         {{session('error_message')}}
@@ -41,7 +41,7 @@
                             <div class="col-12 w-100 text-light text-center my-3 fs-5">
                                 Pronostico di {{Auth::user()->name}} per l'incontro n°{{$game->id}}
                             </div>
-                            <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:u.s')}}"></p>
+                            <p class="col-12 col-md-6 order-md-2 d-flex align-items-center justify-content-center display-5 title-font py-3" id="countDown" data-date="{{(new Carbon\Carbon($game->game_date))->format('Y-m-d H:i:s')}}"></p>
                         </div>
                     </div>
                 </div>

@@ -2,14 +2,14 @@
 
     <div class="container-fluid justify-content-center py-4 container-homepage-customr">
         <div class="row justify-content-center">
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-md-2">
                 @if(session('message'))
                     <div class="alert alert-dark text-center text-dark">
                         {{session('message')}}
                     </div>
                 @endif
             </div>
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-md-2">
                 @if(session('error_message'))
                     <div class="alert alert-dark text-center text-dark">
                         {{session('error_message')}}

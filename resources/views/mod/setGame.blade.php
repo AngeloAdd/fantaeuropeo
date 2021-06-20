@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="offset-2 col-8">
+        <div class="offset-md-2 col-8">
             @if(session('message'))
                 <div class="alert alert-success text-center">
                     {{session('message')}}

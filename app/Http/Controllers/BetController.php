@@ -246,7 +246,6 @@ class BetController extends Controller
                 'away_score' => $request->awayScore,
                 'user_id' => Auth::user()->id,
             ]);
-            return back()->with('message','Pronostico modificato con successo');
         }
         else {
             $bet->update([
@@ -255,8 +254,9 @@ class BetController extends Controller
                 'sign' => $request->sign,
                 'user_id' => Auth::user()->id,
             ]);
-            return back()->with('message','Pronostico modificato con successo');
         }
+        return redirect(route('bet.create',['game'=>$bet->game]))->with('message','Pronostico modificato con successo');
+
     }
 
     public function createWinner()
