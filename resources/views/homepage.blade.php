@@ -25,7 +25,10 @@
             <x-_standings :standing="$standing" />
         </div>
         <div class="col-12 offset-md-3 col-sm-10 col-md-6 offset-lg-0 col-lg-4 mt-5 mt-lg-0 d-flex justify-content-center align-items-center pe-0">
+            @if($nextGameInfo['home_team'] === 'empty')
+            @else
             <x-_next-match :nextGameInfo="$nextGameInfo" />
+            @endif
         </div>
     </div>
 </div>

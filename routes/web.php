@@ -34,6 +34,8 @@ Route::get('/pronostico/prossimo/incontro',[BetController::class, 'nextGame'])->
 
 /* Bet CRUD */
 Route::get('/pronostico/incontro/{game}',[BetController::class, 'create'])->name('bet.create');
+
+
 Route::post('/pronostico/incontro/{game}', [BetController::class, 'store'])->name('bet.store');
 Route::get('/pronostico/modifica/{bet}',[BetController::class, 'edit'])->name('bet.edit');
 Route::put('/pronostico/aggiorna/{bet}',[BetController::class, 'update'])->name('bet.update');
@@ -43,7 +45,7 @@ Route::get('/pronostico/vincitore',[BetController::class, 'createWinner'])->name
 
 /* Errori */
 // l'incontro non è disponibile perchè ancora non deciso
-Route::get('/errore/incontro/{game?}', [BetController::class, 'gameError'])->name('errore.fase');
+Route::get('/errore/incontro/{game?}/{next_game}', [BetController::class, 'gameError'])->name('errore.fase');
 // L'incontro è oscurato perchè troppo lontano
 Route::get('/pronostico/incontro/{game}/validazione/menu',[BetController::class, 'timeValidationFromMenu'])->name('bet.menu');
 Route::get('/pronostico/incontro/{game}/validazione/input',[BetController::class, 'timeValidationFromInput'])->name('bet.input');

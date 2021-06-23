@@ -53,6 +53,10 @@ class BetController extends Controller
     public function nextGame()
     {
         $next_game = GameController::nextGameInfo();
+        if($next_game->home_team === 'null' || $next_game->home_team === 'null'){
+            $game = Game::find($next_game->id - 1);
+            return redirect(route('bet.create', compact('game')));
+        }
         return redirect(route('bet.create', ['game' => $next_game]));
     }
 
@@ -116,22 +120,22 @@ class BetController extends Controller
             $sortedBets = array_reverse($game_bets, true);
             return view('bet.display', compact('game', 'games','next_game','home_team','away_team','sortedBets'));
         }
-
+        
         // controllo finale con show view create
-        if(isset($home_team) && isset($away_team)){
+        if($home_team !== "" && $away_team !== ""){
             return view('bet.create', compact('game', 'games','home_team', 'away_team','next_game'));
         } else {
-            return redirect(route('errore.fase', compact('games','game')));
+            return redirect(route('errore.fase', compact('games','game','next_game')));
         }
     }
 
-    public function gameError(Game $game) 
+    public function gameError(Game $game, Game $next_game) 
     {   
         $games = Game::all();
         if(isset($home_team) && isset($away_team)){
             return redirect(route('bet.create', compact('game')));
         } else {
-            return view('bet.error', compact('games','game'));
+            return view('bet.error', compact('games','game','next_game'));
         }
     }
 

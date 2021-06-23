@@ -53,10 +53,19 @@ class HomeController extends Controller
                 $awayTeam = $team;
             }
         }
-        $nextGameInfo = [
-            'next_game' => $nextGame,
-            'home_team' => $homeTeam,
-            'away_team' => $awayTeam];
+        if(!isset($homeTeam) || !isset($awayTeam)){
+            
+            $nextGameInfo = [
+                'next_game' => $nextGame,
+                'home_team' => 'empty',
+                'away_team' => 'empty'];
+        } else{
+
+            $nextGameInfo = [
+                'next_game' => $nextGame,
+                'home_team' => $homeTeam,
+                'away_team' => $awayTeam];
+            }
 
         $standing = UserController::standing();
         

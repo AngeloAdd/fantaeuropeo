@@ -15,13 +15,7 @@ class Game extends Model
     protected $casts = [
         'home_score' => 'array',
         'away_score' => 'array'
-    ];
-
-    public function setGameDateAttribute($date) 
-    {
-        $this->attributes['game_date'] = (new Carbon($date))->format('d-m-Y H:i:s.u');
-    }
-    
+    ];   
 
     public function bets()
     {
