@@ -77,7 +77,7 @@ class BetController extends Controller
 
         $games = $this->games;
         $next_game = GameController::nextGameInfo();
-        $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
+        $teams = json_decode(file_get_contents(storage_path('app/json/teams.json')));
         $home_team = '';
         $away_team = '';
         foreach($teams as $team)
@@ -200,7 +200,7 @@ class BetController extends Controller
 
         $games = $this->games;
         $game = Game::find($bet->game_id);
-        $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
+        $teams = json_decode(file_get_contents(storage_path('app/json/teams.json')));
         foreach($teams as $team)
         {
             if($team->national_team === $game->home_team){
@@ -269,7 +269,7 @@ class BetController extends Controller
 
     public function indexWinner()
     {
-        $champion_bets = json_decode(substr(file_get_contents(storage_path('app/teams/champions.json')), 3));
+        $champion_bets = json_decode(substr(file_get_contents(storage_path('app/json/champions.json')), 3));
         return view('bet.indexWinner',compact('champion_bets'));
     }
 }

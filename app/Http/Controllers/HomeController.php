@@ -47,7 +47,7 @@ class HomeController extends Controller
         }
         $homeTeamName = $nextGame->home_team;
         $awayTeamName = $nextGame->away_team;
-        $teams = json_decode(file_get_contents(storage_path('app/teams/teams.json')));
+        $teams = json_decode(file_get_contents(storage_path('app/json/teams.json')));
         foreach($teams as $team)
         {
             if($team->national_team === $homeTeamName)

@@ -197,7 +197,7 @@ class UserController extends Controller
                     }
                 }                
             }
-                $champion_bets = json_decode(substr(file_get_contents(storage_path('app/teams/champions.json')), 3));
+                $champion_bets = json_decode(substr(file_get_contents(storage_path('app/json/champions.json')), 3));
                 $champion_team = Champion::find(1)->champion_team;
                 $top_scorer = Champion::find(1)->top_scorer;
                 foreach($champion_bets as $champion_bet){
