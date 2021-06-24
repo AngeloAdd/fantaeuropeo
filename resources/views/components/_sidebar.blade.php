@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="nav-item my-2">
-            <a title="Vincente e Capocannoniere" href="{{route('bet.winner')}}" class="text-light nav-link @if(Route::currentRouteName() === 'bet.winner') active @endif">
+            <a title="Vincente e Capocannoniere" href="{{route('bet.indexWinner')}}" class="text-light nav-link @if(Route::currentRouteName() === 'bet.indexWinner') active @endif">
                 <i class="me-2 bi bi-award"></i>
                 Vincente
             </a>

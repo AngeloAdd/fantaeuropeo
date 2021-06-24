@@ -1,15 +1,5 @@
 <x-layout> 
-<x-slot name="style">
 
-    <style>
-
-        .standing-custom{
-            height: 100px;
-        }
-
-    </style>
-
-</x-slot>
 <div class="container-fluid d-flex flex-column align-items-center container-homepage-custom h-100 px-0">
 
     <div class="row mb-5">
@@ -25,7 +15,16 @@
             <x-_standings :standing="$standing" />
         </div>
         <div class="col-12 offset-md-3 col-sm-10 col-md-6 offset-lg-0 col-lg-4 mt-5 mt-lg-0 d-flex justify-content-center align-items-center pe-0">
-            @if($nextGameInfo['home_team'] === 'empty')
+            @if(!(Carbon\Carbon::now()->gt(new Carbon\Carbon($final_date))) && ($nextGameInfo['home_team'] === 'empty' || $nextGameInfo['away_team'] === 'empty'))
+                <div class="h-100 w-100 bg-success d-flex justify-content-center align-items-center flex-column p-3 rounded-2">
+                    <h2 class="text-light text-center">I contendenti non sono ancora decisi quindi ecco una foto di Erik per consolarti</h2>
+                    <img src="/img/erik.jpg" class="img-fluid" alt="">
+                </div>
+            @elseif((Carbon\Carbon::now()->gt(new Carbon\Carbon($final_date))) && ($nextGameInfo['home_team'] === 'empty' || $nextGameInfo['away_team'] === 'empty'))
+                <div class="h-100 w-100 bg-success d-flex justify-content-center align-items-center flex-column p-3 rounded-2">
+                    <h2 class="text-light text-center">È attualmente in corso la finale attendi la fine della competizione per sapere di quanto  hai perso.</h2>
+                    <img src="/img/table.webp" class="img-fluid rounded-2" alt="">
+                </div>
             @else
             <x-_next-match :nextGameInfo="$nextGameInfo" />
             @endif

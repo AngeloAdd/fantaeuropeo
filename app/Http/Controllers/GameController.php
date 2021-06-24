@@ -91,7 +91,12 @@ class GameController extends Controller
                 break;
             }
         }
-        return $next_game;
+        if(isset($next_game)){
+            return $next_game;
+        } else{
+            $final = Game::find(51);
+            return $final;
+        }
     }
 
     

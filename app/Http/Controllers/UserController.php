@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Game;
+use App\Models\Champion;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -110,7 +111,6 @@ class UserController extends Controller
     static public function standing(){
 
         $usersInfo = User::all();
-
         $users = [];
         foreach($usersInfo as $user){
             $userStanding = [
@@ -120,7 +120,9 @@ class UserController extends Controller
                 'signs' => 0,
                 'scorers' => 0,
                 'final_bet' => 0,
-                'final_tot' => ""];
+                'final_tot' => "",
+                'champion_team' => false,
+                'top_scorer' => false];
             array_push($users, $userStanding);
         }
         
@@ -132,74 +134,92 @@ class UserController extends Controller
                 array_push($scores,$bet->game->home_score);
                 array_push($scores,$bet->game->away_score);
                 $scorers = Arr::flatten($scores);
-                
-                if(isset($bet->game->home_result) && isset($bet->game->away_result) && isset($bet->game->sign))
-                {if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
-                    $count = 0;
-                    foreach($scorers as $scorer){
-                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
-                            $count++;    
+                if(isset($bet->game->home_result) && isset($bet->game->away_result) && isset($bet->game->sign)){
+                    if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
+                        $count = 0;
+                        foreach($scorers as $scorer){
+                            if(($bet->home_score === $scorer || $bet->away_score === $scorer ) && $scorer !== null){
+                                $count++;    
+                            }
+                        }
+                        $user['total'] = $user['total'] + 5 + ($count*2);
+                        $user['results'] = $user['results'] + 1;
+                        $user['signs'] = $user['signs'] +1;
+                        $user['scorers'] = $user['scorers'] + $count;
+                        if($bet->game->final){
+                            $user['final_bet'] = $bet->updated_at;
+                            $user['final_tot'] = 5 + ($count*2);
                         }
                     }
-                    $user['total'] = $user['total'] + 5 + ($count*2);
-                    $user['results'] = $user['results'] + 1;
-                    $user['signs'] = $user['signs'] +1;
-                    $user['scorers'] = $user['scorers'] + $count;
-                    if($bet->game->final){
-                        $user['final_bet'] = $bet->updated_at;
-                        $user['final_tot'] = 5 + ($count*2);
-                    }
-                }
-                elseif($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign !== $bet->sign){
-                    $count = 0;
-                    foreach($scorers as $scorer){
-                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
-                            $count++;
+                    elseif($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign !== $bet->sign){
+                        $count = 0;
+                        foreach($scorers as $scorer){
+                            if(($bet->home_score === $scorer || $bet->away_score === $scorer ) && $scorer !== null){
+                                $count++;
+                            }
+                        }
+                        $user['total'] = $user['total'] + 4 + ($count*2);
+                        $user['results'] = $user['results'] + 1;
+                        $user['scorers'] = $user['scorers'] + $count;
+                        if($bet->game->final){
+                            $user['final_bet'] = $bet->updated_at;
+                            $user['final_tot'] = 4 + ($count*2);
                         }
                     }
-                    $user['total'] = $user['total'] + 4 + ($count*2);
-                    $user['results'] = $user['results'] + 1;
-                    $user['scorers'] = $user['scorers'] + $count;
-                    if($bet->game->final){
-                        $user['final_bet'] = $bet->updated_at;
-                        $user['final_tot'] = 4 + ($count*2);
-                    }
-                }
-                elseif(!($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result) && $bet->game->sign === $bet->sign){
-                    $count = 0;
-                    foreach($scorers as $scorer){
-                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
-                            $count++;
+                    elseif(!($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result) && $bet->game->sign === $bet->sign){
+                        $count = 0;
+                        foreach($scorers as $scorer){
+                            if(($bet->home_score === $scorer || $bet->away_score === $scorer) && $scorer !== null){
+                                $count++;
+                            }
+                        }
+                        $user['total'] = $user['total'] + 1 + ($count*2);
+                        $user['signs'] = $user['signs'] +1;
+                        $user['scorers'] = $user['scorers'] + $count;
+                        if($bet->game->final){
+                            $user['final_bet'] = $bet->updated_at;
+                            $user['final_tot'] = 1 + ($count*2);
                         }
                     }
-                    $user['total'] = $user['total'] + 1 + ($count*2);
-                    $user['signs'] = $user['signs'] +1;
-                    $user['scorers'] = $user['scorers'] + $count;
-                    if($bet->game->final){
-                        $user['final_bet'] = $bet->updated_at;
-                        $user['final_tot'] = 1 + ($count*2);
-                    }
-                }
-                elseif(($bet->game->home_result !== $bet->home_result && $bet->game->away_result !== $bet->away_result) && $bet->game->sign !== $bet->sign){
-                    $count = 0;
-                    foreach($scorers as $scorer){
-                        if($bet->home_score === $scorer || $bet->away_score === $scorer){
-                            $count++;
+                    elseif(($bet->game->home_result !== $bet->home_result && $bet->game->away_result !== $bet->away_result) && $bet->game->sign !== $bet->sign){
+                        $count = 0;
+                        foreach($scorers as $scorer){
+                            if(($bet->home_score === $scorer || $bet->away_score === $scorer) && $scorer !== null){
+                                $count++;
+                            }
+                        }
+                        $user['total'] = $user['total'] + ($count*2);
+                        $user['scorers'] = $user['scorers'] + $count;
+                        if($bet->game->final){
+                            $user['final_bet'] = $bet->updated_at;
+                            $user['final_tot'] = ($count*2);
                         }
                     }
-                    $user['total'] = $user['total'] + ($count*2);
-                    $user['scorers'] = $user['scorers'] + $count;
-                    if($bet->game->final){
-                        $user['final_bet'] = $bet->updated_at;
-                        $user['final_tot'] = ($count*2);
-                    }
-                }}
-
-                
+                }                
             }
+                $champion_bets = json_decode(substr(file_get_contents(storage_path('app/champions/champions.json')), 3));
+                $champion_team = Champion::find(1)->champion_team;
+                $top_scorer = Champion::find(1)->top_scorer;
+                foreach($champion_bets as $champion_bet){
+                    if($champion_bet->user_id == $user['user']->id){
+                        if($champion_team == $champion_bet->champion_team && $top_scorer == $champion_bet->top_scorer ){
+                            $user['champion_team'] = true;
+                            $user['top_scorer'] = true;
+                            $user['total'] = $user['total'] + 25;
+                        }
+                        elseif($champion_team != $champion_bet->champion_team && $top_scorer == $champion_bet->top_scorer ){
+                            $user['top_scorer'] = true;
+                            $user['total'] = $user['total'] + 10;
+                        }
+                        elseif($champion_team == $champion_bet->champion_team && $top_scorer != $champion_bet->top_scorer ){
+                            $user['champion_team'] = true;
+                            $user['total'] = $user['total'] + 15;
+                        }
+                    }
+                }
             array_push($results, $user);
         }
-        
+
         usort($results, function($a, $b){
             if($a['total']>$b['total']){
                 return 1;

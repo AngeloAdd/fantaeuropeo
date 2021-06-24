@@ -26,9 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $standing = UserController::standing();
+        if(Carbon::now()->gt(new Carbon('12-07-2021 2:00'))){
+            return view('winner', compact('standing'));
+        }
         /* general variables */
         $games = Game::all();
         $date = Carbon::now()->format('d-m-Y H:i:s.u');
+
 
         /* Next Match Logic */
         foreach($games as $game)
@@ -67,10 +72,9 @@ class HomeController extends Controller
                 'away_team' => $awayTeam];
             }
 
-        $standing = UserController::standing();
+        $final_date = Game::find(51)->game_date;
         
-        /* Calendar Logic */
 
-        return view('homepage', compact('nextGameInfo', 'standing'));
+        return view('homepage', compact('nextGameInfo', 'standing','final_date'));
     }
 }
