@@ -229,20 +229,20 @@ class UserController extends Controller
                 return 1;
             }
 
-            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']>$b['scorers']){
+            if($a['total']== $b['total'] && $a['results']==$b['results'] && $a['scorers']>$b['scorers']){
                 return 1;
             }
 
-            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']>$b['signs']){
+            if($a['total']== $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']>$b['signs']){
                 return 1;
             }
 
-            if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']>$b['final_tot']){
+            if($a['total']== $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']>$b['final_tot']){
                 return 1;
             }
             
             if($a['final_bet'] != 0 && $b['final_bet'] != 0){
-                if($a['total']= $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']>$b['final_tot'] && (new Carbon($a['final_bet']))->gt(new Carbon($b['final_bet']))){
+                if($a['total']== $b['total'] && $a['results']==$b['results'] && $a['scorers']==$b['scorers'] && $a['signs']==$b['signs'] && $a['final_tot']>$b['final_tot'] && (new Carbon($a['final_bet']))->gt(new Carbon($b['final_bet']))){
                     return 1;
                 }
             }
