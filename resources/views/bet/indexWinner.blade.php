@@ -33,7 +33,7 @@
                                     </ul>
                                     @foreach($champion_bets as $key => $bet)
                                         <ul class="list-group list-group-horizontal row">
-                                            <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">App\Models\User::find($bet->user_id)->name</li>
+                                            <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{App\Models\User::find($bet->user_id)->name}}</li>
                                             <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->champion_team}}</li>
                                             <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->top_scorer}}</li>
                                         </ul>
