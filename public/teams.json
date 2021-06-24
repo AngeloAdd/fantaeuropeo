@@ -1,330 +1,1283 @@
 [
     {
-        "national_team" : "Turchia", 
-        "flag" : "flags/turchia.svg", 
-        "country" : "TUR", 
-        "team" : [
-            { "name":"Kenan", "surname":"Karaman", "role":"Attaccante" },
-            { "name":"Hakan", "surname":"calhanoglu", "role":"Centrocampista" }, 
-            { "name":"Cengiz", "surname":"Under", "role":"Centrocampista" }, 
-            { "name":"Orkun", "surname":"Kokcu", "role":"Centrocampista" }, 
-            { "name":"Halil", "surname":"Dervisoglu", "role":"Attaccante" }, 
-            { "name":"caglar",  "surname":"Soyuncu", "role":"Difensore" }, 
-            { "name":"Kaan", "surname":"Ayhan", "role":"Difensore" }, 
-            { "name":"Mert", "surname":"Muldur", "role":"Difensore" }, 
-            { "name":"Mert", "surname":"Gunok", "role":"Portiere" }, 
-            { "name":"Mahmut", "surname":"Tekdemir", "role":"Centrocampista" }, 
-            { "name":"İrfan Can", "surname":"Kahveci", "role":"Centrocampista" }, 
-            { "name":"Altay", "surname":"Bayindir", "role":"Portiere" }, 
-            { "name":"Gokhan", "surname":"Akkan", "role":"Portiere" }, 
-            { "name":"Dorukhan", "surname":"Tokoz", "role":"Difensore" }, 
-            { "name":"Zeki", "surname":"celik", "role":"Difensore" }, 
-            { "name":"Cengiz Umut", "surname":"Meras", "role":"Difensore" }, 
-            { "name":"Taylan", "surname":"Antalyali", "role":"Centrocampista" }, 
-            { "name":"Ugurcan", "surname":"cakir", "role":"Portiere" }, 
-            { "name":"Okay", "surname":"Yokuslu", "role":"Centrocampista" }, 
-            { "name":"Abdulkadir", "surname":"omur", "role":"Centrocampista" }, 
-            { "name":"Yusuf", "surname":"Yazici", "role":"Centrocampista" }, 
-            { "name":"Burak", "surname":"Yilmaz", "role":"Attaccante" }, 
-            { "name":"Ozan", "surname":"Tufan", "role":"Difensore" }, 
-            { "name":"Halil", "surname":"Akbunar", "role":"Centrocampista" }, 
-            { "name":"Ozan", "surname":"Kabak", "role":"Difensore" }, 
-            { "name":"Efecan", "surname":"Karaca", "role":"Centrocampista" }, 
-            { "name":"Enes", "surname":"Unal", "role":"Attaccante" }, 
-            { "name":"Merih", "surname":"Demiral", "role":"Difensore" }, 
-            { "name":"Ridvan", "surname":"Yilmaz", "role":"Difensore" }, 
-            { "name":"Muhammed Kerem", "surname":"Akturkoglu", "role":"Centrocampista" }
+        "country": "TUR",
+        "flag": "flags/turchia.svg",
+        "national_team": "Turchia",
+        "team": [
+           { "name": "Kenan", "surname": "Karaman", "role": "Attaccante" },
+           {
+              "name": "Hakan",
+              "role": "Centrocampista",
+              "surname": "calhanoglu"
+           },
+           {
+              "name": "Cengiz",
+              "role": "Centrocampista",
+              "surname": "Under"
+           },
+           {
+              "name": "Orkun",
+              "role": "Centrocampista",
+              "surname": "Kokcu"
+           },
+           {
+              "name": "Halil",
+              "role": "Attaccante",
+              "surname": "Dervisoglu"
+           },
+           {
+              "name": "caglar",
+              "role": "Difensore",
+              "surname": "Soyuncu"
+           },
+           {
+              "name": "Kaan",
+              "role": "Difensore",
+              "surname": "Ayhan"
+           },
+           {
+              "name": "Mert",
+              "role": "Difensore",
+              "surname": "Muldur"
+           },
+           {
+              "name": "Mert",
+              "role": "Portiere",
+              "surname": "Gunok"
+           },
+           {
+              "name": "Mahmut",
+              "role": "Centrocampista",
+              "surname": "Tekdemir"
+           },
+           {
+              "name": "İrfan Can",
+              "role": "Centrocampista",
+              "surname": "Kahveci"
+           },
+           {
+              "name": "Altay",
+              "role": "Portiere",
+              "surname": "Bayindir"
+           },
+           {
+              "name": "Gokhan",
+              "role": "Portiere",
+              "surname": "Akkan"
+           },
+           {
+              "name": "Dorukhan",
+              "role": "Difensore",
+              "surname": "Tokoz"
+           },
+           {
+              "name": "Zeki",
+              "role": "Difensore",
+              "surname": "celik"
+           },
+           {
+              "name": "Cengiz Umut",
+              "role": "Difensore",
+              "surname": "Meras"
+           },
+           {
+              "name": "Taylan",
+              "role": "Centrocampista",
+              "surname": "Antalyali"
+           },
+           {
+              "name": "Ugurcan",
+              "role": "Portiere",
+              "surname": "cakir"
+           },
+           {
+              "name": "Okay",
+              "role": "Centrocampista",
+              "surname": "Yokuslu"
+           },
+           {
+              "name": "Abdulkadir",
+              "role": "Centrocampista",
+              "surname": "omur"
+           },
+           {
+              "name": "Yusuf",
+              "role": "Centrocampista",
+              "surname": "Yazici"
+           },
+           {
+              "name": "Burak",
+              "role": "Attaccante",
+              "surname": "Yilmaz"
+           },
+           {
+              "name": "Ozan",
+              "role": "Difensore",
+              "surname": "Tufan"
+           },
+           {
+              "name": "Halil",
+              "role": "Centrocampista",
+              "surname": "Akbunar"
+           },
+           {
+              "name": "Ozan",
+              "role": "Difensore",
+              "surname": "Kabak"
+           },
+           {
+              "name": "Efecan",
+              "role": "Centrocampista",
+              "surname": "Karaca"
+           },
+           {
+              "name": "Enes",
+              "role": "Attaccante",
+              "surname": "Unal"
+           },
+           {
+              "name": "Merih",
+              "role": "Difensore",
+              "surname": "Demiral"
+           },
+           {
+              "name": "Ridvan",
+              "role": "Difensore",
+              "surname": "Yilmaz"
+           },
+           {
+              "name": "Muhammed Kerem",
+              "role": "Centrocampista",
+              "surname": "Akturkoglu"
+           }
         ]
-    }, 
-    {
-        "national_team": "Italia", 
-        "flag": "flags/italia.svg", 
-        "country": "ITA", 
-        "team" : [
-            { "name":"Gianluigi", "surname":"Donnarumma", "role":"Portiere" },  
-            {"name":"Leonardo", "surname":"Bonucci", "role":"Difensore"},  
-            {"name":"Manuel", "surname":"Locatelli", "role":"Centrocampista"},  
-            {"name":"Cristiano", "surname":"Biraghi", "role":"Difensore"},  
-            {"name":"Federico", "surname":"Chiesa", "role":"Centrocampista"},  
-            {"name":"Alessandro", "surname":"Florenzi", "role":"Centrocampista"},  
-            {"name":"Lorenzo", "surname":"Pellegrini", "role":"Centrocampista"},  
-            {"name":"Rafael", "surname":"Tolói", "role":"Difensore"},  
-            {"name" :"Alessandro", "surname":"Bastoni", "role":"Difensore"},  
-            {"name":"Gianluca", "surname":"Mancini", "role":"Difensore"},  
-            {"name":"Leonardo", "surname":"Spinazzola", "role":"Centrocampista"},  
-            {"name":"Bryan", "surname":"Cristante", "role":"Centrocampista"},  
-            {"name":"Alessio", "surname":"Cragno", "role":"Portiere"},  
-            {"name":"Nicolò", "surname":"Barella", "role":"Centrocampista"},  
-            {"name":"Giorgio", "surname":"Chiellini", "role":"Difensore"},  
-            {"name":"Federico", "surname":"Bernardeschi", "role":"Centrocampista"},  
-            {"name":"Ciro", "surname":"Immobile", "role":"Attaccante"},  
-            {"name":"Lorenzo", "surname":"Insigne", "role":"Centrocampista"},  
-            {"name":"Moise", "surname":"Kean", "role":"Attaccante"},  
-            {"name":"Francesco", "surname":"Acerbi", "role":"Difensore"},  
-            {"name":"Matteo", "surname":"Politano", "role":"Centrocampista"},  
-            {"name":"Stefano", "surname":"Sensi", "role":"Centrocampista"},  
-            {"name":"Domenico", "surname":"Berardi", "role":"Attaccante"},  
-            {"name":"Gian Marco", "surname":"Ferrari", "role":"Difensore"},  
-            {"name":"Salvatore", "surname":"Sirigu", "role":"Portiere"},  
-            {"name":"Andrea", "surname":"Belotti", "role":"Attaccante"},  
-            {"name":"Alex", "surname":"Meret", "role":"Portiere"},  
-            {"name":"Manuel", "surname":"Lazzari", "role":"Centrocampista"},  
-            {"name":"Giovanni", "surname":"Di Lorenzo", "role":"Difensore"},  
-            {"name":"Gaetano", "surname":"Castrovilli", "role":"Centrocampista"},  
-            {"name":"Matteo", "surname":"Pessina", "role":"Centrocampista"},  
-            {"name":"Vincenzo", "surname":"Grifo", "role":"Centrocampista"},  
-            {"name":"Marco", "surname":"Verratti", "role":"Centrocampista"},  
-            {"name":"Roberto", "surname":"Mancini", "role":"Centrocampista"},  
-            {"name":"Giacomo", "surname":"Raspadori", "role":"Attaccante"}
+     },
+     {
+        "country": "ITA",
+        "flag": "flags/italia.svg",
+        "national_team": "Italia",
+        "team": [
+           {
+              "name": "Gianluigi",
+              "role": "Portiere",
+              "surname": "Donnarumma"
+           },
+           {
+              "name": "Leonardo",
+              "role": "Difensore",
+              "surname": "Bonucci"
+           },
+           {
+              "name": "Manuel",
+              "role": "Centrocampista",
+              "surname": "Locatelli"
+           },
+           {
+              "name": "Federico",
+              "role": "Centrocampista",
+              "surname": "Chiesa"
+           },
+           {
+              "name": "Alessandro",
+              "role": "Difensore",
+              "surname": "Florenzi"
+           },
+           {
+              "name": "Rafael",
+              "role": "Difensore",
+              "surname": "Tolói"
+           },
+           {
+              "name": "Alessandro",
+              "role": "Difensore",
+              "surname": "Bastoni"
+           },
+           {
+              "name": "Leonardo",
+              "role": "Difensore",
+              "surname": "Spinazzola"
+           },
+           {
+              "name": "Bryan",
+              "role": "Centrocampista",
+              "surname": "Cristante"
+           },
+           {
+              "name": "Nicolò",
+              "role": "Centrocampista",
+              "surname": "Barella"
+           },
+           {
+              "name": "Giorgio",
+              "role": "Difensore",
+              "surname": "Chiellini"
+           },
+           {
+              "name": "Federico",
+              "role": "Centrocampista",
+              "surname": "Bernardeschi"
+           },
+           {
+              "name": "Ciro",
+              "role": "Attaccante",
+              "surname": "Immobile"
+           },
+           {
+              "name": "Lorenzo",
+              "role": "Attaccante",
+              "surname": "Insigne"
+           },
+           {
+              "name": "Francesco",
+              "role": "Difensore",
+              "surname": "Acerbi"
+           },
+           {
+              "name": "Jorginho",
+              "role": "Centrocampista",
+              "surname": ""
+           },
+           {
+              "name": "Domenico",
+              "role": "Attaccante",
+              "surname": "Berardi"
+           },
+           {
+              "name": "Salvatore",
+              "role": "Portiere",
+              "surname": "Sirigu"
+           },
+           {
+              "name": "Andrea",
+              "role": "Attaccante",
+              "surname": "Belotti"
+           },
+           {
+              "name": "Alex",
+              "role": "Portiere",
+              "surname": "Meret"
+           },
+           {
+              "name": "Giovanni",
+              "role": "Difensore",
+              "surname": "Di Lorenzo"
+           },
+           {
+              "name": "Gaetano",
+              "role": "Centrocampista",
+              "surname": "Castrovilli"
+           },
+           {
+              "name": "Matteo",
+              "role": "Centrocampista",
+              "surname": "Pessina"
+           },
+           {
+              "name": "Marco",
+              "role": "Centrocampista",
+              "surname": "Verratti"
+           },
+           {
+              "name": "Giacomo",
+              "role": "Attaccante",
+              "surname": "Raspadori"
+           },
+           {
+              "name": "Emerson",
+              "role": "Difensore",
+              "surname": "Palmieri"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Galles", 
-        "flag" : "flags/galles.svg", 
-        "country" : "WAL", 
-        "team" : [
-            {"name":"Gareth", "surname":"Bale", "role":"Centrocampista"},  
-            {"name":"Tyler", "surname":"Roberts", "role":"Attaccante"},  
-            {"name":"Tom", "surname":"Lawrence", "role":"Centrocampista"},  
-            {"name":"Chris", "surname":"Gunter", "role":"Difensore"},  
-            {"name":"Rhys", "surname":"Norrington-Davies", "role":"Difensore"},  
-            {"name":"David", "surname":"Brooks", "role":"Centrocampista"},  
-            {"name":"Adam", "surname":"Davies", "role":"Portiere"},  
-            {"name":"Kieffer", "surname":"Moore", "role":"Centrocampista"},  
-            {"name":"Chris", "surname":"Mepham", "role":"Difensore"},  
-            {"name":"Mark", "surname":"Harris", "role":"Centrocampista"},  
-            {"name":"Tom", "surname":"Lockyer", "role":"Difensore"},  
-            {"name":"Joe", "surname":"Rodon", "role":"Difensore"},  
-            {"name":"Joe", "surname":"Morrell", "role":"Centrocampista"},  
-            {"name":"Josh", "surname":"Sheehan", "role":"Centrocampista"},  
-            {"name":"Thomas", "surname":"King", "role":"Portiere"},  
-            {"name":"Aaron", "surname":"Ramsey", "role":"Centrocampista"},  
-            {"name":"Ethan", "surname":"Ampadu", "role":"Centrocampista"},  
-            {"name":"Danny", "surname":"Ward", "role":"Portiere"},  
-            {"name":"Joe", "surname":"Allen", "role":"Centrocampista"},  
-            {"name":"Daniel", "surname":"James", "role":"Centrocampista"},  
-            {"name":"Connor", "surname":"Roberts", "role":"Centrocampista"},  
-            {"name":"George", "surname":"Thomas", "role":"Centrocampista"},  
-            {"name":"Wayne", "surname":"Hennessey", "role":"Portiere"},  
-            {"name":"Harry", "surname":"Wilson", "role":"Centrocampista"},  
-            {"name":"Benjamin", "surname":"Cabango", "role":"Difensore"},  
-            {"name":"Jamie", "surname":"Lawrence", "role":"Difensore"},  
-            {"name":"Matthew", "surname":"Smith", "role":"Centrocampista"},  
-            {"name":"Rabbi", "surname":"Matondo", "role":"Attaccante"},  
-            {"name":"Neco", "surname":"Williams", "role":"Difensore"},  
-            {"name":"Dylan", "surname":"Levitt", "role":"Centrocampista"}
+     },
+     {
+        "country": "WAL",
+        "flag": "flags/galles.svg",
+        "national_team": "Galles",
+        "team": [
+           {
+              "name": "Gareth",
+              "role": "Attaccante",
+              "surname": "Bale"
+           },
+           {
+              "name": "Tyler",
+              "role": "Attaccante",
+              "surname": "Roberts"
+           },
+           {
+              "name": "Rubin",
+              "role": "Centrocampista",
+              "surname": "Colwill"
+           },
+           {
+              "name": "Chris",
+              "role": "Difensore",
+              "surname": "Gunter"
+           },
+           {
+              "name": "Rhys",
+              "role": "Difensore",
+              "surname": "Norrington-Davies"
+           },
+           {
+              "name": "David",
+              "role": "Centrocampista",
+              "surname": "Brooks"
+           },
+           {
+              "name": "Adam",
+              "role": "Portiere",
+              "surname": "Davies"
+           },
+           {
+              "name": "Kieffer",
+              "role": "Attaccante",
+              "surname": "Moore"
+           },
+           {
+              "name": "Chris",
+              "role": "Difensore",
+              "surname": "Mepham"
+           },
+           {
+              "name": "Joe",
+              "role": "Difensore",
+              "surname": "Rodon"
+           },
+           {
+              "name": "Joe",
+              "role": "Centrocampista",
+              "surname": "Morrell"
+           },
+           {
+              "name": "Aaron",
+              "role": "Centrocampista",
+              "surname": "Ramsey"
+           },
+           {
+              "name": "Ethan",
+              "role": "Difensore",
+              "surname": "Ampadu"
+           },
+           {
+              "name": "Danny",
+              "role": "Portiere",
+              "surname": "Ward"
+           },
+           {
+              "name": "Joe",
+              "role": "Centrocampista",
+              "surname": "Allen"
+           },
+           {
+              "name": "Daniel",
+              "role": "Centrocampista",
+              "surname": "James"
+           },
+           {
+              "name": "Wayne",
+              "role": "Portiere",
+              "surname": "Hennessey"
+           },
+           {
+              "name": "Harry",
+              "role": "Centrocampista",
+              "surname": "Wilson"
+           },
+           {
+              "name": "Benjamin",
+              "role": "Difensore",
+              "surname": "Cabango"
+           },
+           {
+              "name": "Matthew",
+              "role": "Centrocampista",
+              "surname": "Smith"
+           },
+           {
+              "name": "Neco",
+              "role": "Difensore",
+              "surname": "Williams"
+           },
+           {
+              "name": "Dylan",
+              "role": "Centrocampista",
+              "surname": "Levitt"
+           },
+           {
+              "name": "Ben",
+              "role": "Difensore",
+              "surname": "Davies"
+           },
+           {
+              "name": "Connor",
+              "role": "Difensore",
+              "surname": "Roberts"
+           },
+           {
+              "name": "Tom",
+              "role": "Difensore",
+              "surname": "Lockyer"
+           },
+           {
+              "name": "Jonny",
+              "role": "Centrocampista",
+              "surname": "Williams"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Svizzera", 
-        "flag" : "flags/svizzera.svg", 
-        "country" : "SUI", 
-        "team" : [
-            {"name":"Fabian", "surname":"Schar", "role":"Difensore"},  
-            {"name":"Manuel", "surname":"Akanji", "role":"Difensore"},  
-            {"name":"Steven", "surname":"Zuber", "role":"Centrocampista"},  
-            {"name":"Gregor", "surname":"Kobel", "role":"Portiere"},  
-            {"name":"Ricardo", "surname":"Rodriguez", "role":"Difensore"},  
-            {"name":"Remo", "surname":"Freuler", "role":"Centrocampista"},  
-            {"name":"Silvan", "surname":"Widmer", "role":"Difensore"},  
-            {"name":"Yann", "surname":"Sommer", "role":"Portiere"},  
-            {"name":"Nico", "surname":"Elvedi", "role":"Difensore"},  
-            {"name":"Granit", "surname":"Xhaka", "role":"Centrocampista"},  
-            {"name":"Mario", "surname":"Gavranovic", "role":"Attaccante"},  
-            {"name":"Haris", "surname":"Seferovic", "role":"Attaccante"},  
-            {"name":"Breel", "surname":"Embolo", "role":"Attaccante"},  
-            {"name":"Denis", "surname":"Zakaria", "role":"Centrocampista"},  
-            {"name":"Xherdan", "surname":"Shaqiri", "role":"Centrocampista"},  
-            {"name":"Edimilson", "surname":"Fernandes", "role":"Centrocampista"},  
-            {"name":"Admir", "surname":"Mehmedi", "role":"Attaccante"},  
-            {"name":"Yvon", "surname":"Mvogo", "role":"Portiere"},  
-            {"name":"Loris", "surname":"Benito", "role":"Difensore"},  
-            {"name":"Kevin", "surname":"Mbabu", "role":"Difensore"},  
-            {"name":"Djibril", "surname":"Sow", "role":"Centrocampista"},  
-            {"name":"Jordan", "surname":"Lotomba", "role":"Difensore"},  
-            {"name":"Christian", "surname":"Fassnacht", "role":"Attaccante"},  
-            {"name":"Andi", "surname":"Zeqiri", "role":"Attaccante"},  
-            {"name":"Jonas", "surname":"Omlin", "role":"Portiere"},  
-            {"name":"Eray", "surname":"Comert", "role":"Difensore"},  
-            {"name":"Ruben", "surname":"Vargas", "role":"Attaccante"},  
-            {"name":"Dan", "surname":"Ndoye", "role":"Attaccante"},  
-            {"name":"Becir", "surname":"Omeragic", "role":"Difensore"}
+     },
+     {
+        "country": "SUI",
+        "flag": "flags/svizzera.svg",
+        "national_team": "Svizzera",
+        "team": [
+           {
+              "name": "Fabian",
+              "role": "Difensore",
+              "surname": "Schaer"
+           },
+           {
+              "name": "Manuel",
+              "role": "Difensore",
+              "surname": "Akanji"
+           },
+           {
+              "name": "Steven",
+              "role": "Centrocampista",
+              "surname": "Zuber"
+           },
+           {
+              "name": "Gregor",
+              "role": "Portiere",
+              "surname": "Kobel"
+           },
+           {
+              "name": "Ricardo",
+              "role": "Difensore",
+              "surname": "Rodriguez"
+           },
+           {
+              "name": "Remo",
+              "role": "Centrocampista",
+              "surname": "Freuler"
+           },
+           {
+              "name": "Silvan",
+              "role": "Difensore",
+              "surname": "Widmer"
+           },
+           {
+              "name": "Yann",
+              "role": "Portiere",
+              "surname": "Sommer"
+           },
+           {
+              "name": "Nico",
+              "role": "Difensore",
+              "surname": "Elvedi"
+           },
+           {
+              "name": "Granit",
+              "role": "Centrocampista",
+              "surname": "Xhaka"
+           },
+           {
+              "name": "Mario",
+              "role": "Attaccante",
+              "surname": "Gavranovic"
+           },
+           {
+              "name": "Haris",
+              "role": "Attaccante",
+              "surname": "Seferovic"
+           },
+           {
+              "name": "Breel",
+              "role": "Attaccante",
+              "surname": "Embolo"
+           },
+           {
+              "name": "Denis",
+              "role": "Centrocampista",
+              "surname": "Zakaria"
+           },
+           {
+              "name": "Xherdan",
+              "role": "Centrocampista",
+              "surname": "Shaqiri"
+           },
+           {
+              "name": "Edimilson",
+              "role": "Centrocampista",
+              "surname": "Fernandes"
+           },
+           {
+              "name": "Admir",
+              "role": "Attaccante",
+              "surname": "Mehmedi"
+           },
+           {
+              "name": "Yvon",
+              "role": "Portiere",
+              "surname": "Mvogo"
+           },
+           {
+              "name": "Loris",
+              "role": "Difensore",
+              "surname": "Benito"
+           },
+           {
+              "name": "Kevin",
+              "role": "Difensore",
+              "surname": "Mbabu"
+           },
+           {
+              "name": "Djibril",
+              "role": "Centrocampista",
+              "surname": "Sow"
+           },
+           {
+              "name": "Jordan",
+              "role": "Difensore",
+              "surname": "Lotomba"
+           },
+           {
+              "name": "Christian",
+              "role": "Centrocampista",
+              "surname": "Fassnacht"
+           },
+           {
+              "name": "Eray",
+              "role": "Difensore",
+              "surname": "Comert"
+           },
+           {
+              "name": "Ruben",
+              "role": "Attaccante",
+              "surname": "Vargas"
+           },
+           {
+              "name": "Becir",
+              "role": "Difensore",
+              "surname": "Omeragic"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Danimarca", 
-        "flag" : "flags/danimarca.svg", 
-        "country" : "DEN", 
-        "team" : [
-            {"name":"Simon", "surname":"Kjær", "role":"Difensore"},  
-            {"name":"Andreas", "surname":"Cornelius", "role":"Attaccante"},  
-            {"name":"Jens Stryger", "surname":"Larsen", "role":"Centrocampista"},  
-            {"name":"Joachim", "surname":"Andersen", "role":"Difensore"},  
-            {"name":"Kasper", "surname":"Schmeichel", "role":"Portiere"},  
-            {"name":"Jonas", "surname":"Lossl", "role":"Portiere"},  
-            {"name":"Frederik", "surname":"Ronnow", "role":"Portiere"},  
-            {"name":"Nicolai", "surname":"Boilesen", "role":"Difensore"},  
-            {"name":"Mathias", "surname":"Jorgensen", "role":"Difensore"},  
-            {"name":"Andreas", "surname":"Christensen", "role":"Difensore"},  
-            {"name":"Christian", "surname":"Eriksen", "role":"Centrocampista"},  
-            {"name":"Thomas", "surname":"Delaney", "role":"Centrocampista"},  
-            {"name":"Yussuf", "surname":"Poulsen", "role":"Attaccante"},  
-            {"name":"Martin", "surname":"Braithwaite", "role":"Attaccante"},  
-            {"name":"Jannik", "surname":"Vestergaard", "role":"Difensore"},  
-            {"name":"Kasper", "surname":"Dolberg", "role":"Attaccante"},  
-            {"name":"Pierre Emile", "surname":"Hojbjerg", "role":"Centrocampista"},  
-            {"name":"Anders", "surname":"Christiansen", "role":"Centrocampista"},  
-            {"name":"Joakim", "surname":"Mæhle", "role":"Difensore"},  
-            {"name":"Daniel", "surname":"Wass", "role":"Centrocampista"},  
-            {"name":"Mathias", "surname":"Jensen", "role":"Centrocampista"},  
-            {"name":"Robert", "surname":"Skov", "role":"Centrocampista"},  
-            {"name":"Jonas", "surname":"Wind", "role":"Attaccante"},  
-            {"name":"Christian", "surname":"Norgaard", "role":"Centrocampista"},  
-            {"name":"Andreas Skov", "surname":"Olsen", "role":"Attaccante"},  
-            {"name":"Mikkel", "surname":"Damsgaard", "role":"Attaccante"},  
-            {"name":"Ebbe", "surname":"Sand", "role":"Attaccante"}
+     },
+     {
+        "country": "DEN",
+        "flag": "flags/danimarca.svg",
+        "national_team": "Danimarca",
+        "team": [
+           {
+              "name": "Simon",
+              "role": "Difensore",
+              "surname": "Kjær"
+           },
+           {
+              "name": "Andreas",
+              "role": "Attaccante",
+              "surname": "Cornelius"
+           },
+           {
+              "name": "Jens Stryger",
+              "role": "Centrocampista",
+              "surname": "Larsen"
+           },
+           {
+              "name": "Joachim",
+              "role": "Difensore",
+              "surname": "Andersen"
+           },
+           {
+              "name": "Kasper",
+              "role": "Portiere",
+              "surname": "Schmeichel"
+           },
+           {
+              "name": "Jonas",
+              "role": "Portiere",
+              "surname": "Lossl"
+           },
+           {
+              "name": "Frederik",
+              "role": "Portiere",
+              "surname": "Ronnow"
+           },
+           {
+              "name": "Nicolai",
+              "role": "Difensore",
+              "surname": "Boilesen"
+           },
+           {
+              "name": "Mathias",
+              "role": "Difensore",
+              "surname": "Jorgensen"
+           },
+           {
+              "name": "Andreas",
+              "role": "Difensore",
+              "surname": "Christensen"
+           },
+           {
+              "name": "Thomas",
+              "role": "Centrocampista",
+              "surname": "Delaney"
+           },
+           {
+              "name": "Yussuf",
+              "role": "Attaccante",
+              "surname": "Poulsen"
+           },
+           {
+              "name": "Martin",
+              "role": "Attaccante",
+              "surname": "Braithwaite"
+           },
+           {
+              "name": "Jannik",
+              "role": "Difensore",
+              "surname": "Vestergaard"
+           },
+           {
+              "name": "Kasper",
+              "role": "Attaccante",
+              "surname": "Dolberg"
+           },
+           {
+              "name": "Pierre-Emile",
+              "role": "Centrocampista",
+              "surname": "Hojbjerg"
+           },
+           {
+              "name": "Anders",
+              "role": "Centrocampista",
+              "surname": "Christiansen"
+           },
+           {
+              "name": "Joakim",
+              "role": "Difensore",
+              "surname": "Mæhle"
+           },
+           {
+              "name": "Daniel",
+              "role": "Centrocampista",
+              "surname": "Wass"
+           },
+           {
+              "name": "Mathias",
+              "role": "Centrocampista",
+              "surname": "Jensen"
+           },
+           {
+              "name": "Robert",
+              "role": "Centrocampista",
+              "surname": "Skov"
+           },
+           {
+              "name": "Jonas",
+              "role": "Attaccante",
+              "surname": "Wind"
+           },
+           {
+              "name": "Christian",
+              "role": "Centrocampista",
+              "surname": "Norgaard"
+           },
+           {
+              "name": "Andreas Skov",
+              "role": "Attaccante",
+              "surname": "Olsen"
+           },
+           {
+              "name": "Mikkel",
+              "role": "Attaccante",
+              "surname": "Damsgaard"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Finlandia", 
-        "flag" : "flags/finlandia.svg", 
-        "country" : "FIN", 
-        "team" : [
-            {"name":"Lukás", "surname":"Hrádecký", "role":"Portiere"},  
-            {"name":"Jesse", "surname":"Joronen", "role":"Portiere"},  
-            {"name":"Anssi", "surname":"Jaakkola", "role":"Portiere"},
-            {"name":"Leo", "surname":"Vaisanen", "role":"Difensore"},  
-            {"name":"Thomas", "surname":"Lam", "role":"Difensore"},  
-            {"name":"Joona", "surname":"Toivio", "role":"Difensore"},
-            {"name":"Paulus", "surname":"Arajuuri", "role":"Difensore"},  
-            {"name":"Daniel", "surname":"O'Shaughnessy", "role":"Difensore"},  
-            {"name":"Robert", "surname":"Ivanov", "role":"Centrocampista"},  
-            {"name":"Jere", "surname":"Uronen", "role":"Difensore"},  
-            {"name":"Niko", "surname":"Hamalainen", "role":"Centrocampista"},  
-            {"name":"Jukka", "surname":"Raitala", "role":"Difensore"},  
-            {"name":"Nikolai", "surname":"Alho", "role":"Attaccante"},  
-            {"name":"Glen", "surname":"Kamara", "role":"Centrocampista"},  
-            {"name":"Tim", "surname":"Sparv", "role":"Centrocampista"},  
-            {"name":"Rasmus", "surname":"Schuller", "role":"Centrocampista"},  
-            {"name":"Joni", "surname":"Kauko", "role":"Centrocampista"},  
-            {"name":"Robin", "surname":"Lod", "role":"Centrocampista"},  
-            {"name":"Fredrik", "surname":"Jensen", "role":"Centrocampista"},  
-            {"name":"Onni", "surname":"Valakari", "role":"Centrocampista"},  
-            {"name":"Lassi", "surname":"Lappalainen", "role":"Attaccante"},  
-            {"name":"Robert", "surname":"Taylor", "role":"Centrocampista"},  
-            {"name":"Pyry", "surname":"Soiri", "role":"Attaccante"},  
-            {"name":"Teemu", "surname":"Pukki", "role":"Attaccante"},  
-            {"name":"Marcus", "surname":"Forss", "role":"Attaccante"},  
-            {"name":"Joel", "surname":"Pohjanpalo", "role":"Attaccante"}  
+     },
+     {
+        "country": "FIN",
+        "flag": "flags/finlandia.svg",
+        "national_team": "Finlandia",
+        "team": [
+           {
+              "name": "Sauli",
+              "role": "Difensore",
+              "surname": "Vaisanen"
+           },
+           {
+              "name": "Niko",
+              "role": "Centrocampista",
+              "surname": "Hamalainen"
+           },
+           {
+              "name": "Aapo",
+              "role": "Difensore",
+              "surname": "Halme"
+           },
+           {
+              "name": "Anssi",
+              "role": "Portiere",
+              "surname": "Jaakkola"
+           },
+           {
+              "name": "Joel",
+              "role": "Attaccante",
+              "surname": "Pohjanpalo"
+           },
+           {
+              "name": "Lukás",
+              "role": "Portiere",
+              "surname": "Hrádecký"
+           },
+           {
+              "name": "Thomas",
+              "role": "Difensore",
+              "surname": "Lam"
+           },
+           {
+              "name": "Fredrik",
+              "role": "Centrocampista",
+              "surname": "Jensen"
+           },
+           {
+              "name": "Niki",
+              "role": "Portiere",
+              "surname": "Maenpaa"
+           },
+           {
+              "name": "Jere",
+              "role": "Difensore",
+              "surname": "Uronen"
+           },
+           {
+              "name": "Roope",
+              "role": "Attaccante",
+              "surname": "Riski"
+           },
+           {
+              "name": "Albin",
+              "role": "Difensore",
+              "surname": "Granlund"
+           },
+           {
+              "name": "Jesse",
+              "role": "Portiere",
+              "surname": "Joronen"
+           },
+           {
+              "name": "Joni",
+              "role": "Centrocampista",
+              "surname": "Kauko"
+           },
+           {
+              "name": "Paulus",
+              "role": "Difensore",
+              "surname": "Arajuuri"
+           },
+           {
+              "name": "Teemu",
+              "role": "Attaccante",
+              "surname": "Pukki"
+           },
+           {
+              "name": "Tim",
+              "role": "Centrocampista",
+              "surname": "Sparv"
+           },
+           {
+              "name": "Juhani",
+              "role": "Difensore",
+              "surname": "Ojala"
+           },
+           {
+              "name": "Carljohan",
+              "role": "Portiere",
+              "surname": "Eriksson"
+           },
+           {
+              "name": "Glen",
+              "role": "Centrocampista",
+              "surname": "Kamara"
+           },
+           {
+              "name": "Robert",
+              "role": "Centrocampista",
+              "surname": "Taylor"
+           },
+           {
+              "name": "Robin",
+              "role": "Centrocampista",
+              "surname": "Lod"
+           },
+           {
+              "name": "Onni",
+              "role": "Centrocampista",
+              "surname": "Valakari"
+           },
+           {
+              "name": "Robert",
+              "role": "Centrocampista",
+              "surname": "Ivanov"
+           },
+           {
+              "name": "Daniel",
+              "role": "Difensore",
+              "surname": "O'Shaughnessy"
+           },
+           {
+              "name": "Leo",
+              "role": "Difensore",
+              "surname": "Vaisanen"
+           },
+           {
+              "name": "Lassi",
+              "role": "Attaccante",
+              "surname": "Lappalainen"
+           },
+           {
+              "name": "Nikolai",
+              "role": "Attaccante",
+              "surname": "Alho"
+           },
+           {
+              "name": "Jukka",
+              "role": "Difensore",
+              "surname": "Raitala"
+           },
+           {
+              "name": "Rasmus",
+              "role": "Centrocampista",
+              "surname": "Schuller"
+           },
+           {
+              "name": "Jasin",
+              "role": "Centrocampista",
+              "surname": "Assehnoun"
+           },
+           {
+              "name": "Pyry",
+              "role": "Attaccante",
+              "surname": "Soiri"
+           },
+           {
+              "name": "Marcus",
+              "role": "Attaccante",
+              "surname": "Forss"
+           },
+           {
+              "name": "Joona",
+              "role": "Difensore",
+              "surname": "Toivio"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Belgio", 
-        "flag" : "flags/belgio.svg", 
-        "country" : "BEL", 
-        "team" : [
-            {"name":"Timothy", "surname":"Castagne", "role":"Difensore"},  
-            {"name":"Dries", "surname":"Mertens", "role":"Attaccante"},  
-            {"name":"Dennis", "surname":"Praet", "role":"Centrocampista"},  
-            {"name":"Simon", "surname":"Mignolet", "role":"Portiere"},  
-            {"name":"Thibaut", "surname":"Courtois", "role":"Portiere"},  
-            {"name":"Matz", "surname":"Sels", "role":"Portiere"},  
-            {"name":"Thomas", "surname":"Vermaelen", "role":"Difensore"},  
-            {"name":"Jan", "surname":"Vertonghen", "role":"Difensore"},  
-            {"name":"Dedryck", "surname":"Boyata", "role":"Difensore"},  
-            {"name":"Toby", "surname":"Alderweireld", "role":"Difensore"},  
-            {"name":"Thomas", "surname":"Meunier", "role":"Difensore"},  
-            {"name":"Eden", "surname":"Hazard", "role":"Centrocampista"},  
-            {"name":"Kevin De", "surname":"Bruyne", "role":"Centrocampista"},  
-            {"name":"Thorgan", "surname":"Hazard", "role":"Centrocampista"},  
-            {"name":"Axel", "surname":"Witsel", "role":"Centrocampista"},  
-            {"name":"Yannick", "surname":"Carrasco", "role":"Centrocampista"},  
-            {"name":"Youri", "surname":"Tielemans", "role":"Centrocampista"},  
-            {"name":"Leander", "surname":"Dendoncker", "role":"Centrocampista"},  
-            {"name":"Romelu", "surname":"Lukaku", "role":"Attaccante"},  
-            {"name":"Michy", "surname":"Batshuayi", "role":"Attaccante"},  
-            {"name":"Nacer", "surname":"Chadli", "role":"Centrocampista"},  
-            {"name":"Christian", "surname":"Benteke", "role":"Attaccante"},  
-            {"name":"Hans", "surname":"Vanaken", "role":"Centrocampista"},  
-            {"name":"Leandro", "surname":"Trossard", "role":"Centrocampista"},  
-            {"name":"Jason", "surname":"Denayer", "role":"Difensore"},  
-            {"name":"Jeremy", "surname":"Doku", "role":"Attaccante"}
+     },
+     {
+        "country": "BEL",
+        "flag": "flags/belgio.svg",
+        "national_team": "Belgio",
+        "team": [
+           {
+              "name": "Timothy",
+              "role": "Difensore",
+              "surname": "Castagne"
+           },
+           {
+              "name": "Dries",
+              "role": "Attaccante",
+              "surname": "Mertens"
+           },
+           {
+              "name": "Dennis",
+              "role": "Centrocampista",
+              "surname": "Praet"
+           },
+           {
+              "name": "Simon",
+              "role": "Portiere",
+              "surname": "Mignolet"
+           },
+           {
+              "name": "Thibaut",
+              "role": "Portiere",
+              "surname": "Courtois"
+           },
+           {
+              "name": "Matz",
+              "role": "Portiere",
+              "surname": "Sels"
+           },
+           {
+              "name": "Thomas",
+              "role": "Difensore",
+              "surname": "Vermaelen"
+           },
+           {
+              "name": "Jan",
+              "role": "Difensore",
+              "surname": "Vertonghen"
+           },
+           {
+              "name": "Dedryck",
+              "role": "Difensore",
+              "surname": "Boyata"
+           },
+           {
+              "name": "Toby",
+              "role": "Difensore",
+              "surname": "Alderweireld"
+           },
+           {
+              "name": "Thomas",
+              "role": "Difensore",
+              "surname": "Meunier"
+           },
+           {
+              "name": "Eden",
+              "role": "Centrocampista",
+              "surname": "Hazard"
+           },
+           {
+              "name": "Kevin De",
+              "role": "Centrocampista",
+              "surname": "Bruyne"
+           },
+           {
+              "name": "Thorgan",
+              "role": "Centrocampista",
+              "surname": "Hazard"
+           },
+           {
+              "name": "Axel",
+              "role": "Centrocampista",
+              "surname": "Witsel"
+           },
+           {
+              "name": "Yannick",
+              "role": "Centrocampista",
+              "surname": "Carrasco"
+           },
+           {
+              "name": "Youri",
+              "role": "Centrocampista",
+              "surname": "Tielemans"
+           },
+           {
+              "name": "Leander",
+              "role": "Centrocampista",
+              "surname": "Dendoncker"
+           },
+           {
+              "name": "Romelu",
+              "role": "Attaccante",
+              "surname": "Lukaku"
+           },
+           {
+              "name": "Michy",
+              "role": "Attaccante",
+              "surname": "Batshuayi"
+           },
+           {
+              "name": "Nacer",
+              "role": "Centrocampista",
+              "surname": "Chadli"
+           },
+           {
+              "name": "Christian",
+              "role": "Attaccante",
+              "surname": "Benteke"
+           },
+           {
+              "name": "Hans",
+              "role": "Centrocampista",
+              "surname": "Vanaken"
+           },
+           {
+              "name": "Leandro",
+              "role": "Centrocampista",
+              "surname": "Trossard"
+           },
+           {
+              "name": "Jason",
+              "role": "Difensore",
+              "surname": "Denayer"
+           },
+           {
+              "name": "Jeremy",
+              "role": "Attaccante",
+              "surname": "Doku"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Russia", 
-        "flag" : "flags/russia.svg", 
-        "country" : "RUS", 
-        "team" : [
-            {"name":"Andrei", "surname":"Semenov", "role":"Difensore"},  
-            {"name":"Fedor", "surname":"Kudryashov", "role":"Difensore"},  
-            {"name":"Yurii", "surname":"Zhirkov", "role":"Centrocampista"},  
-            {"name":"Roman", "surname":"Zobnin", "role":"Centrocampista"},  
-            {"name":"Aleksandr", "surname":"Golovin", "role":"Centrocampista"},  
-            {"name":"Daler", "surname":"Kuzyaev", "role":"Centrocampista"},  
-            {"name":"Denis", "surname":"Cheryshev", "role":"Attaccante"},  
-            {"name":"Anton", "surname":"Zabolotnyi", "role":"Attaccante"},  
-            {"name":"Vyacheslav", "surname":"Karavaev", "role":"Difensore"},  
-            {"name":"Mário", "surname":"Fernandes", "role":"Difensore"},  
-            {"name":"Artem", "surname":"Dzyuba", "role":"Attaccante"},  
-            {"name":"Georgii", "surname":"Dzhikiya", "role":"Difensore"},  
-            {"name":"Andrei", "surname":"Mostovoi", "role":"Attaccante"},  
-            {"name":"Aleksandr", "surname":"Sobolev", "role":"Attaccante"},  
-            {"name":"Daniil", "surname":"Fomin", "role":"Centrocampista"},  
-            {"name":"Stanislav", "surname":"Cherchesov", "role":"Centrocampista"},  
-            {"name":"Anton", "surname":"Shunin", "role":"Portiere"},  
-            {"name":"Matvei", "surname":"Safonov", "role":"Portiere"},  
-            {"name":"Aleksei", "surname":"Ionov", "role":"Centrocampista"},  
-            {"name":"Magomed", "surname":"Ozdoev", "role":"Centrocampista"},  
-            {"name":"Rifat", "surname":"Zhemaletdinov", "role":"Attaccante"},  
-            {"name":"Ilya", "surname":"Samoshnikov", "role":"Centrocampista"},  
-            {"name":"Igor", "surname":"Diveev", "role":"Difensore"},  
-            {"name":"Denis", "surname":"Makarov", "role":"Centrocampista"},  
-            {"name":"Roman", "surname":"Evgenjev", "role":"Difensore"},  
-            {"name":"Maksim", "surname":"Mukhin", "role":"Centrocampista"}
+     },
+     {
+        "country": "RUS",
+        "flag": "flags/russia.svg",
+        "national_team": "Russia",
+        "team": [
+           {
+              "name": "Andrei",
+              "role": "Difensore",
+              "surname": "Semenov"
+           },
+           {
+              "name": "Fedor",
+              "role": "Difensore",
+              "surname": "Kudryashov"
+           },
+           {
+              "name": "Yurii",
+              "role": "Centrocampista",
+              "surname": "Zhirkov"
+           },
+           {
+              "name": "Roman",
+              "role": "Centrocampista",
+              "surname": "Zobnin"
+           },
+           {
+              "name": "Aleksandr",
+              "role": "Centrocampista",
+              "surname": "Golovin"
+           },
+           {
+              "name": "Daler",
+              "role": "Centrocampista",
+              "surname": "Kuzyaev"
+           },
+           {
+              "name": "Denis",
+              "role": "Attaccante",
+              "surname": "Cheryshev"
+           },
+           {
+              "name": "Anton",
+              "role": "Attaccante",
+              "surname": "Zabolotnyi"
+           },
+           {
+              "name": "Vyacheslav",
+              "role": "Difensore",
+              "surname": "Karavaev"
+           },
+           {
+              "name": "Mário",
+              "role": "Difensore",
+              "surname": "Fernandes"
+           },
+           {
+              "name": "Artem",
+              "role": "Attaccante",
+              "surname": "Dzyuba"
+           },
+           {
+              "name": "Georgii",
+              "role": "Difensore",
+              "surname": "Dzhikiya"
+           },
+           {
+              "name": "Andrei",
+              "role": "Attaccante",
+              "surname": "Mostovoi"
+           },
+           {
+              "name": "Aleksandr",
+              "role": "Attaccante",
+              "surname": "Sobolev"
+           },
+           {
+              "name": "Daniil",
+              "role": "Centrocampista",
+              "surname": "Fomin"
+           },
+           {
+              "name": "Stanislav",
+              "role": "Centrocampista",
+              "surname": "Cherchesov"
+           },
+           {
+              "name": "Anton",
+              "role": "Portiere",
+              "surname": "Shunin"
+           },
+           {
+              "name": "Matvei",
+              "role": "Portiere",
+              "surname": "Safonov"
+           },
+           {
+              "name": "Aleksei",
+              "role": "Centrocampista",
+              "surname": "Ionov"
+           },
+           {
+              "name": "Magomed",
+              "role": "Centrocampista",
+              "surname": "Ozdoev"
+           },
+           {
+              "name": "Rifat",
+              "role": "Attaccante",
+              "surname": "Zhemaletdinov"
+           },
+           {
+              "name": "Ilya",
+              "role": "Centrocampista",
+              "surname": "Samoshnikov"
+           },
+           {
+              "name": "Igor",
+              "role": "Difensore",
+              "surname": "Diveev"
+           },
+           {
+              "name": "Denis",
+              "role": "Centrocampista",
+              "surname": "Makarov"
+           },
+           {
+              "name": "Roman",
+              "role": "Difensore",
+              "surname": "Evgenjev"
+           },
+           {
+              "name": "Maksim",
+              "role": "Centrocampista",
+              "surname": "Mukhin"
+           }
         ]
-    }, 
-    {
-        "national_team" : "Olanda", 
-        "flag" : "flags/olanda.svg", 
-        "country" : "NED", 
-        "team" : [
-            {"name":"Rick", "surname":"Karsdorp", "role":"Centrocampista"},  
-            {"name":"Hans", "surname":"Hateboer", "role":"Difensore"},  
-            {"name":"Marten de", "surname":"Roon", "role":"Centrocampista"},  
-            {"name":"Stefan de", "surname":"Vrij", "role":"Difensore"},  
-            {"name":"Denzel", "surname":"Dumfries", "role":"Difensore"},  
-            {"name":"Luuk de", "surname":"Jong", "role":"Attaccante"},  
-            {"name":"Steven", "surname":"Bergwijn", "role":"Attaccante"},  
-            {"name":"Donyell", "surname":"Malen", "role":"Attaccante"},  
-            {"name":"Jerry St.", "surname":"Juste", "role":"Difensore"},  
-            {"name":"Tonny", "surname":"Vilhena", "role":"Centrocampista"},  
-            {"name":"Steven", "surname":"Berghuis", "role":"Attaccante"},  
-            {"name":"Joel", "surname":"Veltman", "role":"Difensore"},  
-            {"name":"Matthijs de", "surname":"Ligt", "role":"Difensore"},  
-            {"name":"Donny van de", "surname":"Beek", "role":"Centrocampista"},  
-            {"name":"Frenkie de", "surname":"Jong", "role":"Centrocampista"},  
-            {"name":"Marco", "surname":"Bizot", "role":"Portiere"},  
-            {"name":"Owen", "surname":"Wijndal", "role":"Difensore"},  
-            {"name":"Teun", "surname":"Koopmeiners", "role":"Centrocampista"},  
-            {"name":"Wout", "surname":"Weghorst", "role":"Attaccante"},  
-            {"name":"Maarten", "surname":"Stekelenburg", "role":"Portiere"},  
-            {"name":"Davy", "surname":"Klaassen", "role":"Centrocampista"},  
-            {"name":"Georginio", "surname":"Wijnaldum", "role":"Centrocampista"},  
-            {"name":"Daley", "surname":"Blind", "role":"Difensore"},  
-            {"name":"Patrick van", "surname":"Aanholt", "role":"Difensore"},  
-            {"name":"Nathan", "surname":"Aké", "role":"Difensore"},  
-            {"name":"Tim", "surname":"Krul", "role":"Portiere"},  
-            {"name":"Anwar El", "surname":"Ghazi", "role":"Centrocampista"},  
-            {"name":"Kenny", "surname":"Tete", "role":"Difensore"},  
-            {"name":"Memphis", "surname":"Depay", "role":"Attaccante"},  
-            {"name":"Frank de", "surname":"Boer", "role":"Difensore"},  
-            {"name":"Jasper", "surname":"Cillessen", "role":"Portiere"},  
-            {"name":"Quincy", "surname":"Promes", "role":"Attaccante"},  
-            {"name":"Ryan", "surname":"Gravenberch", "role":"Centrocampista"},  
-            {"name":"Jurrien", "surname":"Timber", "role":"Difensore"}
+     },
+     {
+        "country": "NED",
+        "flag": "flags/olanda.svg",
+        "national_team": "Olanda",
+        "team": [
+           {
+              "name": "Marten de",
+              "role": "Centrocampista",
+              "surname": "Roon"
+           },
+           {
+              "name": "Stefan de",
+              "role": "Difensore",
+              "surname": "Vrij"
+           },
+           {
+              "name": "Denzel",
+              "role": "Difensore",
+              "surname": "Dumfries"
+           },
+           {
+              "name": "Luuk de",
+              "role": "Attaccante",
+              "surname": "Jong"
+           },
+           {
+              "name": "Donyell",
+              "role": "Attaccante",
+              "surname": "Malen"
+           },
+           {
+              "name": "Steven",
+              "role": "Attaccante",
+              "surname": "Berghuis"
+           },
+           {
+              "name": "Joel",
+              "role": "Difensore",
+              "surname": "Veltman"
+           },
+           {
+              "name": "Matthijs de",
+              "role": "Difensore",
+              "surname": "Ligt"
+           },
+           {
+              "name": "Frenkie de",
+              "role": "Centrocampista",
+              "surname": "Jong"
+           },
+           {
+              "name": "Marco",
+              "role": "Portiere",
+              "surname": "Bizot"
+           },
+           {
+              "name": "Owen",
+              "role": "Difensore",
+              "surname": "Wijndal"
+           },
+           {
+              "name": "Teun",
+              "role": "Centrocampista",
+              "surname": "Koopmeiners"
+           },
+           {
+              "name": "Wout",
+              "role": "Attaccante",
+              "surname": "Weghorst"
+           },
+           {
+              "name": "Maarten",
+              "role": "Portiere",
+              "surname": "Stekelenburg"
+           },
+           {
+              "name": "Davy",
+              "role": "Centrocampista",
+              "surname": "Klaassen"
+           },
+           {
+              "name": "Georginio",
+              "role": "Centrocampista",
+              "surname": "Wijnaldum"
+           },
+           {
+              "name": "Daley",
+              "role": "Difensore",
+              "surname": "Blind"
+           },
+           {
+              "name": "Patrick van",
+              "role": "Difensore",
+              "surname": "Aanholt"
+           },
+           {
+              "name": "Nathan",
+              "role": "Difensore",
+              "surname": "Aké"
+           },
+           {
+              "name": "Tim",
+              "role": "Portiere",
+              "surname": "Krul"
+           },
+           {
+              "name": "Memphis",
+              "role": "Attaccante",
+              "surname": "Depay"
+           },
+           {
+              "name": "Quincy",
+              "role": "Attaccante",
+              "surname": "Promes"
+           },
+           {
+              "name": "Cody",
+              "role": "Attaccante",
+              "surname": "Gakpo"
+           },
+           {
+              "name": "Ryan",
+              "role": "Centrocampista",
+              "surname": "Gravenberch"
+           },
+           {
+              "name": "Jurrien",
+              "role": "Centrocampista",
+              "surname": "Timber"
+           }
         ]
-    }, 
+    },
     {
         "national_team" : "Ucraina", 
         "flag" : "flags/ucraina.svg", 
