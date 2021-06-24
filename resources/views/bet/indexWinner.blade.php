@@ -16,7 +16,7 @@
                             <img src="/img/golden_boot.svg" class="img-fluid d-none d-md-inline" width="120" height="80" alt="">
                         </div>
                         <div class="col-12 w-100 text-light text-center my-3 fs-5">
-                            Inserisci Pronostico Vincente e Capocannoniere
+                            Pronostici Vincente e Capocannoniere
                         </div>
                     </div>
                 </div>
