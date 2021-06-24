@@ -1,5 +1,18 @@
 <x-layout> 
 
+<x-slot>
+
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            background: $light;
+            overflow: hidden;
+        }
+    </style>
+
+</x-slot>
+
 <div class="pyro">
   <div class="before"></div>
   <div class="after"></div>

@@ -2,7 +2,7 @@
 <div class="container-fluid py-3 mt-5">
 
     <div class="row justify-content-center">
-        <div class="col-12 col-md-9 offset-md-3 col-xl-10 offset-xl-2">
+        <div class="col-12 col-md-9 offset-md-3 col-xl-8 offset-xl-2">
             <div class="card shadow">
             <div class="card-header shadow bg-warning text-light mx-3 next-match-header-custom rounded-2 border-warning">
                 <div class="container-fluid px-0 py-0">
@@ -22,29 +22,26 @@
                 </div>
             </div>
                 <div class="card-body pt-0">
-                    <div class="container-fluid justify-content-center align-items-center">
-                        <div class="justify-content-center align-items-center row">
-                            <div class="col-12 d-flex align-items-center flex-column jsutify-content-center">
-                                <h2 class="card-title text-dark display-6 title-font">Pronostico</h2>
+                    <div class="container-fluid justify-content-center align-items-center px-0 px-md-3">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-10">
+                                <div class="container-fluid px-0 pe-md-4">
+                                    <ul class="list-group list-group-horizontal row">
+                                        <li class="list-group-item col-4 title-font text-bold">Nome</li>
+                                        <li class="list-group-item col-4 title-font text-bold">Vincitore</li>
+                                        <li class="list-group-item col-4 title-font text-bold">Capocannoniere</li>
+                                    </ul>
+                                    @foreach($champion_bets as $key => $bet)
+                                        <ul class="list-group list-group-horizontal row">
+                                            <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">App\Models\User::find($bet->user_id)->name</li>
+                                            <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->champion_team}}</li>
+                                            <li class="list-group-item col-4 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->top_scorer}}</li>
+                                        </ul>
+                                    @endforeach
+                                </div>
                             </div>
-                            @if(Carbon\Carbon::now()->gt(new Carbon\Carbon('11-06-2021 21:00:00.000000')))
-
-                            <div class="col-12 d-sm-none d-flex align-items-center flex-column jsutify-content-center">
-                                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Sae6T97otop8w-mLmWsL9rgOVuHIUouWTonBks8sAoLWkW9I9UeErcOgzgHfeVbCE9mFG8MLfYVt/pubhtml?gid=1782561686&single=true">Vedi Risultati</a>
-                            </div>
-                            @else
-                            <div class="col-12 d-sm-none d-flex align-items-center flex-column jsutify-content-center">
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true">Clicca qui per compilare il form</a>
-                            </div>
-                            @endif
                         </div>
-                    </div>
-                    @if(Carbon\Carbon::now()->gt(new Carbon\Carbon('11-06-2021 21:00:00.000000')))
-                    <iframe class="d-none d-sm-inline" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Sae6T97otop8w-mLmWsL9rgOVuHIUouWTonBks8sAoLWkW9I9UeErcOgzgHfeVbCE9mFG8MLfYVt/pubhtml?gid=1782561686&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="1000"></iframe>
-
-                    @else
-                    <iframe class="d-none d-sm-inline" src="https://docs.google.com/forms/d/e/1FAIpQLSd84vkaqo2QvzIn7DcKAERM8XnR24OBZoBptsepE6gVFrSR9Q/viewform?embedded=true" width="100%"  height="1100px" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
-                    @endif
+                
                 </div>
             </div>
         </div>

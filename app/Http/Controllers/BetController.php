@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bet;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use Carbon\Carbon;
@@ -268,6 +269,7 @@ class BetController extends Controller
 
     public function indexWinner()
     {
-        return view('bet.indexWinner');
+        $champion_bets = json_decode(substr(file_get_contents(storage_path('app/teams/champions.json')), 3));
+        return view('bet.indexWinner',compact('champion_bets'));
     }
 }
