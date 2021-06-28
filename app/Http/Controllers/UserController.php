@@ -134,19 +134,19 @@ class UserController extends Controller
                 $aways = [];
 
                 array_push($homes, $bet->game->home_score);
-                array_push($aways, $bet->game->home_score);
-
-                $scorers = array_merge(array_unique(Arr::flatten($homes)), array_unique(Arr::flatten($aways)));
+                array_push($aways, $bet->game->away_score);
+                $homeScorers = array_unique(Arr::flatten($homes));
+                $awaysScorers = array_unique(Arr::flatten($aways));
 
                 if(isset($bet->game->home_result) && isset($bet->game->away_result) && isset($bet->game->sign)){
                     if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
                         $count = 0;
-                        foreach($scorers[0] as $scorer){
+                        foreach($homeScorers as $scorer){
                             if($bet->home_score === $scorer && $scorer !== null){
                                 $count++;    
                             }
                         }
-                        foreach($scorer[1] as $scorer){
+                        foreach($awaysScorers as $scorer){
                             if( $bet->away_score === $scorer && $scorer !== null ){
                                 $count++;  
                             }
@@ -162,12 +162,12 @@ class UserController extends Controller
                     }
                     elseif($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign !== $bet->sign){
                         $count = 0;
-                        foreach($scorers[0] as $scorer){
+                        foreach($homeScorers as $scorer){
                             if($bet->home_score === $scorer && $scorer !== null){
                                 $count++;    
                             }
                         }
-                        foreach($scorer[1] as $scorer){
+                        foreach($awaysScorers as $scorer){
                             if( $bet->away_score === $scorer && $scorer !== null ){
                                 $count++;  
                             }
@@ -182,12 +182,12 @@ class UserController extends Controller
                     }
                     elseif(!($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result) && $bet->game->sign === $bet->sign){
                         $count = 0;
-                        foreach($scorers[0] as $scorer){
+                        foreach($homeScorers as $scorer){
                             if($bet->home_score === $scorer && $scorer !== null){
                                 $count++;    
                             }
                         }
-                        foreach($scorer[1] as $scorer){
+                        foreach($awaysScorers as $scorer){
                             if( $bet->away_score === $scorer && $scorer !== null ){
                                 $count++;  
                             }
@@ -202,12 +202,12 @@ class UserController extends Controller
                     }
                     elseif(($bet->game->home_result !== $bet->home_result && $bet->game->away_result !== $bet->away_result) && $bet->game->sign !== $bet->sign){
                         $count = 0;
-                        foreach($scorers[0] as $scorer){
+                        foreach($homeScorers as $scorer){
                             if($bet->home_score === $scorer && $scorer !== null){
                                 $count++;    
                             }
                         }
-                        foreach($scorer[1] as $scorer){
+                        foreach($awaysScorers as $scorer){
                             if( $bet->away_score === $scorer && $scorer !== null ){
                                 $count++;  
                             }
