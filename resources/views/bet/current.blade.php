@@ -81,7 +81,7 @@
                     
                     @if($game->id > 36)
                         <li class="list-group-item d-none d-sm-inline col-2 bg-primary border-info text-light">{{$userBet->home_score}}</li>
-                        <li class="list-group-item d-none d-sm-inline col-2 bg-primary border-info text-light">@if($userBet->away_score === "Autogol") AutoGol @else {{$userBet->away_score}} @endif</li>
+                        <li class="list-group-item d-none d-sm-inline col-2 bg-primary border-info text-light">{{$userBet->away_score}}</li>
                     @endif
                     <li class="list-group-item col-6 col-sm-3 bg-primary border-info text-light" title="ore {{(new Carbon\Carbon($userBet->updated_at))->format('H:i')}} e {{(new Carbon\Carbon($userBet->updated_at))->format('u')}} millisecondi">
                         {{(new Carbon\Carbon($userBet->updated_at))->format('d/m/Y - H:i:s')}}
@@ -99,7 +99,7 @@
                         <div class="col-5 bg-light text-center my-1 p-2 rounded-2">Gol/Nogol {{$game->home_team}}</div>
                         <div class="col-5 bg-light my-1 p-2 rounded-2 fs-5 d-flex text-center align-items-center">{{$userBet->home_score}}</div>
                         <div class="col-5 bg-light text-center my-1 p-2 rounded-2">Gol/Nogol {{$game->away_team}}</div>
-                        <div class="col-5 bg-light my-1 p-2 rounded-2 fs-5 d-flex align-items-center text-center">@if($userBet->away_score === "Autogol") AutoGol @else {{$userBet->away_score}} @endif</div>
+                        <div class="col-5 bg-light my-1 p-2 rounded-2 fs-5 d-flex align-items-center text-center">{{$userBet->away_score}}</div>
                     @endif
                 </div>
                 <div class="row justify-content-center">

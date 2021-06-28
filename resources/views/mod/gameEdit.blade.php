@@ -234,7 +234,7 @@
                     <div class="px-md-2 px-0 d-flex justify-content-center align-items-center position-relative" id="awayScore${i}Container">
                         <select name="awayScore${i}" id="awayScore${i}" class="w-100 acc-border rounded-2 text-center form-select">
                             <option value="" selected>-- Seleziona un'opzione --</option>
-                            <option value="Autogol" class="text-bold bg-danger text-light">AutoGoal</option>
+                            <option value="AutoGol" class="text-bold bg-danger text-light">AutoGoal</option>
                             @foreach($away_team->team as $player)
                                 <option value="{{ucfirst($player->name)}} {{ucfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
                             @endforeach

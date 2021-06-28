@@ -155,7 +155,7 @@
                                         <select name="awayScore" id="awayScore" class="w-100 acc-border rounded-2 text-center form-select">
                                             <option value="" selected>-- Seleziona un'opzione --</option>
                                             <option value="NoGol" class="text-bold bg-success text-light">NoGol</option>
-                                            <option value="Autogol" class="text-bold bg-danger text-light">AutoGol</option>
+                                            <option value="AutoGol" class="text-bold bg-danger text-light">AutoGol</option>
                                             @foreach($away_team->team as $player)
                                                 <option value="{{ucfirst($player->name)}} {{ucfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
                                             @endforeach

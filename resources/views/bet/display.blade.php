@@ -80,9 +80,7 @@
                             
                             @if($game->id > 36)
                             <li class="list-group-item d-none d-sm-inline col-2 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->home_score}}</li>
-                            <li class="list-group-item d-none d-sm-inline col-2 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">
-                                @if($bet->away_score === "Autogol") AutoGol @else {{$bet->away_score}} @endif
-                            </li>
+                            <li class="list-group-item d-none d-sm-inline col-2 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif ">{{$bet->away_score}}</li>
                             @endif
                             <li class="list-group-item col-5 col-sm-3 @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif " title="ore {{(new Carbon\Carbon($bet->updated_at))->format('H:i:s')}} e {{(new Carbon\Carbon($bet->updated_at))->format('u')}} millisecondi">
                                 {{(new Carbon\Carbon($bet->updated_at))->format('d/m/Y - H:i:s')}}
@@ -93,7 +91,7 @@
 
                             <div class="col-3 m-0 d-sm-none title-font @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif border border-end-0 border-1 border-info">Gol NoGol</div>
                             <div class="col-7 m-0 d-sm-none @if($key%2 ===0)bg-primary text-light @else bg-white text-dark @endif border border-1 border-info">
-                                {{$bet->home_score}} - @if($bet->away_score === "Autogol") AutoGol @else {{$bet->away_score}} @endif
+                                {{$bet->home_score}} - {{$bet->away_score}}
                             </div>
                         </div>
                         @endif
