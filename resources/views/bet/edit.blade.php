@@ -143,7 +143,7 @@
                                         <select name="awayScore" id="awayScore" class="w-100 acc-border rounded-2 text-center form-select">
                                             <option value="" selected>-- Seleziona un'opzione --</option>
                                             <option value="NoGol" @if($bet->away_score === 'NoGol') selected @endif class="text-bold bg-success text-light">NoGol</option>
-                                            <option value="AutoGol" @if($bet->away_score === 'AutoGol') selected @endif class="text-bold bg-danger text-light">AutoGol</option>
+                                            <option value="Autogol" @if($bet->away_score === 'Autogol') selected @endif class="text-bold bg-danger text-light">AutoGol</option>
                                             @foreach($away_team->team as $player)
                                                 <option @if($bet->away_score === (ucfirst($player->name)." ".ucfirst($player->surname))) selected @endif value="{{ucfirst($player->name)}} {{ucfirst($player->surname)}}">{{ucfirst($player->name)}} {{ucfirst($player->surname)}}</option>
                                             @endforeach

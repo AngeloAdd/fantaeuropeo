@@ -37,7 +37,11 @@
                             @if(isset($game->away_score) && gettype($game->away_score) === 'array')
                                 <li class="list-group-item col-2 px-0 px-sm-1 d-none d-sm-flex">
                                     @foreach($game->away_score as $key=>$away_scorer)
-                                        <p class="mb-0">{{$key+1}}. {{$away_scorer}}</p>
+                                        @if($away_scorer === "Autogol")
+                                            <p class="mb-0">{{$key+1}}. AutoGol</p>
+                                        @else
+                                            <p class="mb-0">{{$key+1}}. {{$away_scorer}}</p>
+                                        @endif
                                     @endforeach
                                 </li>
                             @elseif(isset($game->away_score) && gettype($game->away_score) === 'string')
