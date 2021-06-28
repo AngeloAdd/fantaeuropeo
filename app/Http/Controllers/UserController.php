@@ -130,16 +130,22 @@ class UserController extends Controller
         foreach($users as $user){
             foreach($user['user']->bets as $bet){
                 
-                $scores = [];
-                array_push($scores,$bet->game->home_score);
-                array_push($scores,$bet->game->away_score);
-                $scorers = array_unique(Arr::flatten($scores));
+                $homes = [];
+                $aways = [];
+                array_push($homes,array_unique($bet->game->home_score));
+                array_push($scores,array_unique($bet->game->home_score));
+                $scorers = array_merge(Arr::flatten($homes), Arr::flatten($aways));
                 if(isset($bet->game->home_result) && isset($bet->game->away_result) && isset($bet->game->sign)){
                     if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
                         $count = 0;
-                        foreach($scorers as $scorer){
-                            if(($bet->home_score === $scorer || $bet->away_score === $scorer ) && $scorer !== null){
+                        foreach($scorers[0] as $scorer){
+                            if($bet->home_score === $scorer && $scorer !== null){
                                 $count++;    
+                            }
+                        }
+                        foreach($scorer[1] as $scorer){
+                            if( $bet->away_score === $scorer && $scorer !== null ){
+                                $count++;  
                             }
                         }
                         $user['total'] = $user['total'] + 5 + ($count*2);
@@ -153,9 +159,14 @@ class UserController extends Controller
                     }
                     elseif($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign !== $bet->sign){
                         $count = 0;
-                        foreach($scorers as $scorer){
-                            if(($bet->home_score === $scorer || $bet->away_score === $scorer ) && $scorer !== null){
-                                $count++;
+                        foreach($scorers[0] as $scorer){
+                            if($bet->home_score === $scorer && $scorer !== null){
+                                $count++;    
+                            }
+                        }
+                        foreach($scorer[1] as $scorer){
+                            if( $bet->away_score === $scorer && $scorer !== null ){
+                                $count++;  
                             }
                         }
                         $user['total'] = $user['total'] + 4 + ($count*2);
@@ -168,9 +179,14 @@ class UserController extends Controller
                     }
                     elseif(!($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result) && $bet->game->sign === $bet->sign){
                         $count = 0;
-                        foreach($scorers as $scorer){
-                            if(($bet->home_score === $scorer || $bet->away_score === $scorer) && $scorer !== null){
-                                $count++;
+                        foreach($scorers[0] as $scorer){
+                            if($bet->home_score === $scorer && $scorer !== null){
+                                $count++;    
+                            }
+                        }
+                        foreach($scorer[1] as $scorer){
+                            if( $bet->away_score === $scorer && $scorer !== null ){
+                                $count++;  
                             }
                         }
                         $user['total'] = $user['total'] + 1 + ($count*2);
@@ -183,9 +199,14 @@ class UserController extends Controller
                     }
                     elseif(($bet->game->home_result !== $bet->home_result && $bet->game->away_result !== $bet->away_result) && $bet->game->sign !== $bet->sign){
                         $count = 0;
-                        foreach($scorers as $scorer){
-                            if(($bet->home_score === $scorer || $bet->away_score === $scorer) && $scorer !== null){
-                                $count++;
+                        foreach($scorers[0] as $scorer){
+                            if($bet->home_score === $scorer && $scorer !== null){
+                                $count++;    
+                            }
+                        }
+                        foreach($scorer[1] as $scorer){
+                            if( $bet->away_score === $scorer && $scorer !== null ){
+                                $count++;  
                             }
                         }
                         $user['total'] = $user['total'] + ($count*2);
