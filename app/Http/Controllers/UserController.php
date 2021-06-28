@@ -133,11 +133,7 @@ class UserController extends Controller
                 $scores = [];
                 array_push($scores,$bet->game->home_score);
                 array_push($scores,$bet->game->away_score);
-                if($bet->game->home_score === 'NoGol' && $bet->game->away_score === 'NoGol'){
-                    $scorers = Arr::flatten($scores);
-                } else{
-                    $scorers = array_unique(Arr::flatten($scores));
-                }
+                $scorers = array_unique(Arr::flatten($scores));
                 if(isset($bet->game->home_result) && isset($bet->game->away_result) && isset($bet->game->sign)){
                     if($bet->game->home_result === $bet->home_result && $bet->game->away_result === $bet->away_result && $bet->game->sign === $bet->sign){
                         $count = 0;
