@@ -200,7 +200,7 @@ class UserController extends Controller
                             $user['final_tot'] = 1 + ($count*2);
                         }
                     }
-                    elseif(($bet->game->home_result !== $bet->home_result && $bet->game->away_result !== $bet->away_result) && $bet->game->sign !== $bet->sign){
+                    elseif(!($bet->game->home_result === $bet->home_result || $bet->game->away_result === $bet->away_result) && $bet->game->sign !== $bet->sign){
                         $count = 0;
                         foreach($homeScorers as $scorer){
                             if($bet->home_score === $scorer && $scorer !== null){
