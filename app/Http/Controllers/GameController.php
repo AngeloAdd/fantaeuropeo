@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\StandingImport;
 use App\Models\Game;
+use App\Models\Champion;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Validator;
 
 class GameController extends Controller
 {
@@ -76,6 +75,19 @@ class GameController extends Controller
         ]);
 
         return back()->with('message', 'La partita è stata aggiornata con successo');
+    }
+
+    public function editWinner() {
+        $champion = Champion::find(1);
+        return view('mod.editWinner', compact('champion'));
+    }
+    public function updateWinner(Request $request, Champion $champion) {
+        $champion->update([
+            'champion_team' => $request->champion_team,
+            'top_scorer' => $request->top_scorer,
+            'updated_at' => Carbon::now()
+        ]);
+        return redirect(route('mod.editWinner'))->with('message', 'successo');
     }
 
     public static function nextGameInfo()

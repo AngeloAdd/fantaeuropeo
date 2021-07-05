@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BetController;
 use App\Http\Controllers\UserController;
@@ -71,6 +72,10 @@ Route::get('pannello/controllo/partite', [GameController::class, 'gamesIndex'])-
 Route::get('pannello/controllo/modifica/partita/{game}', [GameController::class, 'gameEdit'])->name('mod.gameEdit');
 Route::put('pannello/controllo/aggiorna/partita/{game}', [GameController::class, 'gameUpdate'])->name('mod.gameUpdate');
 Route::put('pannello/controllo/inserisci/squadre/{game}', [GameController::class, 'setGame'])->name('mod.setGame');
+
+//gestione vincitore
+Route::get('pannello/controllo/vincitore', [GameController::class, 'editWinner'])->name('mod.editWinner');
+Route::put('pannello/controllo/vincitore/modifica/{champion}', [GameController::class, 'updateWinner'])->name('mod.updateWinner');
 
 // classifica
 Route::get('classifica', [UserController::class, 'officialStanding'])->name('standing');

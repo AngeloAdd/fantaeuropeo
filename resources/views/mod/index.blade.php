@@ -23,6 +23,12 @@
                         <a href="" class="btn btn-warning text-light fs-5">Vai Moderare</a>
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center flex-column mt-3">
+                        <h2>Vincente e Capocannoniere</h2>
+                        <a href="{{route('mod.editWinner')}}" class="btn btn-warning text-light fs-5">Inserisci Vincente</a>
+                    </div>
+                </div>
             @endif
             @if(Auth::user()->games_mod)
                 <div class="row justify-content-center">
@@ -31,6 +37,7 @@
                         <a href="{{route('mod.gamesIndex')}}" class="btn btn-warning text-light fs-5">Inserisci Risultati</a>
                     </div>
                 </div>
+                
             @endif
             @if(Auth::user()->users_mod)
                 <div class="row justify-content-center">
