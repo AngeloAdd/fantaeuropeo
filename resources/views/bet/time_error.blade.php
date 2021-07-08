@@ -11,11 +11,15 @@
             <div class="px-3 shadow bg-success text-light mx-3 rounded-2 border-success">
                 <div class="container-fluid px-0 py-0">
                     <div class="row p-0 justify-content-around">
-                        <h2 class="text-center fs-1 pt-3 mb-0">Il pronostico non è ancora disponibile.</h2>
-                        <p class="text-center fs-1">Torna più tardi.</p>
+                        @if($next_game->id === 51)
+                            <h2 class="text-center fs-1 pt-3 mb-0">La finale sarà pronosticabile a partire dalle 21:00 di Sabato 10 Luglio. Torna più tardi.</h2>
+                        @else
+                            <h2 class="text-center fs-1 pt-3 mb-0">Il pronostico non è ancora disponibile.</h2>
+                            <p class="text-center fs-1">Torna più tardi.</p>
+                        @endif
 
                         <div class="col-12 w-100 text-light text-center my-3 fs-5">
-                            L'incontro si giocherà il 
+                            L'incontro si giocherà in data 
                             {{(new Carbon\Carbon($game->game_date))->format('d ')}}
                             {{ucfirst((new Carbon\Carbon($game->game_date))->monthName)}}
                             {{(new Carbon\Carbon($game->game_date))->format(' Y')}}

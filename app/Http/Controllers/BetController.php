@@ -129,7 +129,9 @@ class BetController extends Controller
             return view('bet.display', compact('game', 'games','next_game','home_team','away_team','sortedBets'));
         }
         
-        
+        if($next_game->id === 51 && (new Carbon('8-07-2021 21:00:00.000000'))->gt(Carbon::now())){
+            return view('bet.time_error', compact('games','game','next_game'));
+        }
         return view('bet.create', compact('game', 'games','home_team', 'away_team','next_game'));
         
     }
