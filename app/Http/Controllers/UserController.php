@@ -223,26 +223,28 @@ class UserController extends Controller
             }
                 $champion_bets = json_decode(substr(file_get_contents(storage_path('app/json/champions.json')), 3));
                 $champion_team = Champion::find(1)->champion_team;
-                $top_scorers = Champion::find(1)->top_scorer;
-                foreach($champion_bets as $champion_bet){
-                    if($champion_bet->user_id == $user['user']->id){
+                if(Champion::find(1)->top_scorer !== 'null'){
+                    $top_scorers = Champion::find(1)->top_scorer;
+                    foreach($champion_bets as $champion_bet){
+                        if($champion_bet->user_id == $user['user']->id){
 
 
-                        if($champion_team == $champion_bet->champion_team ){
-                            foreach($top_scorers as $player){
-                                if($champion_bet->top_scorer == $player){
-                                    $user['top_scorer'] = true;
-                                    $user['total'] = $user['total'] + 10;
+                            if($champion_team == $champion_bet->champion_team ){
+                                foreach($top_scorers as $player){
+                                    if($champion_bet->top_scorer == $player){
+                                        $user['top_scorer'] = true;
+                                        $user['total'] = $user['total'] + 10;
+                                    }
                                 }
+                                $user['champion_team'] = true;
+                                $user['total'] = $user['total'] + 15;
                             }
-                            $user['champion_team'] = true;
-                            $user['total'] = $user['total'] + 15;
-                        }
-                        else{
-                            foreach($top_scorers as $player){
-                                if($champion_bet->top_scorer == $player){
-                                    $user['top_scorer'] = true;
-                                    $user['total'] = $user['total'] + 10;
+                            else{
+                                foreach($top_scorers as $player){
+                                    if($champion_bet->top_scorer == $player){
+                                        $user['top_scorer'] = true;
+                                        $user['total'] = $user['total'] + 10;
+                                    }
                                 }
                             }
                         }
