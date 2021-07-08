@@ -223,12 +223,10 @@ class UserController extends Controller
             }
                 $champion_bets = json_decode(substr(file_get_contents(storage_path('app/json/champions.json')), 3));
                 $champion_team = Champion::find(1)->champion_team;
-                if(Champion::find(1)->top_scorer !== 'null'){
-                    $top_scorers = Champion::find(1)->top_scorer;
+                $top_scorers = Champion::find(1)->top_scorer;
+                if($top_scorers !== null){
                     foreach($champion_bets as $champion_bet){
                         if($champion_bet->user_id == $user['user']->id){
-
-
                             if($champion_team == $champion_bet->champion_team ){
                                 foreach($top_scorers as $player){
                                     if($champion_bet->top_scorer == $player){
