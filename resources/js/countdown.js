@@ -1,4 +1,5 @@
 // Set the date we're counting down to
+if(document.getElementById('countDown')){
 const countDown = document.getElementById('countDown');
 const gameDate = countDown.getAttribute('data-date')
 let countDownDate = new Date(gameDate.replace(' ', 'T')).getTime();
@@ -25,3 +26,4 @@ if (distance < 0) {
     document.getElementById('countDown').innerHTML = "Pronositici";
 }
 }, 500);
+}

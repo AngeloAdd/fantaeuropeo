@@ -12,6 +12,10 @@ class Champion extends Model
 
     protected $fillable = ['champion_team','top_scorer', 'user_id', 'created_at', 'updated_at'];
 
+    protected $casts = [
+        'top_scorer' => 'array'
+    ];  
+
     public function SetCreatedAtAttribute() 
     {
         return $this->attributes['created_at'] = $this->attributes['updated_at'];

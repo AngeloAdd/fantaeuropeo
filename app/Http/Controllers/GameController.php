@@ -82,9 +82,15 @@ class GameController extends Controller
         return view('mod.editWinner', compact('champion'));
     }
     public function updateWinner(Request $request, Champion $champion) {
+
+        $top_scorers = [];
+        for($i=1; $i<=$request->number_of_scorers; $i++){
+            array_push($top_scorers, $request['top_scorer'."$i"]);
+        }
+
         $champion->update([
             'champion_team' => $request->champion_team,
-            'top_scorer' => $request->top_scorer,
+            'top_scorer' => $top_scorers,
             'updated_at' => Carbon::now()
         ]);
         return redirect(route('mod.editWinner'))->with('message', 'successo');
