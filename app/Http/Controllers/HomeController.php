@@ -45,36 +45,38 @@ class HomeController extends Controller
                 break;
             }
         }
-        $homeTeamName = $nextGame->home_team;
-        $awayTeamName = $nextGame->away_team;
-        $teams = json_decode(file_get_contents(storage_path('app/json/teams.json')));
-        foreach($teams as $team)
-        {
-            if($team->national_team === $homeTeamName)
+        if(isset($nextGame)){
+
+            $homeTeamName = $nextGame->home_team;
+            $awayTeamName = $nextGame->away_team;
+            $teams = json_decode(file_get_contents(storage_path('app/json/teams.json')));
+            foreach($teams as $team)
             {
-                $homeTeam = $team;
-            } elseif ($team->national_team === $awayTeamName)
-            {
-                $awayTeam = $team;
+                if($team->national_team === $homeTeamName)
+                {
+                    $homeTeam = $team;
+                } elseif ($team->national_team === $awayTeamName)
+                {
+                    $awayTeam = $team;
+                }
             }
         }
-        if(!isset($homeTeam) || !isset($awayTeam)){
-            
-            $nextGameInfo = [
-                'next_game' => $nextGame,
-                'home_team' => 'empty',
-                'away_team' => 'empty'];
-        } else{
 
-            $nextGameInfo = [
-                'next_game' => $nextGame,
-                'home_team' => $homeTeam,
-                'away_team' => $awayTeam];
-            }
+            if((!isset($homeTeam) || !isset($awayTeam)) && !isset($nextGame)){
+                $nextGameInfo = [
+                    'next_game' => 'empty',
+                    'home_team' => 'empty',
+                    'away_team' => 'empty'];
+                } else{
+                    
+                    $nextGameInfo = [
+                        'next_game' => $nextGame,
+                        'home_team' => $homeTeam,
+                        'away_team' => $awayTeam];
+                    }
+                
 
         $final_date = Game::find(51)->game_date;
-        
-
         return view('homepage', compact('nextGameInfo', 'standing','final_date'));
-    }
+}
 }
