@@ -1,6 +1,6 @@
 <x-layout> 
 
-<x-slot>
+<x-slot name="style">
 
     <style>
         body {
