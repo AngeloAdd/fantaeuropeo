@@ -93,7 +93,7 @@
                         Capocannoniere ${i}
                     </label>
                     <div class="px-md-2 px-0 d-flex justify-content-center align-items-center position-relative" id="topScorerPlayer${i}Container">
-                        <input type="text" value="{{$champion->top_scorer ?? ''}}" name="top_scorer${i}" class="result-input form-control text-dark @error('top_scorer') px-3 is-invalid @enderror" id="topScorerPlayer${i}">
+                        <input type="text" name="top_scorer${i}" class="result-input form-control text-dark @error('top_scorer') px-3 is-invalid @enderror" id="topScorerPlayer${i}">
                     </div>
                     @error('topScorerPlayer')
                         <span class="text-danger d-flex justify-content-start align-items-center" role="alert">
